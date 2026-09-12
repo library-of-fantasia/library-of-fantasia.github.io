@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="fantasia-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="100%" stop-color="#0d0d1a"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#e8c9a0"/>
+      <stop offset="100%" stop-color="#d4a574"/>
+    </linearGradient>
+  </defs>
+  <!-- 背景铺满全画布（无圆角边缘），Android 自适应图标 mask 裁切后不会出现"边缘被裁剪"的观感。 -->
+  <rect width="512" height="512" fill="url(#fantasia-bg)"/>
+  <!-- logo 缩小至画布约 40% 并居中，确保落在 Android 自适应图标安全区（直径 66dp）内不被 mask 裁切。 -->
+  <path d="M176 202Q220 184 223.5 177.5Q227 171 227 168Q227 163 224.0 157.5Q221 152 219 152Q215 152 209 163Q200 178 174 199ZM102 186Q102 196 101 210L124 200L116 193V158H178L186 168L203 155L194 148L189 92H215L223 103L239 90L231 84Q228 52 225.5 29.5Q223 7 198 2Q197 14 169 25V29Q197 24 204.0 23.5Q211 23 213.0 39.5Q215 56 217 86H116V6Q116 0 117 -19L101 -27Q102 -7 102 -1V86H48Q35 86 24 83L15 92H102V152H71Q58 152 47 149L38 158H102ZM175 92 180 152H116V92Z" fill="url(#amber)" transform="translate(256,256) scale(0.92,-0.92) translate(-127,-91.5)"/>
+</svg>

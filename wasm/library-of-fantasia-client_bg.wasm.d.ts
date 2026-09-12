@@ -1,0 +1,37 @@
+/* tslint:disable */
+/* eslint-disable */
+export const hydrate: () => void;
+export const __wbg_get_streamconfig_buffer_size: (a: number) => number;
+export const __wbg_get_streamconfig_channels: (a: number) => number;
+export const __wbg_get_streamconfig_sample_rate: (a: number) => number;
+export const __wbg_set_streamconfig_buffer_size: (a: number, b: number) => void;
+export const __wbg_set_streamconfig_channels: (a: number, b: number) => void;
+export const __wbg_set_streamconfig_sample_rate: (a: number, b: number) => void;
+export const __wbg_streamconfig_free: (a: number, b: number) => void;
+export const __wbg_intounderlyingbytesource_free: (a: number, b: number) => void;
+export const __wbg_intounderlyingsink_free: (a: number, b: number) => void;
+export const __wbg_intounderlyingsource_free: (a: number, b: number) => void;
+export const intounderlyingbytesource_autoAllocateChunkSize: (a: number) => number;
+export const intounderlyingbytesource_cancel: (a: number) => void;
+export const intounderlyingbytesource_pull: (a: number, b: number) => number;
+export const intounderlyingbytesource_start: (a: number, b: number) => void;
+export const intounderlyingbytesource_type: (a: number) => number;
+export const intounderlyingsink_abort: (a: number, b: number) => number;
+export const intounderlyingsink_close: (a: number) => number;
+export const intounderlyingsink_write: (a: number, b: number) => number;
+export const intounderlyingsource_cancel: (a: number) => void;
+export const intounderlyingsource_pull: (a: number, b: number) => number;
+export const __indirect_function_table: WebAssembly.Table;
+export const memory: WebAssembly.Memory;
+export const __wasm_bindgen_func_elem_3007: (a: number, b: number, c: number, d: number) => void;
+export const __wasm_bindgen_func_elem_6434: (a: number, b: number, c: number, d: number) => void;
+export const __wasm_bindgen_func_elem_4901: (a: number, b: number, c: number) => void;
+export const __wasm_bindgen_func_elem_4901_2: (a: number, b: number, c: number) => void;
+export const __wasm_bindgen_func_elem_4901_3: (a: number, b: number, c: number) => void;
+export const __wasm_bindgen_func_elem_7424: (a: number, b: number) => void;
+export const __wbindgen_export: (a: number, b: number) => number;
+export const __wbindgen_export2: (a: number, b: number, c: number, d: number) => number;
+export const __wbindgen_export3: (a: number) => void;
+export const __wbindgen_export4: (a: number, b: number, c: number) => void;
+export const __wbindgen_export5: (a: number, b: number) => void;
+export const __wbindgen_add_to_stack_pointer: (a: number) => number;

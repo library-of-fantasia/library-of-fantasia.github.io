@@ -1,0 +1,676 @@
+.text-d702978 {
+  font-size: var(--font-size-3);
+  color: var(--color-content-2);
+}
+
+.drop_zone-d702978 {
+  gap: var(--spacing-1);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-1);
+  color: var(--color-content-1);
+}
+
+.title-ea8171a {
+  font-size: var(--font-size-5);
+  color: var(--color-content-2);
+}
+
+.message-ea8171a {
+  font-size: var(--font-size-2);
+  color: var(--color-content-0);
+}
+
+
+.galleries-82a209a {
+  grid-template-columns: repeat(auto-fill, minmax(min(9rem, 100%), 1fr));
+  overflow: auto;
+}
+
+
+.cover-5c8ac6a {
+  background: var(--color-background-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  color: var(--color-content-1);
+  aspect-ratio: 3 / 4;
+}
+
+.title-5c8ac6a {
+  font-size: var(--font-size-3);
+  color: var(--color-content-2);
+  overflow: hidden;
+}
+
+.path-5c8ac6a {
+  font-size: var(--font-size-1);
+  color: var(--color-content-1);
+  overflow: hidden;
+}
+
+.meta-5c8ac6a {
+  font-size: var(--font-size-1);
+  color: var(--color-content-0);
+}
+
+.gallery-5c8ac6a {
+  padding: var(--spacing-1);
+  border: 1px solid transparent;
+  border-radius: var(--radius-1);
+  background: var(--color-background-1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.gallery-5c8ac6a:hover {
+  background: var(--color-background-2);
+}
+
+.header-119afbf {
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
+  background: var(--color-background-1);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.brand-119afbf {
+  font-size: var(--font-size-4);
+  color: var(--color-content-2);
+}
+
+
+.image-3897999 {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.file_name-3897999 {
+  font-size: var(--font-size-1);
+  color: var(--color-content-1);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  overflow: hidden;
+}
+
+.item-3897999 {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  overflow: hidden;
+}
+
+
+.title-8990cfd {
+  font-size: var(--font-size-4);
+  color: var(--color-content-2);
+}
+
+.subtitle-8990cfd {
+  font-size: var(--font-size-2);
+  color: var(--color-content-0);
+}
+
+.search_icon-8990cfd {
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  color: var(--color-content-1);
+}
+
+.search-8990cfd {
+  font-size: var(--font-size-3);
+  color: var(--color-content-2);
+  background: var(--color-background-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+}
+
+.header-8990cfd {
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
+  background: var(--color-background-1);
+  border-right: 1px solid var(--color-border);
+}
+
+.filter_title-8990cfd {
+  font-size: var(--font-size-2);
+  color: var(--color-content-1);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+}
+
+.filter_active-8990cfd {
+  font-size: var(--font-size-2);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  background: var(--color-accent-1);
+  color: var(--color-content-2);
+}
+
+.filter-8990cfd {
+  font-size: var(--font-size-2);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  background: var(--color-background-2);
+  color: var(--color-content-1);
+}
+
+.filter-8990cfd:hover {
+  background: var(--color-background-2);
+  color: var(--color-content-2);
+}
+
+.filters-8990cfd {
+  gap: var(--spacing-1);
+}
+
+.content-8990cfd {
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
+}
+
+/* 右下角通知容器：主题定位与间距，flex 布局由 Rust 内联样式提供 */
+.notices-2b8e813 {
+  bottom: var(--spacing-1);
+  right: var(--spacing-1);
+  gap: var(--spacing-1);
+}
+
+/* 通知条主题外观：布局由父容器 flex 提供 */
+.notice-2b8e813 {
+  padding: var(--spacing-1);
+  background: var(--color-background-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  color: var(--color-content-1);
+  font-size: var(--font-size-2);
+}
+
+
+/* PreviewPanel 预览面板：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
+
+/* 面板容器：主题外观 */
+.preview-94e7d94 {
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
+}
+
+/* 占位状态（Empty/Loading/Failed）：主题外观 */
+.placeholder-94e7d94 {
+  gap: var(--spacing-1);
+  background: var(--color-background-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+}
+
+.placeholder_failed-94e7d94 {
+  gap: var(--spacing-1);
+  background: var(--color-background-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  color: var(--color-danger);
+}
+
+.placeholder_text-94e7d94 {
+  font-size: var(--font-size-2);
+}
+
+/* Ready 状态主布局 */
+.ready_layout-94e7d94 {
+  overflow: auto;
+}
+
+/* 主图区：主题外观 */
+.main_image_area-94e7d94 {
+  gap: var(--spacing-1);
+  background: var(--color-background-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  padding: var(--spacing-1);
+}
+
+.image_container-94e7d94 {
+  overflow: auto;
+}
+
+.image-94e7d94 {
+  object-fit: contain;
+}
+
+.no_image-94e7d94 {
+  color: var(--color-content-0);
+  font-size: var(--font-size-2);
+}
+
+/* 导航栏：主题外观 */
+.navbar-94e7d94 {
+  gap: var(--spacing-1);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+}
+
+.page_number-94e7d94 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-1);
+}
+
+/* 缩略图条 */
+.thumbnail_strip-94e7d94 {
+  overflow-x: auto;
+}
+
+.thumbnail_btn-94e7d94 {
+  border: 1px solid transparent;
+  border-radius: var(--radius-1);
+}
+
+.thumbnail_active-94e7d94 {
+  border-color: var(--color-accent-1);
+}
+
+.thumbnail_inactive-94e7d94 {
+  border-color: transparent;
+  opacity: 0.4;
+}
+
+.thumbnail_img-94e7d94 {
+  object-fit: cover;
+}
+
+/* 元信息侧栏：主题外观 */
+.info_sidebar-94e7d94 {
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
+  background: var(--color-background-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+}
+
+.info_title-94e7d94 {
+  font-size: var(--font-size-4);
+  color: var(--color-content-2);
+}
+
+.info_kind-94e7d94 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-1);
+}
+
+.info_path-94e7d94 {
+  font-size: var(--font-size-1);
+  color: var(--color-content-0);
+}
+
+.info_count-94e7d94 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-0);
+}
+
+/* 按钮复用：主题外观 + 悬停滤镜 */
+.btn_ghost-94e7d94 {
+  font-size: var(--font-size-3);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  color: var(--color-content-1);
+}
+.btn_ghost-94e7d94:hover {
+  background: var(--color-background-2);
+  color: var(--color-content-2);
+}
+
+
+.preview-edd801f {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--spacing-1);
+}
+
+/* SettingsPanel 连接设置面板：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
+
+.settings-30a1560 {
+  padding: var(--spacing-1);
+}
+
+.inner-30a1560 {
+  gap: var(--spacing-1);
+}
+
+.form-30a1560 {
+  overflow: auto;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
+  background: var(--color-background-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+}
+
+.header-30a1560 {
+  padding-bottom: var(--spacing-1);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title-30a1560 {
+  font-size: var(--font-size-4);
+  color: var(--color-content-2);
+}
+
+.subtitle-30a1560 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-0);
+  margin-top: var(--spacing-1);
+}
+
+/* 标签 */
+.label_text-30a1560 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-1);
+}
+
+.row_label-30a1560 {
+  gap: var(--spacing-1);
+}
+
+.row_label_text-30a1560 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-1);
+}
+
+/* 验证密钥区域 */
+.key_box-30a1560 {
+  background: var(--color-background-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  padding: var(--spacing-1);
+}
+
+.key_label-30a1560 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-1);
+  margin-bottom: var(--spacing-1);
+}
+
+.key_code-30a1560 {
+  font-size: var(--font-size-1);
+  color: var(--color-content-0);
+}
+
+
+/* 左侧图标栏：主题外观 */
+.tabs-39c58a7 {
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
+  background: var(--color-background-1);
+  border-right: 1px solid var(--color-border);
+}
+
+/* 链接项：结构 + 主题混合，选择器无法由 Rust 表达，整体保留 */
+.tabs-39c58a7 a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  font-size: var(--font-size-3);
+  color: var(--color-content-1);
+  padding: var(--spacing-1);
+  border: 1px solid transparent;
+  border-radius: var(--radius-1);
+  cursor: pointer;
+}
+
+.tabs-39c58a7 a:hover {
+  background: var(--color-background-2);
+  color: var(--color-content-2);
+}
+
+.tabs-39c58a7 [aria-current] {
+  background: var(--color-accent-0);
+  border-color: var(--color-border);
+  color: var(--color-content-2);
+}
+
+
+.title-4207ab0 {
+  font-size: var(--font-size-4);
+  color: var(--color-content-2);
+}
+
+.subtitle-4207ab0 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-0);
+  margin-top: var(--spacing-1);
+}
+
+.header-4207ab0 {
+  padding-bottom: var(--spacing-1);
+}
+
+.title_field-4207ab0 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-1);
+}
+
+.types_item_active-4207ab0 {
+  font-size: var(--font-size-2);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  background: var(--color-accent-1);
+  color: var(--color-content-2);
+  border-width: var(--width-border);
+  border-color: var(--color-border);
+  border-radius: var(--radius-1);
+}
+
+.types_item-4207ab0 {
+  font-size: var(--font-size-2);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  background: var(--color-background-2);
+  color: var(--color-content-1);
+  border-width: var(--width-border);
+  border-color: var(--color-border);
+  border-radius: var(--radius-1);
+  opacity: var(--opacity-disabled);
+}
+
+.types-4207ab0 {
+  gap: var(--spacing-1);
+}
+
+.title_input-4207ab0 {
+  font-size: var(--font-size-3);
+  color: var(--color-content-2);
+  background: var(--color-background-2);
+  border-width: var(--width-border);
+  border-color: var(--color-border);
+  border-radius: var(--radius-1);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+}
+
+.button-4207ab0 {
+  font-size: var(--font-size-3);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  border-width: var(--width-border);
+  border-color: var(--color-border);
+  border-radius: var(--radius-1);
+  background: var(--color-accent-1);
+  color: var(--color-content-2);
+}
+
+.upload-4207ab0 {
+  padding: var(--spacing-1);
+  gap: var(--spacing-1);
+}
+
+/* ModuleBlock 模块块：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
+
+/* 模块块：主题外观 */
+.block-12fe3a7 {
+  background: var(--color-background-2);
+  border: 1px solid var(--color-border);
+}
+
+/* 类别标题栏：字体渲染特性 + 类别色变量 */
+.header-12fe3a7 {
+  font-family: monospace;
+  border-radius: 2px 2px 0 0;
+}
+
+/* 类别标题栏颜色（运行时由外部配置 CSS 变量覆盖） */
+.header_source-12fe3a7 {
+  background: var(--category-source, #4a9eff);
+}
+
+.header_effect-12fe3a7 {
+  background: var(--category-effect, #9f4aff);
+}
+
+.header_mixer-12fe3a7 {
+  background: var(--category-mixer, #4aff9f);
+}
+
+.header_output-12fe3a7 {
+  background: var(--category-output, #ff4a4a);
+}
+
+/* 端口：主题外观 */
+.port-12fe3a7 {
+  background: var(--color-content-1);
+}
+
+/* 参数滑块：后代选择器，Rust 无法表达，整体保留 */
+.param-12fe3a7 input[type="range"] {
+  width: 60px;
+  height: 10px;
+  accent-color: var(--color-accent-1);
+}
+
+
+/* SynthView 合成器主视图：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
+
+/* 覆盖层：主题外观，全屏固定定位由 Rust 内联样式提供 */
+.overlay-40b1660 {
+  background: var(--color-background-0);
+  color: var(--color-content-0);
+  font-family: var(--font);
+}
+
+.toolbar-40b1660 {
+  background: var(--color-background-1);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.back_link-40b1660 {
+  font-size: var(--font-size-2);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  color: var(--color-content-1);
+}
+.back_link-40b1660:hover {
+  background: var(--color-background-2);
+  color: var(--color-content-2);
+}
+
+.title-40b1660 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-0);
+}
+
+
+/* Transport 传送带：类只保留主题变量样式 */
+
+.bar-d3db7e4 {
+  gap: var(--spacing-1);
+  background: var(--color-background-1);
+  border-top: 1px solid var(--color-border);
+}
+
+.button-d3db7e4 {
+  font-size: var(--font-size-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+  background: var(--color-background-2);
+  color: var(--color-content-1);
+}
+
+.bpm-d3db7e4 {
+  font-size: var(--font-size-1);
+  color: var(--color-content-1);
+}
+
+
+/* Workspace 主画布：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
+
+.container-fb9a18b {
+  overflow: hidden;
+  background: var(--color-background-0);
+}
+
+.inner-fb9a18b {
+  overflow: hidden;
+}
+
+.svg_layer-fb9a18b {
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* SVG 连线：fill/stroke-width 为 SVG 渲染属性，css-style 无法表达，整体保留 */
+.edge-fb9a18b {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.edge_dashed-fb9a18b {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1;
+  stroke-dasharray: 4,2;
+}
+
+/* 右键菜单面板：主题外观 */
+.menu_panel-fb9a18b {
+  padding: var(--spacing-1);
+  background: var(--color-background-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1);
+}
+
+.menu_category_label-fb9a18b {
+  font-size: var(--font-size-1);
+  color: var(--color-content-1);
+}
+
+.menu_item-fb9a18b {
+  font-size: var(--font-size-1);
+  color: var(--color-content-0);
+}

@@ -1,0 +1,47 @@
+/*
+  幻想图书馆 PWA 清单文件
+  Web App Manifest 定义了 PWA 的元数据，如名称、图标、启动 URL 等
+  允许应用安装到设备主屏幕，像原生应用一样运行
+*/
+{
+  // JSON Schema，用于配置验证和编辑器支持。
+  "$schema": "https://json.schemastore.org/web-manifest.json",
+  // 应用全名
+  "name": "Library of Fantasia",
+  // 应用短名（用于主屏幕）
+  "short_name": "幻想图书馆",
+  // 应用描述
+  "description": "幻想图书馆",
+  // 启动 URL
+  "start_url": "/",
+  // 显示模式：独立应用/无浏览器 UI
+  "display": "fullscreen",
+  // 首选方向：纵向
+  "orientation": "portrait-primary",
+  // 启动时的背景色
+  "background_color": "#0a0a14",
+  // 主题色（状态栏等）
+  "theme_color": "#0a0a14",
+  // 应用作用域
+  "scope": "/",
+  // 语言
+  "lang": "zh-CN",
+  // 应用图标
+  "icons": [
+    {
+      // 图标路径
+      "src": "/icon.svg",
+      // 图标尺寸（SVG 支持任意尺寸）
+      "sizes": "any",
+      // 图标类型
+      "type": "image/svg+xml",
+      // 图标用途
+      "purpose": "any maskable"
+    }
+  ],
+  // 应用类别
+  "categories": [
+    "entertainment",
+    "lifestyle"
+  ]
+}
