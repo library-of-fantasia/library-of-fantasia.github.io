@@ -4,8 +4,8 @@ function getSharedImports() {
     if (sharedImports === undefined) {
         sharedImports = { __wasm_split: {  } };
         const mainExports = initSync(undefined, undefined);
-        const { __indirect_function_table, __wasm_split_shared1, memory,  } = mainExports;
-        Object.assign(sharedImports.__wasm_split, { __indirect_function_table, __wasm_split_shared1, memory,  });
+        const { __wasm_split_shared0, memory, __indirect_function_table,  } = mainExports;
+        Object.assign(sharedImports.__wasm_split, { __wasm_split_shared0, memory, __indirect_function_table,  });
     }
     return sharedImports;
 }
@@ -61,19 +61,19 @@ function makeFetch(srcUrl) {
         }
     }
 }
-/* view_11064813046600488817, view_16601195456949929412 */
+/* view_13739087893343963702, view_16601195456949929412 */
 const __chunk_6 = makeLoad(new URL("./chunk_6.wasm", import.meta.url), []);
-/* view_11064813046600488817, view_16601195456949929412, view_2561734612466321008 */
+/* view_13739087893343963702, view_16601195456949929412, view_2561734612466321008 */
 const __chunk_7 = makeLoad(new URL("./chunk_7.wasm", import.meta.url), []);
-/* view_11064813046600488817, view_16601195456949929412, view_2561734612466321008, view_2711070426462475232 */
+/* view_13739087893343963702, view_16601195456949929412, view_2561734612466321008, view_2711070426462475232 */
 const __chunk_8 = makeLoad(new URL("./chunk_8.wasm", import.meta.url), []);
-/* view_11064813046600488817, view_16601195456949929412, view_2561734612466321008, view_2711070426462475232, view_3785417946518432210 */
+/* view_13739087893343963702, view_16601195456949929412, view_2561734612466321008, view_2711070426462475232, view_3785417946518432210 */
 const __chunk_9 = makeLoad(new URL("./chunk_9.wasm", import.meta.url), []);
-/* view_11064813046600488817, view_2561734612466321008 */
+/* view_13739087893343963702, view_2561734612466321008 */
 const __chunk_10 = makeLoad(new URL("./chunk_10.wasm", import.meta.url), []);
-/* view_11064813046600488817, view_2561734612466321008, view_2711070426462475232 */
+/* view_13739087893343963702, view_2561734612466321008, view_2711070426462475232 */
 const __chunk_11 = makeLoad(new URL("./chunk_11.wasm", import.meta.url), []);
-/* view_11064813046600488817, view_2711070426462475232 */
+/* view_13739087893343963702, view_2711070426462475232 */
 const __chunk_12 = makeLoad(new URL("./chunk_12.wasm", import.meta.url), []);
 /* view_16601195456949929412, view_2561734612466321008 */
 const __chunk_13 = makeLoad(new URL("./chunk_13.wasm", import.meta.url), []);
@@ -93,4 +93,4 @@ export const __wasm_split_load_view_3785417946518432210 = wrapAsyncCb(makeLoad(n
 export const __wasm_split_load_view_2711070426462475232 = wrapAsyncCb(makeLoad(new URL("./split_view_2711070426462475232.wasm", import.meta.url), [__chunk_8, __chunk_9, __chunk_11, __chunk_12, __chunk_14, __chunk_15, __chunk_16, __chunk_18]));
 export const __wasm_split_load_view_2561734612466321008 = wrapAsyncCb(makeLoad(new URL("./split_view_2561734612466321008.wasm", import.meta.url), [__chunk_7, __chunk_8, __chunk_9, __chunk_10, __chunk_11, __chunk_13, __chunk_14, __chunk_15, __chunk_18, __chunk_19]));
 export const __wasm_split_load_view_16601195456949929412 = wrapAsyncCb(makeLoad(new URL("./split_view_16601195456949929412.wasm", import.meta.url), [__chunk_6, __chunk_7, __chunk_8, __chunk_9, __chunk_13, __chunk_14, __chunk_15, __chunk_16, __chunk_17]));
-export const __wasm_split_load_view_11064813046600488817 = wrapAsyncCb(makeLoad(new URL("./split_view_11064813046600488817.wasm", import.meta.url), [__chunk_6, __chunk_7, __chunk_8, __chunk_9, __chunk_10, __chunk_11, __chunk_12]));
+export const __wasm_split_load_view_13739087893343963702 = wrapAsyncCb(makeLoad(new URL("./split_view_13739087893343963702.wasm", import.meta.url), [__chunk_6, __chunk_7, __chunk_8, __chunk_9, __chunk_10, __chunk_11, __chunk_12]));
