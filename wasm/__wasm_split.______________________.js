@@ -4,8 +4,8 @@ let sharedImports = undefined;
 function getSharedImports() {
     if (sharedImports === undefined) {
         sharedImports = { __wasm_split: {  } };
-        const { memory, __indirect_function_table, __wasm_split_shared0,  } = initSync(undefined, undefined);
-        Object.assign(sharedImports.__wasm_split, { memory, __indirect_function_table, __wasm_split_shared0,  });
+        const { memory, __wasm_split_shared0, __indirect_function_table,  } = initSync(undefined, undefined);
+        Object.assign(sharedImports.__wasm_split, { memory, __wasm_split_shared0, __indirect_function_table,  });
     }
     return sharedImports;
 }
