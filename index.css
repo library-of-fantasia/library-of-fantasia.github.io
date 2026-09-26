@@ -3,26 +3,31 @@
   src: url("fonts/fusion-pixel-8px-monospaced.woff2") format("woff2");
   font-display: swap;
 }
+
 @font-face {
   font-family: "fusion-pixel-8-proportional";
   src: url("fonts/fusion-pixel-8px-proportional.woff2") format("woff2");
   font-display: swap;
 }
+
 @font-face {
   font-family: "fusion-pixel-10-monospaced";
   src: url("fonts/fusion-pixel-10px-monospaced.woff2") format("woff2");
   font-display: swap;
 }
+
 @font-face {
   font-family: "fusion-pixel-10-proportional";
   src: url("fonts/fusion-pixel-10px-proportional.woff2") format("woff2");
   font-display: swap;
 }
+
 @font-face {
   font-family: "fusion-pixel-12-monospaced";
   src: url("fonts/fusion-pixel-12px-monospaced.woff2") format("woff2");
   font-display: swap;
 }
+
 @font-face {
   font-family: "fusion-pixel-12-proportional";
   src: url("fonts/fusion-pixel-12px-proportional.woff2") format("woff2");
@@ -47,24 +52,24 @@
 
   --color-danger: #ff2244;
 
-  --radius-0: 0px;
-  --radius-1: 4px;
+  --radius: 0.25rem;
 
-  --width-border: 1px;
+  --width-border: 0.0625rem;
 
-  --spacing-0: 0px;
-  --spacing-1: 4px;
+  --spacing: 0.25rem;
 
   --opacity-disabled: 0.4;
 
   --filter-hover: brightness(1.15);
 
-  --font-size-0: 0.5rem;
-  --font-size-1: 0.6rem;
-  --font-size-2: 0.7rem;
+  --font-size-1: 1.15rem;
+  --font-size-2: 1rem;
   --font-size-3: 0.75rem;
-  --font-size-4: 1rem;
-  --font-size-5: 1.15rem;
+  --font-size-4: 0.6rem;
+
+  --size-0: 0.5rem;
+  --size-1: 6rem;
+  --size-2: 9rem;
 }
 
 *,
@@ -75,8 +80,35 @@
   padding: 0;
 }
 
+::placeholder {
+  color: var(--color-content-0);
+}
+
+:focus {
+  outline: none;
+  border-color: var(--color-accent-1);
+}
+
+::-webkit-scrollbar {
+  width: var(--size-0);
+  height: var(--size-0);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-content-1);
+}
+
 html {
-  font-size: 24px;
+  font-size: min(6vw, 2.5vh);
   height: 100%;
   height: 100dvh;
   display: flex;
@@ -99,12 +131,65 @@ a {
   text-decoration: none;
 }
 
-input,
-textarea,
-button,
-select,
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1 {
+  font-size: var(--font-size-1);
+  color: var(--color-content-2);
+}
+
+h2 {
+  font-size: var(--font-size-2);
+  color: var(--color-content-2);
+}
+
+h3 {
+  font-size: var(--font-size-3);
+  color: var(--color-content-2);
+}
+
+p {
+  font-size: var(--font-size-3);
+  color: var(--color-content-0);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  background: var(--color-background-1);
+  border-bottom: var(--width-border) solid var(--color-border);
+}
+
+header a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing);
+  font-size: var(--font-size-2);
+  color: var(--color-content-2);
+}
+
 code {
   font-family: inherit;
+  font-size: var(--font-size-3);
+}
+
+button {
+  font-family: inherit;
+  font-size: var(--font-size-3);
+  padding: var(--spacing);
+  border: var(--width-border) solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-background-2);
+  color: var(--color-content-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 button:hover {
@@ -113,28 +198,17 @@ button:hover {
 
 button:disabled {
   opacity: var(--opacity-disabled);
+  cursor: default;
 }
 
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--color-accent-1);
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-background-1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: var(--radius-1);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-content-1);
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: var(--font-size-3);
+  padding: var(--spacing);
+  border: var(--width-border) solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-background-2);
+  color: var(--color-content-2);
 }
