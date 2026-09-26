@@ -118,6 +118,7 @@ html {
   background: var(--color-background-0);
   line-height: 1.4;
   scrollbar-color: var(--color-border) var(--color-background-1);
+  touch-action: pan-x pan-y;
 }
 
 body {
