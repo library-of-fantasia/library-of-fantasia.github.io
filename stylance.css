@@ -1,5 +1,4 @@
 .text-abc667e {
-  font-size: var(--font-size-3);
   color: var(--color-content-2);
 }
 
@@ -9,6 +8,12 @@
   border-radius: var(--radius);
   color: var(--color-content-1);
 }
+
+.title-ea8171a {
+  color: var(--color-content-2);
+  font-size: var(--font-size-1);
+}
+
 
 .cover-23d7ddb {
   background: var(--color-background-2);
@@ -27,7 +32,6 @@
 
 .meta-23d7ddb {
   font-size: var(--font-size-4);
-  color: var(--color-content-0);
 }
 
 .gallery-23d7ddb {
@@ -91,7 +95,6 @@
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  font-size: var(--font-size-3);
 }
 
 
@@ -138,11 +141,6 @@
   object-fit: contain;
 }
 
-.no_image-99f48cf {
-  font-size: var(--font-size-3);
-  color: var(--color-content-0);
-}
-
 /* 导航栏：主题分隔 */
 .navbar-99f48cf {
   gap: var(--spacing-0);
@@ -152,7 +150,6 @@
 }
 
 .page_number-99f48cf {
-  font-size: var(--font-size-3);
   color: var(--color-content-1);
 }
 
@@ -181,13 +178,11 @@
 }
 
 .info_kind-99f48cf {
-  font-size: var(--font-size-3);
   color: var(--color-content-1);
 }
 
 .info_path-99f48cf {
   font-size: var(--font-size-4);
-  color: var(--color-content-0);
 }
 
 
@@ -209,12 +204,10 @@
 }
 
 .label-74ef4c5{
-  font-size: var(--font-size-3);
   color: var(--color-content-1);
 }
 
 .error-74ef4c5 {
-  font-size: var(--font-size-3);
   color: var(--color-danger);
 }
 
@@ -237,7 +230,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0;
-  font-size: var(--font-size-3);
   color: var(--color-content-1);
   padding: var(--spacing-0);
   border: var(--width-border) solid transparent;
@@ -260,7 +252,6 @@
 /* UploadPanel 上传面板：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
 
 .title_input_title-bf10625 {
-  font-size: var(--font-size-3);
   color: var(--color-content-1);
 }
 
