@@ -56,20 +56,20 @@
 
   --width-border: 0.0625rem;
 
-  --spacing: 0.25rem;
+  --spacing-0: 0.25rem;
+  --spacing-1: 0.5rem;
 
   --opacity-disabled: 0.4;
 
   --filter-hover: brightness(1.15);
 
-  --font-size-1: 1.15rem;
-  --font-size-2: 1rem;
-  --font-size-3: 0.75rem;
-  --font-size-4: 0.6rem;
+  --font-size-1: 1.5rem;
+  --font-size-2: 1.25rem;
+  --font-size-3: 1rem;
+  --font-size-4: 0.75rem;
 
-  --size-0: 0.5rem;
-  --size-1: 6rem;
-  --size-2: 9rem;
+  --size-0: 7.5rem;
+  --size-1: 12rem;
 }
 
 *,
@@ -90,8 +90,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: var(--size-0);
-  height: var(--size-0);
+  width: var(--spacing-1);
+  height: var(--spacing-1);
 }
 
 ::-webkit-scrollbar-track {
@@ -108,7 +108,7 @@
 }
 
 html {
-  font-size: min(6vw, 2.5vh);
+  font-size: min(5vw, 2vh);
   height: 100%;
   height: 100dvh;
   display: flex;
@@ -118,6 +118,9 @@ html {
   background: var(--color-background-0);
   line-height: 1.4;
   scrollbar-color: var(--color-border) var(--color-background-1);
+  /* 禁止过界回弹与 PWA 下拉刷新 */
+  overscroll-behavior: none;
+  /* 双指缩放 */
   touch-action: pan-x pan-y;
 }
 
@@ -160,8 +163,8 @@ p {
 header {
   display: flex;
   align-items: center;
-  gap: var(--spacing);
-  padding: var(--spacing);
+  gap: var(--spacing-0);
+  padding: var(--spacing-0);
   background: var(--color-background-1);
   border-bottom: var(--width-border) solid var(--color-border);
 }
@@ -169,7 +172,7 @@ header {
 header a {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing);
+  gap: var(--spacing-0);
   font-size: var(--font-size-2);
   color: var(--color-content-2);
 }
@@ -182,7 +185,7 @@ code {
 button {
   font-family: inherit;
   font-size: var(--font-size-3);
-  padding: var(--spacing);
+  padding: var(--spacing-0);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
   background: var(--color-background-2);
@@ -207,7 +210,7 @@ textarea,
 select {
   font-family: inherit;
   font-size: var(--font-size-3);
-  padding: var(--spacing);
+  padding: var(--spacing-0);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
   background: var(--color-background-2);
