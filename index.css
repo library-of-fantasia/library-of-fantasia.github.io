@@ -179,7 +179,8 @@ html {
   display: flex;
   flex-direction: column;
   font-family: var(--font);
-  font-size: min(5vw, 2vh);
+  /* 决定 1rem 有多大 */
+  font-size: min(5vw, 18px);
   height: 100%;
   height: 100dvh;
   line-height: var(--line-height);

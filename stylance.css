@@ -1,8 +1,13 @@
-.text-abc667e {
+.image-77de25f {
+  border-radius: var(--radius);
+  object-fit: contain;
+}
+
+.text-45e2e90 {
   color: var(--color-content-2);
 }
 
-.drop_zone-abc667e {
+.drop_zone-45e2e90 {
   gap: var(--spacing-0);
   border: var(--width-border) dashed var(--color-border);
   border-radius: var(--radius);
@@ -15,22 +20,50 @@
 }
 
 
-.cover-23d7ddb {
+.fullscreen-8f4a508 {
+  background: var(--color-background-1);
+}
+
+.search_icon-8f4a508 {
+  padding-left: var(--spacing-0);
+  padding-right: var(--spacing-0);
+  color: var(--color-content-1);
+}
+
+.header-8f4a508 {
+  gap: var(--spacing-0);
+  padding: var(--spacing-0);
+  background: var(--color-background-1);
+}
+
+.galleries-8f4a508 {
+  padding: var(--spacing-0);
+  overflow: auto;
+}
+
+.columns-8f4a508 {
+  column-width: var(--size-1);
+  column-gap: var(--spacing-0);
+}
+
+.gallery-3f48b42 {
+  gap: var(--spacing-0);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.cover-364f13c {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
 }
 
-.cover_img-23d7ddb {
-  border-radius: var(--radius);
-}
-
-.meta-23d7ddb {
+.meta-364f13c {
   font-size: var(--font-size-4);
 }
 
-.gallery-23d7ddb {
+.gallery-364f13c {
   padding: var(--spacing-0);
   border: var(--width-border) solid transparent;
   border-radius: var(--radius);
@@ -39,16 +72,21 @@
   break-inside: avoid;
 }
 
-.gallery-23d7ddb:hover {
+.gallery-364f13c:hover {
   background: var(--color-background-2);
 }
 
-.image-8c391bb {
+.thumbnail-5d5627e {
   aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.thumbnail-5d5627e img {
+  height: 100%;
   object-fit: cover;
 }
 
-.file_name-8c391bb {
+.file_name-5d5627e {
   font-size: var(--font-size-4);
   color: var(--color-content-1);
   padding-left: var(--spacing-0);
@@ -58,24 +96,12 @@
   overflow: hidden;
 }
 
-.item-8c391bb {
+.item-5d5627e {
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
   overflow: hidden;
 }
 
-
-.search_icon-45e5e25 {
-  padding-left: var(--spacing-0);
-  padding-right: var(--spacing-0);
-  color: var(--color-content-1);
-}
-
-.header-45e5e25 {
-  gap: var(--spacing-0);
-  padding: var(--spacing-0);
-  background: var(--color-background-1);
-}
 
 /* 左下角通知容器：主题定位与间距，flex 布局由 Rust 内联样式提供 */
 .notices-2b8e813 {
@@ -94,127 +120,29 @@
 }
 
 
-/* PreviewPanel 预览面板：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
-
-/* 面板容器：主题间距 */
-.preview-99f48cf {
-  gap: var(--spacing-0);
-  padding: var(--spacing-0);
-}
-
-/* 占位状态（Empty/Loading/Failed）：面板外观 */
-.placeholder-99f48cf,
-.placeholder_failed-99f48cf {
-  gap: var(--spacing-0);
-  background: var(--color-background-1);
-  border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
-}
-
-.placeholder_failed-99f48cf {
-  color: var(--color-danger);
-}
-
-/* Ready 状态主布局：滚动区 */
-.ready_layout-99f48cf {
-  overflow: auto;
-}
-
-/* 主图区：面板外观 */
-.main_image_area-99f48cf {
-  gap: var(--spacing-0);
-  padding: var(--spacing-0);
-  background: var(--color-background-1);
-  border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
-}
-
-.image_container-99f48cf {
-  overflow: auto;
-}
-
-.image-99f48cf {
-  object-fit: contain;
-}
-
-/* 导航栏：主题分隔 */
-.navbar-99f48cf {
-  gap: var(--spacing-0);
-  padding-top: var(--spacing-0);
-  padding-bottom: var(--spacing-0);
-  border-top: var(--width-border) solid var(--color-border);
-}
-
-.page_number-99f48cf {
-  color: var(--color-content-1);
-}
-
-/* 缩略图条 */
-.thumbnail_strip-99f48cf {
-  overflow-x: auto;
-}
-
-.thumbnail_btn-99f48cf {
-  padding: 0;
-  border-color: transparent;
-  background: transparent;
-}
-
-.thumbnail_img-99f48cf {
-  object-fit: cover;
-}
-
-/* 元信息侧栏：面板外观 */
-.info_sidebar-99f48cf {
-  gap: var(--spacing-0);
-  padding: var(--spacing-0);
-  background: var(--color-background-1);
-  border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
-}
-
-.info_kind-99f48cf {
-  color: var(--color-content-1);
-}
-
-.info_path-99f48cf {
-  font-size: var(--font-size-4);
-}
-
-
-.preview-d40ca8f {
+.preview-94a09c0 {
   grid-auto-flow: column;
   grid-auto-columns: var(--size-0);
   gap: var(--spacing-0);
   overflow-x: auto;
 }
 
-.galleries-1410557 {
-  padding: var(--spacing-0);
-  overflow: auto;
-}
-
-.columns-1410557 {
-  column-width: var(--size-1);
-  column-gap: var(--spacing-0);
-}
-
-.label-74ef4c5{
+.label-91263b3{
   color: var(--color-content-1);
 }
 
-.error-74ef4c5 {
+.error-91263b3 {
   color: var(--color-danger);
 }
 
-.settings-74ef4c5 {
+.settings-91263b3 {
   overflow: auto;
   gap: var(--spacing-0);
   padding: var(--spacing-0);
 }
 
 /* 左侧图标栏：主题外观 */
-.tabs-d261321 {
+.tabs-39c58a7 {
   gap: var(--spacing-0);
   padding: var(--spacing-0);
   background: var(--color-background-1);
@@ -222,7 +150,7 @@
 }
 
 /* 链接项：结构 + 主题混合，选择器无法由 Rust 表达，整体保留 */
-.tabs-d261321 a {
+.tabs-39c58a7 a {
   display: inline-flex;
   align-items: center;
   gap: 0;
@@ -233,12 +161,12 @@
   cursor: pointer;
 }
 
-.tabs-d261321 a:hover {
+.tabs-39c58a7 a:hover {
   background: var(--color-background-2);
   color: var(--color-content-2);
 }
 
-.tabs-d261321 [aria-current] {
+.tabs-39c58a7 [aria-current] {
   background: var(--color-accent-0);
   border-color: var(--color-border);
   color: var(--color-content-2);
@@ -247,11 +175,11 @@
 
 /* UploadPanel 上传面板：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
 
-.title_input_title-bf10625 {
+.title_input_title-b8a49f4 {
   color: var(--color-content-1);
 }
 
-.upload-bf10625 {
+.upload-b8a49f4 {
   padding: var(--spacing-0);
   gap: var(--spacing-0);
 }
