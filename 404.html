@@ -4,6 +4,8 @@
 
 <head>
     <meta charset="utf-8" />
+    <!-- 提前加载主题样式，使首帧即为暗色，避免暗色模式将其判定为浅色页面而强制变色 -->
+    <link rel="stylesheet" href="/index.css" />
     <script>
         fetch('/index.html').then(r => r.text()).then(html => {
             document.write(html);
