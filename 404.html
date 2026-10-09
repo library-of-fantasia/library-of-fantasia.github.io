@@ -1,0 +1,17 @@
+<!-- 静态站点托管服务可能无法正确处理 SPA 的子路径路由，通过默认 404 路径返回 index.html 以修复 404 误判 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        fetch('/index.html').then(r => r.text()).then(html => {
+            document.write(html);
+            document.close();
+        });
+    </script>
+</head>
+
+<body></body>
+
+</html>
