@@ -131,7 +131,7 @@
   overflow-x: auto;
 }
 
-.label-91263b3{
+.label-91263b3 {
   color: var(--color-content-1);
 }
 
@@ -146,11 +146,7 @@
 }
 
 .tabs-91263b3 {
-  background: var(--color-background-1);
-  border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
   gap: var(--spacing-0);
-  padding: var(--spacing-0);
 }
 
 .tab-91263b3 {
@@ -164,7 +160,6 @@
   color: var(--color-content-2);
   gap: var(--spacing-0);
 }
-
 
 /* 左侧图标栏：主题外观 */
 .tabs-39c58a7 {
