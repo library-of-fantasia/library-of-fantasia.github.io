@@ -111,8 +111,6 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  /* 允许在 flex 链中收缩到视口高度，避免内容（如 canvas）反撑页面出现整页滚动条。 */
-  min-height: 0;
 }
 
 button {
