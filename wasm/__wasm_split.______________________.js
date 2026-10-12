@@ -4,8 +4,8 @@ let sharedImports = undefined;
 function getSharedImports() {
     if (sharedImports === undefined) {
         sharedImports = { __wasm_split: {  } };
-        const { memory, __wasm_split_shared0, __indirect_function_table,  } = initSync(undefined, undefined);
-        Object.assign(sharedImports.__wasm_split, { memory, __wasm_split_shared0, __indirect_function_table,  });
+        const { memory, __indirect_function_table, __wasm_split_shared0,  } = initSync(undefined, undefined);
+        Object.assign(sharedImports.__wasm_split, { memory, __indirect_function_table, __wasm_split_shared0,  });
     }
     return sharedImports;
 }
@@ -55,7 +55,7 @@ const __chunk_4 = makeLoad(() => {
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_9075399748092872622, view_9335305258153469823 */
+/* view_5675889947782902355, view_9335305258153469823 */
 const __chunk_5 = makeLoad(() => {
     const src = fetch(new URL("./chunk_5.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
@@ -66,8 +66,8 @@ export const __wasm_split_load_view_9335305258153469823 = wrapAsyncCb(makeLoad((
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , [__chunk_4, __chunk_5]));
-export const __wasm_split_load_view_9075399748092872622 = wrapAsyncCb(makeLoad(() => {
-    const src = fetch(new URL("./split_view_9075399748092872622.wasm", import.meta.url));
+export const __wasm_split_load_view_5675889947782902355 = wrapAsyncCb(makeLoad(() => {
+    const src = fetch(new URL("./split_view_5675889947782902355.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , [__chunk_5]));
