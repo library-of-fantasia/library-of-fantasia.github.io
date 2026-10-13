@@ -67,6 +67,11 @@
   --width-border: 0.0625rem;
 }
 
+:focus {
+  border-color: var(--color-accent-1);
+  outline: none;
+}
+
 *,
 *::after,
 *::before {
@@ -95,11 +100,6 @@
 
 ::placeholder {
   color: var(--color-content-0);
-}
-
-:focus {
-  border-color: var(--color-accent-1);
-  outline: none;
 }
 
 a {
@@ -176,6 +176,7 @@ header {
 html {
   background: var(--color-background-0);
   color: var(--color-content-0);
+  color-scheme: dark;
   display: flex;
   flex-direction: column;
   font-family: var(--font);
