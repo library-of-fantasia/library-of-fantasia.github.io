@@ -16,10 +16,10 @@
   "start_url": "/",
   // 显示模式：
   // - "fullscreen": 独立应用/无浏览器 UI/隐藏通知栏。
-  //   - 关于 PWA 冷启动无法自动隐藏通知栏：确认为 PWA 限制，无法解除。
+  //   - 关于 PWA 冷启动无法自动隐藏通知栏，必须等待用户进行一次操作，确认为 PWA 限制，无法绕过。
   // - "standalone": 显示通知栏。
   //   - 需要在视觉必要表现的时候，手动唤起全屏。
-  "display": "standalone",
+  "display": "fullscreen",
   // 首选方向：纵向
   "orientation": "portrait-primary",
   // 启动时的背景色
