@@ -14,9 +14,8 @@
   "description": "幻想图书馆",
   // 启动 URL
   "start_url": "/",
-  // 显示模式：独立应用窗口。
-  // 不能用 fullscreen，Android PWA 在该模式下会把刘海顶边显示成黑色。
-  "display": "standalone",
+  // 显示模式：独立应用/无浏览器 UI/隐藏通知栏
+  "display": "fullscreen",
   // 首选方向：纵向
   "orientation": "portrait-primary",
   // 启动时的背景色
