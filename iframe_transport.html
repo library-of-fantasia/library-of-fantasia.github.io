@@ -1,0 +1,34 @@
+<script>
+    // 沙箱 iframe 请求引擎，作为 wasm 的匿源请求中继。
+    const receivePort = (event) => {
+        const port = event.ports[0];
+        if (!port) {
+            // `Window` 的 `post_message_with_transfer` 事件是开放总线，可能被各方调用
+            // 如果无 `ports` 的消息，说明不是 iframe_transport.rs 调用的。
+            return;
+        }
+
+        // "message" 消息只在 `ev::load` 时执行一次，用完即断。
+        removeEventListener("message", receivePort);
+        port.onmessage = async (event) => {
+            const responsePort = event.ports[0];
+            try {
+                const request = event.data;
+                const response = await fetch(request.url, request);
+                const responseMeta = {
+                    status: response.status,
+                    headers: [...response.headers],
+                };
+                const responseBody = response.body;
+                const [responseMessage, responseTransfer] = responseBody
+                    ? [[responseMeta, responseBody], [responseBody]]
+                    : [[responseMeta], []];
+                responsePort.postMessage(responseMessage, responseTransfer);
+            } catch (error) {
+                const jsError = new Error(error);
+                responsePort.postMessage(jsError);
+            }
+        };
+    };
+    addEventListener("message", receivePort);
+</script>
