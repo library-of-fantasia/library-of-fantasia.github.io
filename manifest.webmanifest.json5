@@ -18,10 +18,12 @@
   "display": "fullscreen",
   // 首选方向：纵向
   "orientation": "portrait-primary",
-  // 启动时的背景色
-  "background_color": "#0a0a14",
-  // 主题色（状态栏等）
-  "theme_color": "#0a0a14",
+  // 启动时的背景色。
+  // WebAPK 的窗口底由系统按该色绘制，而刘海/挖孔区被排除在网页之外，
+  // 所以必须与界面顶部（--color-background-1）同色，否则会露成一条黑边。
+  "background_color": "#060f24",
+  // 主题色（状态栏等），同样与界面顶部保持一致。
+  "theme_color": "#060f24",
   // 应用作用域
   "scope": "/",
   // 语言
