@@ -176,7 +176,7 @@ header {
 html {
   background: var(--color-background-0);
   color: var(--color-content-0);
-  /* 不得声明 color-scheme：会让 Chrome 把 WebAPK 切到夜间主题，导致 PWA 在刘海/挖孔区露成一条黑边。 */
+  color-scheme: dark;
   display: flex;
   flex-direction: column;
   font-family: var(--font);
@@ -207,4 +207,16 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   padding: var(--spacing-0);
+}
+
+/*
+  Android Chrome 在已安装 PWA（fullscreen/standalone）冷启动或刷新时，
+  首次布局会把系统状态栏高度算进视口，使 dvh 偏大并在顶部露出黑色状态栏区域，
+  须等系统 UI 变化触发重算才恢复全屏。
+  已安装形态下浏览器 UI 恒定不变，改用不参与动态重算的 svh 取到稳定的真实高度。
+*/
+@media (display-mode: fullscreen), (display-mode: standalone) {
+  html {
+    height: 100svh;
+  }
 }
