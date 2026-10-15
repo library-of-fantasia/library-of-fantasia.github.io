@@ -111,8 +111,6 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  /* 允许在 flex 链中收缩到视口高度，避免内容（如 canvas）反撑页面出现整页滚动条。 */
-  min-height: 0;
 }
 
 button {
@@ -178,7 +176,7 @@ header {
 html {
   background: var(--color-background-0);
   color: var(--color-content-0);
-  color-scheme: dark;
+  /* 不得声明 color-scheme：会让 Chrome 把 WebAPK 切到夜间主题，导致 PWA 在刘海/挖孔区露成一条黑边。 */
   display: flex;
   flex-direction: column;
   font-family: var(--font);

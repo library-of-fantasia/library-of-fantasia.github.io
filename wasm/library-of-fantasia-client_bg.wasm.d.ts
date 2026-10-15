@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
-export const __wasm_split_00view_1424627414142365735800_export_cd4cae37137d7b47fef3846a867377ab_view: (a: number, b: number) => void;
-export const __wasm_split_00view_458003119970564248300_export_1ba48815e04e578a947f1c08b9ea6fa3_view: (a: number) => void;
-export const __wasm_split_00view_555463295830784722200_export_d993dc4f9d4285aa57b30edcc63116c6_view: (a: number, b: number, c: number) => void;
+export const __wasm_split_00view_1424627414142365735800_export_d88bacc4a050baa154cb09ebc9174c4a_view: (a: number, b: number) => void;
+export const __wasm_split_00view_458003119970564248300_export_14772db9fcd8ed7dd2aacc9f861fc44e_view: (a: number) => void;
+export const __wasm_split_00view_555463295830784722200_export_e3ab86e7656c778238522f15c7cca500_view: (a: number, b: number, c: number) => void;
 export const __wbg_get_streamconfig_buffer_size: (a: number) => number;
 export const __wbg_get_streamconfig_channels: (a: number) => number;
 export const __wbg_get_streamconfig_sample_rate: (a: number) => number;
