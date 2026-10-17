@@ -28,6 +28,11 @@
   src: url("fonts/fusion-pixel-12px-proportional.woff2") format("woff2");
 }
 
+:focus {
+  border-color: var(--color-accent-1);
+  outline: none;
+}
+
 :root {
   --color-accent-0: rgba(9, 50, 97, 1);
   --color-accent-1: rgba(21, 151, 242, 1);
@@ -65,11 +70,6 @@
   --spacing-1: 0.5rem;
 
   --width-border: 0.0625rem;
-}
-
-:focus {
-  border-color: var(--color-accent-1);
-  outline: none;
 }
 
 *,
@@ -174,9 +174,11 @@ header {
 }
 
 html {
+  /* todo: 尝试修复在 Android Apk 下字体跟随系统变化 */
+  -webkit-text-size-adjust: 100%;
   background: var(--color-background-0);
   color: var(--color-content-0);
-  color-scheme: dark;
+  /* 不得声明 color-scheme：会让 Chrome 把 WebAPK 切到夜间主题，导致 PWA 在刘海/挖孔区露成一条黑边。 */
   display: flex;
   flex-direction: column;
   font-family: var(--font);

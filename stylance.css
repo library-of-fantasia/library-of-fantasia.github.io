@@ -1,7 +1,23 @@
+/* 背景图铺满并裁切；object-fit 在 css-style 中无类型化 API，故写在 scoped css。 */
+.image-6792266 {
+  object-fit: cover;
+}
+
+
 .image-77de25f {
   border-radius: var(--radius);
   object-fit: contain;
 }
+
+/* 对话框：主题外观，布局由 Rust 内联样式提供 */
+.dialogue-83fd396 {
+  background: var(--color-background-2);
+  border: var(--width-border) solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-content-2);
+  padding: var(--spacing-1);
+}
+
 
 .text-45e2e90 {
   color: var(--color-content-2);
@@ -78,6 +94,12 @@
 
 .gallery-364f13c:hover {
   background: var(--color-background-2);
+}
+
+.delete-364f13c {
+  top: var(--spacing-1);
+  right: var(--spacing-1);
+  border-radius: var(--radius);
 }
 
 .thumbnail-5d5627e {
@@ -160,6 +182,27 @@
   color: var(--color-content-2);
   gap: var(--spacing-0);
 }
+
+/* 说话者名称：次级文字配色 */
+.speaker-e5a7d82 {
+  color: var(--color-content-1);
+}
+
+
+/* 立绘图保持比例并裁切；object-fit 在 css-style 中无类型化 API，故写在 scoped css。 */
+.image-629288f {
+  object-fit: contain;
+}
+
+
+/* 底部层：贴底铺满，组件间距取主题间距 */
+.bottom-fdf23fe {
+  bottom: var(--spacing-0);
+  left: var(--spacing-0);
+  right: var(--spacing-0);
+  gap: var(--spacing-0);
+}
+
 
 /* 左侧图标栏：主题外观 */
 .tabs-39c58a7 {

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
 <script>
     // 沙箱 iframe 请求引擎，作为 wasm 的匿源请求中继。
     const receivePort = (event) => {
@@ -12,9 +14,14 @@
         removeEventListener("message", receivePort);
         port.onmessage = async (event) => {
             const responsePort = event.ports[0];
+            const request = event.data;
+            const abortController = new AbortController();
+            responsePort.onmessage = () => abortController.abort();
             try {
-                const request = event.data;
-                const response = await fetch(request.url, request);
+                const response = await fetch(request.url, {
+                    ...request,
+                    signal: abortController.signal,
+                });
                 const responseMeta = {
                     status: response.status,
                     headers: [...response.headers],
