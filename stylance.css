@@ -9,6 +9,11 @@
   object-fit: contain;
 }
 
+.columns-2963109 {
+  gap: var(--spacing-0);
+}
+
+
 /* 对话框：主题外观，布局由 Rust 内联样式提供 */
 .dialogue-83fd396 {
   background: var(--color-background-2);
@@ -69,9 +74,8 @@
   overflow: auto;
 }
 
-.columns-cccb8db {
-  column-width: var(--size-1);
-  column-gap: var(--spacing-0);
+.column_probe-cccb8db {
+  width: calc(var(--size-1) + var(--spacing-0));
 }
 
 
@@ -92,7 +96,6 @@
   border-radius: var(--radius);
   background: var(--color-background-1);
   margin-bottom: var(--spacing-0);
-  break-inside: avoid;
 }
 
 .gallery-364f13c:hover {
