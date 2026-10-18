@@ -52,15 +52,7 @@
   background: var(--color-background-1);
 }
 
-.galleries-8f4a508 {
-  padding: var(--spacing-0);
-  overflow: auto;
-}
 
-.columns-8f4a508 {
-  column-width: var(--size-1);
-  column-gap: var(--spacing-0);
-}
 
 .gallery-3f48b42 {
   gap: var(--spacing-0);
@@ -71,6 +63,17 @@
 .gallery-3f48b42 img {
   border-radius: 0;
 }
+
+.infinite_scroll-cccb8db {
+  padding: var(--spacing-0);
+  overflow: auto;
+}
+
+.columns-cccb8db {
+  column-width: var(--size-1);
+  column-gap: var(--spacing-0);
+}
+
 
 .cover-364f13c {
   background: var(--color-background-2);

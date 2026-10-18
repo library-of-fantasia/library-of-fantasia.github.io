@@ -173,9 +173,9 @@ header {
   padding: var(--spacing-0);
 }
 
+/* todo: 安卓apk的字体大小受到安卓系统设备影响 */
+
 html {
-  /* todo: 尝试修复在 Android Apk 下字体跟随系统变化 */
-  -webkit-text-size-adjust: 100%;
   background: var(--color-background-0);
   color: var(--color-content-0);
   /* 不得声明 color-scheme：会让 Chrome 把 WebAPK 切到夜间主题，导致 PWA 在刘海/挖孔区露成一条黑边。 */
