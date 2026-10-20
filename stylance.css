@@ -72,7 +72,6 @@
 .infinite_scroll-cccb8db {
   padding: var(--spacing-0);
   overflow: auto;
-  scrollbar-width: none;
 }
 
 .column_probe-cccb8db {
@@ -162,6 +161,7 @@
   grid-auto-columns: var(--size-0);
   gap: var(--spacing-0);
   overflow-x: auto;
+  scrollbar-width: auto;
 }
 
 .label-91263b3 {
