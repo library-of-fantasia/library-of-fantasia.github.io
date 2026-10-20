@@ -80,24 +80,6 @@
   padding: 0;
 }
 
-::-webkit-scrollbar {
-  height: var(--spacing-1);
-  width: var(--spacing-1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: var(--radius);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-content-1);
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-background-1);
-}
-
 ::placeholder {
   color: var(--color-content-0);
 }
@@ -190,6 +172,8 @@ html {
   /* 禁止过界回弹与 PWA 下拉刷新 */
   overscroll-behavior: none;
   scrollbar-color: var(--color-border) var(--color-background-1);
+  /* 不得改用 ::-webkit-scrollbar：它会压制 scrollbar-width，导致个别组件无法隐藏滚动条。 */
+  scrollbar-width: thin;
   /* 禁用双指缩放 */
   touch-action: pan-x pan-y;
 }
