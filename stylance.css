@@ -72,12 +72,12 @@
 .infinite_scroll-cccb8db {
   padding: var(--spacing-0);
   overflow: auto;
+  scrollbar-width: none;
 }
 
 .column_probe-cccb8db {
   width: calc(var(--size-1) + var(--spacing-0));
 }
-
 
 .cover-364f13c {
   background: var(--color-background-2);
@@ -135,6 +135,11 @@
 }
 
 
+.loading-85b3531 {
+  aspect-ratio: 1;
+}
+
+
 /* 左下角通知容器：主题定位与间距，flex 布局由 Rust 内联样式提供 */
 .notices-2b8e813 {
   bottom: var(--spacing-0);
@@ -188,6 +193,11 @@
   color: var(--color-content-2);
   gap: var(--spacing-0);
 }
+
+.shrink_on_scroll-68d1386 {
+  overflow: hidden;
+}
+
 
 /* 说话者名称：次级文字配色 */
 .speaker-e5a7d82 {
