@@ -75,6 +75,10 @@
   scrollbar-width: none;
 }
 
+.infinite_scroll-cccb8db::-webkit-scrollbar {
+  display: none;
+}
+
 .column_probe-cccb8db {
   width: calc(var(--size-1) + var(--spacing-0));
 }
