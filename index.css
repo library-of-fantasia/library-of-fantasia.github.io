@@ -82,6 +82,7 @@
 }
 
 ::-webkit-scrollbar {
+  display: none;
   height: var(--spacing-1);
   width: var(--spacing-1);
 }
@@ -190,6 +191,8 @@ html {
   line-height: var(--line-height);
   /* 禁止过界回弹与 PWA 下拉刷新 */
   overscroll-behavior: none;
+  /* 页面本身不滚动，滚动交给内部容器。 */
+  overflow: hidden;
   scrollbar-color: var(--color-border) var(--color-background-1);
   /* 禁用双指缩放 */
   touch-action: pan-x pan-y;

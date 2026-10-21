@@ -164,6 +164,10 @@
   scrollbar-width: auto;
 }
 
+.preview-94a09c0::-webkit-scrollbar {
+  display: block;
+}
+
 .label-91263b3 {
   color: var(--color-content-1);
 }
