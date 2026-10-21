@@ -175,8 +175,6 @@ header {
   padding: var(--spacing-0);
 }
 
-/* todo: 安卓apk的字体大小受到安卓系统设备影响 */
-
 html {
   background: var(--color-background-0);
   color: var(--color-content-0);
