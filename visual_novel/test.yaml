@@ -1,0 +1,26 @@
+# 视觉小说引擎测试脚本。
+- SetBackground: /icon.svg
+- SetSprite: /icon.svg
+- SetSpeaker: 猫娘
+- SetDialogue: 视觉小说引擎测试脚本正在运行。
+- WaitClick
+
+- SetSprite: /icon.svg
+- SetSpeaker: 猫娘
+- SetDialogue: 组合指令测试。
+- WaitClick
+
+- SetBackground:
+- SetSprite:
+- SetSpeaker:
+- SetDialogue:
+- SetBackground: /icon.svg
+- SetSpeaker: 猫娘
+- SetDialogue: 组合指令省略立绘。
+- WaitClick
+
+- SetSprite: /icon.svg
+- SetSpeaker: 猫娘
+- SetDialogue: 全部操作已执行。
+- WaitClick
+- Close

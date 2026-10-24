@@ -1,9 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
-export const __wasm_split_00view_1424627414142365735800_export_36911e36c5c471c8d3479c37f7763371_view: (a: number, b: number) => void;
-export const __wasm_split_00view_308478193742675467000_export_a61927f2a6e0b96f18fa05bc4f357204_view: (a: number) => void;
-export const __wasm_split_00view_458003119970564248300_export_45486a5002aff74bf4fcd9c5d76922bc_view: (a: number) => void;
-export const __wasm_split_00view_555463295830784722200_export_146f92ed7fc73f960bdb98c4ea4067c6_view: (a: number, b: number, c: number) => void;
+export const __wasm_split_00view_1424627414142365735800_export_13df5aa35d0be3634b2085ec2a933702_view: (a: number, b: number) => void;
+export const __wasm_split_00view_308478193742675467000_export_d8d81b3b034dafd137a3337342a29b26_view: (a: number) => void;
+export const __wasm_split_00view_458003119970564248300_export_c59f7d8da07074dab64e8b4d5f263cce_view: (a: number) => void;
+export const __wasm_split_00view_555463295830784722200_export_b8a1ace6e72ce62d141517df6294e2c0_view: (a: number, b: number, c: number) => void;
 export const __wbg_get_streamconfig_buffer_size: (a: number) => number;
 export const __wbg_get_streamconfig_channels: (a: number) => number;
 export const __wbg_get_streamconfig_sample_rate: (a: number) => number;
@@ -27,14 +27,14 @@ export const intounderlyingsource_cancel: (a: number) => void;
 export const intounderlyingsource_pull: (a: number, b: number) => number;
 export const __indirect_function_table: WebAssembly.Table;
 export const memory: WebAssembly.Memory;
-export const __wasm_bindgen_func_elem_1736: (a: number, b: number, c: number, d: number) => void;
-export const __wasm_bindgen_func_elem_1736_20: (a: number, b: number, c: number, d: number) => void;
-export const __wasm_bindgen_func_elem_1736_21: (a: number, b: number, c: number, d: number) => void;
-export const __wasm_bindgen_func_elem_4840: (a: number, b: number, c: number, d: number) => void;
-export const __wasm_bindgen_func_elem_4763: (a: number, b: number, c: number) => void;
-export const __wasm_bindgen_func_elem_4763_22: (a: number, b: number, c: number) => void;
-export const __wasm_bindgen_func_elem_4763_23: (a: number, b: number, c: number) => void;
-export const __wasm_bindgen_func_elem_4476: (a: number, b: number) => void;
+export const __wasm_bindgen_func_elem_1812: (a: number, b: number, c: number, d: number) => void;
+export const __wasm_bindgen_func_elem_1812_20: (a: number, b: number, c: number, d: number) => void;
+export const __wasm_bindgen_func_elem_1812_21: (a: number, b: number, c: number, d: number) => void;
+export const __wasm_bindgen_func_elem_4960: (a: number, b: number, c: number, d: number) => void;
+export const __wasm_bindgen_func_elem_4885: (a: number, b: number, c: number) => void;
+export const __wasm_bindgen_func_elem_4885_22: (a: number, b: number, c: number) => void;
+export const __wasm_bindgen_func_elem_4885_23: (a: number, b: number, c: number) => void;
+export const __wasm_bindgen_func_elem_4596: (a: number, b: number) => void;
 export const __wbindgen_export: (a: number, b: number) => number;
 export const __wbindgen_export2: (a: number, b: number, c: number, d: number) => number;
 export const __wbindgen_export3: (a: number) => void;
