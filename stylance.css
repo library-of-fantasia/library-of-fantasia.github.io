@@ -184,6 +184,7 @@
 
 .shrink_on_scroll-68d1386 {
   overflow: hidden;
+  transition: height 60ms linear, width 60ms linear;
 }
 
 
