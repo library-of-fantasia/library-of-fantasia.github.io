@@ -1,9 +1,9 @@
 .image-77de25f {
   border-radius: var(--radius);
-  object-fit: contain;
+  object-fit: cover;
   transition:
-    width 0.2s ease-in-out,
-    height 0.2s ease-in-out;
+    aspect-ratio 200ms ease,
+    opacity 200ms ease;
 }
 
 .columns-2963109 {
@@ -187,6 +187,7 @@
 
 .shrink_on_scroll-68d1386 {
   overflow: hidden;
+  /* 因为存在帧丢弃导致有点卡顿，以此平滑 */
   transition:
     width 40ms linear,
     height 40ms linear;
