@@ -4,8 +4,8 @@ let sharedImports = undefined;
 function getSharedImports() {
     if (sharedImports === undefined) {
         sharedImports = { __wasm_split: {  } };
-        const { memory, __indirect_function_table, __wasm_split_shared0,  } = initSync(undefined, undefined);
-        Object.assign(sharedImports.__wasm_split, { memory, __indirect_function_table, __wasm_split_shared0,  });
+        const { memory, __wasm_split_shared0, __indirect_function_table,  } = initSync(undefined, undefined);
+        Object.assign(sharedImports.__wasm_split, { memory, __wasm_split_shared0, __indirect_function_table,  });
     }
     return sharedImports;
 }
@@ -49,13 +49,13 @@ function makeLoad(fetcher, deps) {
         return loadingModule;
     }
 }
-/* view_3549442641011553736, view_5515425176748814459, view_9335305258153469823 */
+/* view_10117290332702737119, view_5515425176748814459, view_9335305258153469823 */
 const __chunk_4 = makeLoad(() => {
     const src = fetch(new URL("./chunk_4.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_3549442641011553736, view_9335305258153469823 */
+/* view_10117290332702737119, view_9335305258153469823 */
 const __chunk_5 = makeLoad(() => {
     const src = fetch(new URL("./chunk_5.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
@@ -77,8 +77,8 @@ export const __wasm_split_load_view_5515425176748814459 = wrapAsyncCb(makeLoad((
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , [__chunk_4, __chunk_6]));
-export const __wasm_split_load_view_3549442641011553736 = wrapAsyncCb(makeLoad(() => {
-    const src = fetch(new URL("./split_view_3549442641011553736.wasm", import.meta.url));
+export const __wasm_split_load_view_10117290332702737119 = wrapAsyncCb(makeLoad(() => {
+    const src = fetch(new URL("./split_view_10117290332702737119.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , [__chunk_4, __chunk_5]));
