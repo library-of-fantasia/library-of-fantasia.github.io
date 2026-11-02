@@ -147,10 +147,10 @@ export function hydrate(): void;
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
-    readonly __wasm_split_00view_308478193742675467000_export_385957956d386110464a2d069bb4061a_view: (a: number) => void;
-    readonly __wasm_split_00view_458003119970564248300_export_f4967fc34dbfa74dad22d293a9200556_view: (a: number) => void;
-    readonly __wasm_split_00view_555463295830784722200_export_cd99a741bd1b65fdaac74d6efe48802b_view: (a: number, b: number, c: number) => void;
-    readonly __wasm_split_00view_809500362035220298100_export_dbf9e418c3514f68ed33c12dcbeaf743_view: (a: number, b: number) => void;
+    readonly __wasm_split_00view_308478193742675467000_export_4ad0b20f3e98e2a87d3408d82132de75_view: (a: number) => void;
+    readonly __wasm_split_00view_458003119970564248300_export_2496ad7e4b2cd6162948d396cf1cd3f5_view: (a: number) => void;
+    readonly __wasm_split_00view_555463295830784722200_export_c088a17308acad3537c12a5b987349f1_view: (a: number, b: number, c: number) => void;
+    readonly __wasm_split_00view_809500362035220298100_export_8e01910ad46b22cf82ba59411bbff065_view: (a: number, b: number) => void;
     readonly __wbg_get_streamconfig_buffer_size: (a: number) => number;
     readonly __wbg_get_streamconfig_channels: (a: number) => number;
     readonly __wbg_get_streamconfig_sample_rate: (a: number) => number;
@@ -174,14 +174,14 @@ export interface InitOutput {
     readonly intounderlyingsource_pull: (a: number, b: number) => number;
     readonly __indirect_function_table: WebAssembly.Table;
     readonly memory: WebAssembly.Memory;
-    readonly __wasm_bindgen_func_elem_1941: (a: number, b: number, c: number, d: number) => void;
-    readonly __wasm_bindgen_func_elem_1941_20: (a: number, b: number, c: number, d: number) => void;
-    readonly __wasm_bindgen_func_elem_1941_21: (a: number, b: number, c: number, d: number) => void;
-    readonly __wasm_bindgen_func_elem_5464: (a: number, b: number, c: number, d: number) => void;
-    readonly __wasm_bindgen_func_elem_5346: (a: number, b: number, c: number) => void;
-    readonly __wasm_bindgen_func_elem_5346_22: (a: number, b: number, c: number) => void;
-    readonly __wasm_bindgen_func_elem_5346_23: (a: number, b: number, c: number) => void;
-    readonly __wasm_bindgen_func_elem_5057: (a: number, b: number) => void;
+    readonly __wasm_bindgen_func_elem_1938: (a: number, b: number, c: number, d: number) => void;
+    readonly __wasm_bindgen_func_elem_1938_20: (a: number, b: number, c: number, d: number) => void;
+    readonly __wasm_bindgen_func_elem_1938_21: (a: number, b: number, c: number, d: number) => void;
+    readonly __wasm_bindgen_func_elem_5461: (a: number, b: number, c: number, d: number) => void;
+    readonly __wasm_bindgen_func_elem_5343: (a: number, b: number, c: number) => void;
+    readonly __wasm_bindgen_func_elem_5343_22: (a: number, b: number, c: number) => void;
+    readonly __wasm_bindgen_func_elem_5343_23: (a: number, b: number, c: number) => void;
+    readonly __wasm_bindgen_func_elem_5054: (a: number, b: number) => void;
     readonly __wbindgen_export: (a: number, b: number) => number;
     readonly __wbindgen_export2: (a: number, b: number, c: number, d: number) => number;
     readonly __wbindgen_export3: (a: number) => void;
