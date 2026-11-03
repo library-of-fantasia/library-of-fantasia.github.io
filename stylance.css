@@ -1,10 +1,7 @@
 .image-77de25f {
   border-radius: var(--radius);
-  object-fit: cover;
-  transition:
-    aspect-ratio 200ms ease,
-    opacity 200ms ease;
 }
+
 
 .columns-2963109 {
   gap: var(--spacing-0);
@@ -191,6 +188,14 @@
   transition:
     width 40ms linear,
     height 40ms linear;
+}
+
+
+.layer-c5a665b {
+  overflow: hidden;
+  transition:
+    aspect-ratio 200ms ease,
+    opacity 200ms ease;
 }
 
 
