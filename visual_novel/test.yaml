@@ -1,26 +1,413 @@
-# 视觉小说引擎测试脚本。
-- SetBackground: /icon.svg
-- SetSprite: /icon.svg
-- SetSpeaker: 猫娘
-- SetDialogue: 视觉小说引擎测试脚本正在运行。
-- WaitClick
+# 视觉小说样例脚本：第七夜的借书人。
+#
+# 这是一个完整的短篇 Galgame 流程，用于验证背景、立绘、对话、
+# 点击推进与分支选择。
+# 变量保存在浏览器 localStorage，脚本只播放一次。
+# 整段剧情只在首次加载时播放：已执行过则跳过全部操作。
+- CheckVariable:
+    if: played
+    else:
+      - SetVariable: played
+      - SetBackground: /visual_novel/images/bg/entrance.jpg
+      - SetDialogue: |-
+          ——第七夜。
+          图书馆的钟，没有响。
+      - WaitClick
+      - SetDialogue: |-
+          但门还是开了。
+          像它一直记得，我会来。
+      - WaitClick
+      - SetBackground: /visual_novel/images/bg/hall.jpg
+      - SetSprite: /visual_novel/images/char/admin.webp
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……欢迎回来，馆员。
+      - WaitClick
+      - SetDialogue: |-
+          今晚的图书馆，比平时更安静一点。
+          大概是因为……快到闭馆的时间了。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          闭馆？
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          嗯。天亮之前，最里面那条走廊会合上。
+          连同里面……没有人借走的东西。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          我来还书。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……还书？
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          一本没有书名的书。
+          我借了七次，一次也没有读完。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……那本书，不在目录里。
+      - WaitClick
+      - SetDialogue: |-
+          而且，馆员。
+          你不该记得它。
+      - WaitClick
 
-- SetSprite: /icon.svg
-- SetSpeaker: 猫娘
-- SetDialogue: 组合指令测试。
-- WaitClick
+      # 第一次选择：两个分支最终汇合到走廊。
+      - WaitChoices:
+          - text: 「告诉她：我记得每一次。」
+            then:
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  我记得每一次。
+                  第一夜，你站在同样的位置，说同样的话。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……
+              - WaitClick
+              - SetDialogue: |-
+                  那为什么，每一次你都没有读完？
+              - WaitClick
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  因为每一次，我都会在最后一页之前睡着。
+                  醒来时，已经在家里的床上。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……那不是睡着。
+                  那是图书馆在把你送回去。
+              - WaitClick
+              - SetDialogue: |-
+                  它不想让你记得这里。
+                  也不想让我记得你。
+              - WaitClick
+          - text: 「先问她：那你记得我吗？」
+            then:
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  那你记得我吗？
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……
+              - WaitClick
+              - SetDialogue: |-
+                  我记得你的脚步声。
+                  记得你总是把伞放在门口左边。
+                  记得你读到最后几页时，会停下来很久。
+              - WaitClick
+              - SetDialogue: |-
+                  但我不记得你的名字。
+                  也不记得，你为什么来。
+              - WaitClick
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  因为你每次都会忘。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……每次？
+              - WaitClick
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  第七次了。
+                  所以这一次，我想把书读完。
+              - WaitClick
 
-- SetBackground:
-- SetSprite:
-- SetSpeaker:
-- SetDialogue:
-- SetBackground: /icon.svg
-- SetSpeaker: 猫娘
-- SetDialogue: 组合指令省略立绘。
-- WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……在进去之前，先喝点东西吧。
+          里面的路，不太适合带着太多冷气走。
+      - WaitClick
+      - SetBackground: /visual_novel/images/bg/desk.jpg
+      - SetSprite: /visual_novel/images/char/admin.webp
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          你还会泡茶？
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……只会把热水倒进杯子。
+          但至少，杯子是暖的。
+      - WaitClick
+      - SetSpeaker:
+      - SetDialogue: |-
+          她把杯子推过来。
+          指尖在杯沿停了一瞬，像是在确认温度。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……好了。
+          跟我来。
+          在它合上之前。
+      - WaitClick
+      - SetBackground: /visual_novel/images/bg/aisle.jpg
+      - SetSprite: /visual_novel/images/char/admin.webp
+      - SetSpeaker:
+      - SetDialogue: |-
+          走廊比记忆里更长。
+          两侧的书脊在灯下泛着潮湿的蓝。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          这条走廊，是图书馆自己长出来的。
+          它只在有人想找回什么的时候出现。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          找回什么？
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……找回你留在书里的那一页。
+      - WaitClick
+      - SetBackground: /visual_novel/images/bg/archive.jpg
+      - SetSprite: /visual_novel/images/char/admin.webp
+      - SetSpeaker:
+      - SetDialogue: |-
+          尽头是一间没有门牌的档案室。
+          石台上摊着一本很旧的书，书页里透出微弱的蓝光。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          它叫《无名书》。
+          每一页，都写着一个人不想忘记、却又不敢承认的事。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          我的那一页，写了什么？
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          我不知道。
+          只有借书的人，才能翻开自己的那一页。
+      - WaitClick
+      - SetDialogue: |-
+          但是……翻开之后，你会想起所有被图书馆拿走的东西。
+          包括那些，你本来已经不再痛的。
+      - WaitClick
 
-- SetSprite: /icon.svg
-- SetSpeaker: 猫娘
-- SetDialogue: 全部操作已执行。
-- WaitClick
-- Close
+      # 第二次选择：翻开书，或先握住她的手。
+      - WaitChoices:
+          - text: 「翻开它。」
+            then:
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  我想想起来。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……即使会痛？
+              - WaitClick
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  即使会痛。
+                  总比每次走到这里，都像第一次一样好。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……嗯。
+                  那我和你一起看。
+              - WaitClick
+          - text: 「先握住她的手。」
+            then:
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  先别翻。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……？
+              - WaitClick
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  你的手在抖。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……对不起。
+                  我总是这样。明明只是书，明明只是……
+              - WaitClick
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  不是书。
+                  是你一直一个人守着的，别人的记忆。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……
+              - WaitClick
+              - SetSpeaker: 你
+              - SetDialogue: |-
+                  这一次，我先陪你。
+                  然后再翻开。
+              - WaitClick
+              - SetSpeaker: 管理员
+              - SetDialogue: |-
+                  ……好。
+              - WaitClick
+
+      - SetBackground: /visual_novel/images/bg/memory.jpg
+      - SetSprite:
+      - SetSpeaker:
+      - SetDialogue: |-
+          书页翻开了。
+          光从纸缝里涌出来，像一场没有声音的雪。
+      - WaitClick
+      - SetDialogue: |-
+          记忆像被水泡过的纸，一层一层展开。
+      - WaitClick
+      - SetDialogue: |-
+          第一夜：你在门外站了很久，最后把伞留在了台阶上。
+      - WaitClick
+      - SetDialogue: |-
+          第三夜：你读到一半，趴在桌上睡着。
+          醒来时，身上盖着一件不属于你的外套。
+      - WaitClick
+      - SetDialogue: |-
+          第五夜：你问管理员，图书馆会不会记得每一个来过的人。
+          她说，会。
+          她说谎了。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……不是谎。
+          我真的想记得。
+      - WaitClick
+      - SetSpeaker:
+      - SetDialogue: |-
+          第七夜：书页上终于出现了一行字。
+          不是借阅记录。
+          是一个名字。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……这是，我的名字？
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          嗯。
+          你一直说，你没有名字。
+          所以上一次，我把它写在了这里。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          可是我忘了。
+          每次闭馆，我都会忘掉自己是谁，忘掉这里发生过什么。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          所以这一次，我把它读出来。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……不要。
+          如果连你也记得，那图书馆就会把你留下来。
+          你会变成和我一样……
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          变成和你一样，守着一座会忘记人的图书馆？
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          那也比让你一个人守着好。
+      - WaitClick
+      - SetBackground: /visual_novel/images/bg/dawn.jpg
+      - SetSprite: /visual_novel/images/char/admin.webp
+      - SetSpeaker:
+      - SetDialogue: |-
+          天快亮了。
+          走廊尽头的墙开始变得透明，像一页被光穿透的纸。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          图书馆在叫你回去。
+          它不喜欢有人带着记忆离开。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          那就让它记住我。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          ——栞。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……什么？
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          你的名字。
+          不是管理员，不是构建者，不是图书馆的一部分。
+          是栞。
+          书签的意思。
+          夹在书里，等下一次翻开。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……栞。
+      - WaitClick
+      - SetDialogue: |-
+          原来被叫名字，是这种感觉。
+          像有人在很深的地方，替我点亮了一盏灯。
+      - WaitClick
+      - SetSpeaker:
+      - SetDialogue: |-
+          钟声响了。
+          这一次，图书馆没有把任何人送走。
+      - WaitClick
+      - SetBackground: /visual_novel/images/bg/window.jpg
+      - SetSprite: /visual_novel/images/char/admin.webp
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          外面下雪了。
+          馆员，你该回去了。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          你呢？
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          我留在这里。
+          但是这一次……我会记得。
+      - WaitClick
+      - SetDialogue: |-
+          我会记得有人来过。
+          记得有人叫过我的名字。
+          记得有人答应过我，会回来。
+      - WaitClick
+      - SetSpeaker: 你
+      - SetDialogue: |-
+          我会回来。
+      - WaitClick
+      - SetSpeaker: 管理员
+      - SetDialogue: |-
+          ……嗯。
+          我等你。
+      - WaitClick
+      - SetBackground: /visual_novel/images/bg/dawn.jpg
+      - SetSprite:
+      - SetSpeaker:
+      - SetDialogue: |-
+          ——第七夜，结束。
+          图书馆的灯还亮着。
+      - WaitClick
+      - SetDialogue: |-
+          （点击任意处，返回图书馆。）
+      - WaitClick
+
+      - Clear

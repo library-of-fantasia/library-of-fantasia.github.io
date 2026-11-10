@@ -1,3 +1,5 @@
+/* 客户端全局样式：字体、:root 设计变量与元素基础样式。 */
+
 @font-face {
   font-family: "fusion-pixel-8-monospaced";
   src: url("fonts/fusion-pixel-8px-monospaced.woff2") format("woff2");
@@ -36,6 +38,7 @@
 :root {
   --color-accent-0: rgba(9, 50, 97, 1);
   --color-accent-1: rgba(21, 151, 242, 1);
+  --color-accent-2: #b7a5ff;
 
   --color-background-0: #01051b;
   --color-background-1: #060f24;
@@ -48,6 +51,7 @@
   --color-content-2: #dee0ed;
 
   --color-danger: #ff2244;
+
   --filter-hover: brightness(1.15);
 
   --font: "fusion-pixel-12-monospaced", monospace;
@@ -59,15 +63,19 @@
 
   --line-height: 1.4;
 
-  --opacity-disabled: 0.4;
+  --opacity-disabled: 40%;
+  --opacity-overlay: 60%;
 
   --radius: 0.25rem;
 
   --size-0: 7.5rem;
   --size-1: 12rem;
+  --size-2: 48rem;
+  --size-3: 60rem;
 
   --spacing-0: 0.25rem;
   --spacing-1: 0.5rem;
+  --spacing-2: 1rem;
 
   --width-border: 0.0625rem;
 }
@@ -142,6 +150,11 @@ code {
   font-family: inherit;
 }
 
+dialog::backdrop {
+  background: var(--color-background-0);
+  opacity: var(--opacity-overlay);
+}
+
 h1 {
   align-items: center;
   color: var(--color-content-2);
@@ -178,20 +191,25 @@ header {
 html {
   background: var(--color-background-0);
   color: var(--color-content-0);
+
   /* 不得声明 color-scheme：会让 Chrome 把 WebAPK 切到夜间主题，导致 PWA 在刘海/挖孔区露成一条黑边。 */
   display: flex;
   flex-direction: column;
   font-family: var(--font);
+
   /* 决定 1rem 有多大 */
   font-size: min(5vw, 18px);
   height: 100%;
   height: 100dvh;
   line-height: var(--line-height);
+
   /* 禁止过界回弹与 PWA 下拉刷新 */
   overscroll-behavior: none;
+
   /* 页面本身不滚动，滚动交给内部容器。 */
   overflow: hidden;
   scrollbar-color: var(--color-border) var(--color-background-1);
+
   /* 禁用双指缩放 */
   touch-action: pan-x pan-y;
 }
