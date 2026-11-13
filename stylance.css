@@ -1,20 +1,20 @@
-.image-77de25f {
+.image-3e12b38 {
   border-radius: var(--radius);
 }
 
 
-.columns-2963109 {
+.columns-4415416 {
   gap: var(--spacing-0);
 }
 
 
-.descriptor-8f7d72c {
+.descriptor-e82be26 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
   gap: var(--spacing-0);
 }
 
-.chip-8f7d72c {
+.chip-e82be26 {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
@@ -23,14 +23,14 @@
 
 
 /* 正文位于条目网格的第二行，跨标题与箭头两列。 */
-.body-a576651 {
+.body-e1f95fa,
+.body_collapsed-e1f95fa {
   color: var(--color-content-0);
   grid-area: body;
-  min-width: 0;
 }
 
-/* 折叠态：最多显示一行，超出部分由省略号收尾。 */
-.collapsed-a576651 {
+/* 折叠态：在基类之上最多显示一行，超出部分由省略号收尾。 */
+.body_collapsed-e1f95fa {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   /* -webkit-line-clamp 覆盖仍只认前缀的浏览器，line-clamp 是标准属性，两者需同时声明 */
@@ -39,49 +39,54 @@
   overflow: hidden;
 }
 
-/* 展开箭头：与标题同一行并贴近卡片右缘；高度取一个行盒，与标题首行对齐。 */
-.toggle-a576651 {
-  align-self: start;
-  background: transparent;
-  border-color: transparent;
+/* 展开箭头：这里只保留主题外观、网格位置与标题行盒高度；
+   背景、边框、内边距与对齐由 Rust 的 css-style 提供。
+   字号显式与标题一致，行盒高度才真正等于标题首行。 */
+.toggle-e1f95fa {
   color: var(--color-content-1);
+  font-size: var(--font-size-3);
   gap: var(--spacing-0);
   grid-area: toggle;
   height: calc(var(--line-height) * 1em);
-  justify-self: end;
-  padding: 0;
 }
 
-.toggle-a576651:hover {
+.toggle-e1f95fa:hover {
   color: var(--color-content-2);
 }
+
+/* 主题的全局 :focus 只改边框色，而箭头按钮的透明边框会把它压掉；
+   全局又关掉了 outline，键盘聚焦便毫无反馈，故补一条可见轮廓。 */
+.toggle-e1f95fa:focus-visible {
+  outline: var(--width-border) solid var(--color-accent-1);
+}
+
 
 /* 客户端下载浮窗的内容区主题：只承载说明文字与条目滚动区；
    浮窗外壳主题与标题行已统一到 `modal.module.css`。 */
 
 /* 说明文字：降到次级正文色，不与条目标题抢注意力 */
-.intro-658cddc {
+.intro-62e71ad {
   color: var(--color-content-0);
   font-size: var(--font-size-3);
 }
 
-.intro_clause-658cddc {
+.intro_clause-62e71ad {
   display: inline-block;
 }
 
 /* 条目滚动区 */
-.list-658cddc {
+.list-62e71ad {
   gap: var(--spacing-2);
   overflow-y: auto;
   list-style: none;
 }
 
 
-.text-45e2e90 {
+.text-130dd38 {
   color: var(--color-content-2);
 }
 
-.drop_zone-45e2e90 {
+.drop_zone-130dd38 {
   gap: var(--spacing-0);
   border: var(--width-border) dashed var(--color-border);
   border-radius: var(--radius);
@@ -90,7 +95,7 @@
 
 /* 单条客户端卡片：与愿望单条目同属浮窗内条目，沿用沉一档的底色、薄边与小圆角；
    卡片之间由浮窗列表的 gap 分开，这里只负责单张卡片内部的节奏。 */
-.entry-a217056 {
+.entry-d5c5913 {
   background: var(--color-background-1);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
@@ -102,18 +107,18 @@
   row-gap: var(--spacing-0);
 }
 
-.icon-a217056 {
+.icon-d5c5913 {
   color: var(--color-content-1);
   grid-area: icon;
 }
 
-.title-a217056 {
+.title-d5c5913 {
   color: var(--color-content-2);
   font-size: var(--font-size-3);
   grid-area: title;
 }
 
-.action-a217056 {
+.action-d5c5913 {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
@@ -125,34 +130,34 @@
 }
 
 /* 全局 button 的悬停提亮不覆盖 a，这里补上同样的反馈，让下载入口保持按钮手感。 */
-.action-a217056:hover {
+.action-d5c5913:hover {
   filter: var(--filter-hover);
 }
 
-.guide-a217056 {
+.guide-d5c5913 {
   color: var(--color-content-0);
   font-size: var(--font-size-3);
   gap: var(--spacing-0);
   grid-column: 1 / -1;
 }
 
-.title-ea8171a {
+.title-c5fda82 {
   color: var(--color-content-2);
   font-size: var(--font-size-1);
 }
 
 
-.fullscreen-8f4a508 {
+.fullscreen-de8243e {
   background: var(--color-background-1);
 }
 
-.search_icon-8f4a508 {
+.search_icon-de8243e {
   padding-left: var(--spacing-0);
   padding-right: var(--spacing-0);
   color: var(--color-content-1);
 }
 
-.header-8f4a508 {
+.header-de8243e {
   gap: var(--spacing-0);
   padding: var(--spacing-0);
   background: var(--color-background-1);
@@ -160,50 +165,50 @@
 
 
 
-.gallery-3f48b42 {
+.gallery-8b18208 {
   gap: var(--spacing-0);
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-.gallery-3f48b42 img {
+.gallery-8b18208 img {
   border-radius: 0;
 }
 
-.download_button-119afbf {
+.download_button-22c8b18 {
   gap: var(--spacing-0);
 }
 
-.wishlist_button-119afbf {
+.wishlist_button-22c8b18 {
   gap: var(--spacing-0);
 }
 
-.infinite_scroll-cccb8db {
+.infinite_scroll-7955b6e {
   padding: var(--spacing-0);
   overflow: auto;
 }
 
-.column_probe-cccb8db {
+.column_probe-7955b6e {
   width: calc(var(--size-1) + var(--spacing-0));
 }
 
-.image-3c1771d {
+.image-16a3932 {
   object-fit: contain;
 }
 
 
-.cover-364f13c {
+.cover-820706d {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
 }
 
-.meta-364f13c {
+.meta-820706d {
   font-size: var(--font-size-4);
 }
 
-.gallery-364f13c {
+.gallery-820706d {
   padding: var(--spacing-0);
   border: var(--width-border) solid transparent;
   border-radius: var(--radius);
@@ -211,26 +216,26 @@
   margin-bottom: var(--spacing-0);
 }
 
-.gallery-364f13c:hover {
+.gallery-820706d:hover {
   background: var(--color-background-2);
 }
 
-.delete-364f13c {
+.delete-820706d {
   top: var(--spacing-1);
   right: var(--spacing-1);
   border-radius: var(--radius);
 }
 
-.thumbnail-5d5627e {
+.thumbnail-7c09578 {
   aspect-ratio: 1;
   overflow: hidden;
 }
 
-.cover-5d5627e {
+.cover-7c09578 {
   object-fit: cover;
 }
 
-.file_name-5d5627e {
+.file_name-7c09578 {
   font-size: var(--font-size-4);
   color: var(--color-content-1);
   padding-left: var(--spacing-0);
@@ -240,14 +245,14 @@
   overflow: hidden;
 }
 
-.item-5d5627e {
+.item-7c09578 {
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
   overflow: hidden;
 }
 
 
-.item-cbe8cbe {
+.item-3358d2f {
   background: var(--color-background-1);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
@@ -262,20 +267,20 @@
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
-.title-cbe8cbe {
+.title-3358d2f {
   color: var(--color-content-2);
   grid-area: title;
   font-size: var(--font-size-3);
 }
 
-.loading-85b3531 {
+.loading-ffb69b8 {
   aspect-ratio: 1;
 }
 
 
 /* 模态浮窗外壳的主题：背景、边框、圆角、正文色与内间距；
    定位、居中与列布局由 modal.rs 的 css-style 给出，此处只声明含主题变量的属性。 */
-.modal-c17619d {
+.modal-12008ad {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
   border-radius: var(--radius);
@@ -294,31 +299,31 @@
 /* 打开态才用 flex 布局：display 必须随 <dialog> 的 open 属性切换，
    而 css-style 无法表达随属性切换的条件样式，故只有 display 写在这里，
    其余列布局仍由 modal.rs 的 css-style 给出。 */
-.modal-c17619d[open] {
+.modal-12008ad[open] {
   display: flex;
 }
 
 /* 标题行：用一条细边线与内容分层，保持低噪声 */
-.header-c17619d {
+.header-12008ad {
   border-bottom: var(--width-border) solid var(--color-border);
   padding-bottom: var(--spacing-1);
 }
 
 /* 关闭按钮：图标与文案贴紧成一组，形成单一视觉单元 */
-.close-c17619d {
+.close-12008ad {
   gap: var(--spacing-0);
 }
 
 
 /* 左下角通知容器：主题定位与间距，flex 布局由 Rust 内联样式提供 */
-.notices-2b8e813 {
+.notices-9a8a092 {
   bottom: var(--spacing-0);
   left: var(--spacing-0);
   gap: var(--spacing-0);
 }
 
 /* 通知条主题外观：布局由父容器 flex 提供 */
-.notice-2b8e813 {
+.notice-9a8a092 {
   padding: var(--spacing-0);
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
@@ -327,7 +332,7 @@
 }
 
 
-.preview-94a09c0 {
+.preview-89b7997 {
   grid-auto-flow: column;
   grid-auto-columns: var(--size-0);
   gap: var(--spacing-0);
@@ -335,41 +340,41 @@
   scrollbar-width: auto;
 }
 
-.preview-94a09c0::-webkit-scrollbar {
+.preview-89b7997::-webkit-scrollbar {
   display: block;
 }
 
-.label-91263b3 {
+.label-93b2ab4 {
   color: var(--color-content-1);
 }
 
-.error-91263b3 {
+.error-93b2ab4 {
   color: var(--color-danger);
 }
 
-.settings-91263b3 {
+.settings-93b2ab4 {
   overflow: auto;
   gap: var(--spacing-0);
   padding: var(--spacing-0);
 }
 
-.tabs-91263b3 {
+.tabs-93b2ab4 {
   gap: var(--spacing-0);
 }
 
-.tab-91263b3 {
+.tab-93b2ab4 {
   color: var(--color-content-1);
   gap: var(--spacing-0);
 }
 
-.tab_active-91263b3 {
+.tab_active-93b2ab4 {
   background: var(--color-accent-0);
   border-color: var(--color-accent-1);
   color: var(--color-content-2);
   gap: var(--spacing-0);
 }
 
-.shrink_on_scroll-68d1386 {
+.shrink_on_scroll-a5b3fe9 {
   overflow: hidden;
   /* 因为存在帧丢弃导致有点卡顿，以此平滑 */
   transition:
@@ -378,7 +383,7 @@
 }
 
 
-.layer-c5a665b {
+.layer-2f9f9c3 {
   overflow: hidden;
   transition:
     aspect-ratio 200ms ease,
@@ -386,12 +391,12 @@
 }
 
 
-.group-288b22b {
+.group-d594a69 {
   gap: var(--spacing-1);
 }
 
 /* 条目之间沿用同一节奏：用 gap 而不是给条目加 margin，避免末尾条目多出一段空白。 */
-.entries-288b22b {
+.entries-d594a69 {
   gap: var(--spacing-1);
   /* 条目容器是 ol，顺序语义由 DOM 保留。
      list-style: none 属于防御性保留：当前条目 li 是 grid 项、容器为 flex，本就不会生成列表标记；
@@ -401,7 +406,7 @@
 }
 
 /* 左侧图标栏：主题外观 */
-.tabs-39c58a7 {
+.tabs-e368947 {
   gap: var(--spacing-0);
   padding: var(--spacing-0);
   background: var(--color-background-1);
@@ -409,7 +414,7 @@
 }
 
 /* 链接项：结构 + 主题混合，选择器无法由 Rust 表达，整体保留 */
-.tabs-39c58a7 a {
+.tabs-e368947 a {
   display: inline-flex;
   align-items: center;
   gap: 0;
@@ -420,12 +425,12 @@
   cursor: pointer;
 }
 
-.tabs-39c58a7 a:hover {
+.tabs-e368947 a:hover {
   background: var(--color-background-2);
   color: var(--color-content-2);
 }
 
-.tabs-39c58a7 [aria-current] {
+.tabs-e368947 [aria-current] {
   background: var(--color-accent-0);
   border-color: var(--color-border);
   color: var(--color-content-2);
@@ -434,11 +439,11 @@
 
 /* UploadPanel 上传面板：类只保留主题变量样式与 css-style 无法表达的渲染特性 */
 
-.title_input_title-b8a49f4 {
+.title_input_title-aa137df {
   color: var(--color-content-1);
 }
 
-.upload-b8a49f4 {
+.upload-aa137df {
   padding: var(--spacing-0);
   gap: var(--spacing-0);
 }
@@ -448,13 +453,13 @@
    浮窗外壳主题与标题行已在 `modal.module.css`。 */
 
 /* 说明文字：降到次级正文色，不与条目标题抢注意力 */
-.intro-7b5581c {
+.intro-9fc8880 {
   color: var(--color-content-0);
   font-size: var(--font-size-3);
 }
 
 /* 条目滚动区：条目之间留出比外壳更大的呼吸间距 */
-.list-7b5581c {
+.list-9fc8880 {
   gap: var(--spacing-2);
 
   /* 例外：overflow-y 在 css-style 暂无类型化 API，只能在此声明 */
@@ -462,28 +467,11 @@
 }
 
 
-/* AudioInput 检查器编辑器：输入状态、增益范围与输入不可用提示 */
-
-.audio_input-b4262ba {
-  color: var(--color-content-0);
-}
-
-.title-b4262ba {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-}
-
-.label-b4262ba {
-  color: var(--color-content-1);
-  font-size: var(--font-size-4);
-}
-
-.value-b4262ba {
-  color: var(--color-accent-1);
-  font-size: var(--font-size-4);
-}
+/* AudioInput 检查器编辑器：输入状态与输入不可用提示。
+   根壳与标题样式由 shell.module.css 统一提供。
+   只声明主题变量；字距与行距属于视觉基线，写在 audio_input.rs 的内联 `css-style` 里。
+   `.lamp` 的过渡留在样式表：`prefers-reduced-motion` 的覆盖需要媒体查询，
+   写成行内样式会压过该覆盖。 */
 
 /* 可用时提高文字亮度；不可用时保持辅助色 */
 .status-b4262ba {
@@ -498,6 +486,7 @@
   color: var(--color-content-1);
 }
 
+/* 过渡与 reduced-motion 覆盖依赖媒体查询，无法写进行内样式。 */
 .lamp-b4262ba {
   background: var(--color-background-0);
   border-color: var(--color-border);
@@ -514,7 +503,6 @@
 .hint-b4262ba {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  line-height: 1.5;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -570,23 +558,8 @@
 }
 
 
-/* Clock 检查器编辑器：速度、走带状态与分频/门限摘要 */
-
-.clock-ba27404 {
-  color: var(--color-content-0);
-}
-
-.title-ba27404 {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-}
-
-.label-ba27404 {
-  color: var(--color-content-1);
-  font-size: var(--font-size-4);
-}
+/* Clock 检查器编辑器：速度、走带状态与分频/门限摘要；
+   根壳与标题样式由 shell.module.css 统一提供。 */
 
 .value-ba27404 {
   color: var(--color-accent-1);
@@ -684,6 +657,17 @@
   color: var(--color-content-0);
 }
 
+/* 控制器端口已接线：参数滑条/旋钮只读，置灰并禁用指针交互，读数仍可见（断线后的回落值） */
+.param_controlled-1a46747 {
+  opacity: 0.55;
+}
+
+/* 只禁用真正的交互面；根容器仍接收悬浮事件，「由接线控制」提示才有机会出现 */
+.param_controlled-1a46747 .slider_track-1a46747,
+.param_controlled-1a46747 .knob_face-1a46747 {
+  pointer-events: none;
+}
+
 /* ---------- 节点内联 fader ---------- */
 .slider_label-1a46747 {
   color: var(--color-content-0);
@@ -757,12 +741,12 @@
 .knob_label-1a46747 {
   color: var(--color-content-0);
   font-size: var(--font-size-4);
+
+  /* css-style 无 overflow 的类型化 API；截断所需的 text-overflow 在 Rust 中声明 */
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.knob_value-1a46747,
-.knob_readout-1a46747 {
+.knob_value-1a46747 {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
   font-variant-numeric: tabular-nums;
@@ -908,24 +892,14 @@
 }
 
 
-/* Envelope 检查器编辑器：放大 ADSR 曲线与参数图例 */
+/* Envelope 检查器编辑器：放大 ADSR 曲线与参数图例；
+   根壳与标题样式由 shell.module.css 统一提供。 */
 
-.envelope-900f680 {
-  color: var(--color-content-0);
-}
-
-.title-900f680 {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-}
-
+/* SVG 的 overflow 与渲染属性没有 css-style 类型化 API */
 .chart-900f680 {
   overflow: visible;
 }
 
-/* SVG 渲染属性无 css-style 类型化 API */
 .baseline-900f680 {
   stroke: var(--color-border);
   stroke-dasharray: 2 3;
@@ -963,19 +937,12 @@
   vector-effect: non-scaling-stroke;
 }
 
-.legend-900f680 {
-  color: var(--color-content-0);
-}
-
-.legend_row-900f680 {
-  color: var(--color-content-0);
-}
-
 .legend_label-900f680 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
 
+/* 数字等宽对齐没有 css-style 类型化 API */
 .legend_value-900f680 {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
@@ -1026,20 +993,23 @@
 }
 
 
-/* Help 帮助浮层 */
+/* Help 帮助浮层：主题变量，以及 `css-style` 无法表达的 `overflow`、
+   `grid-template-columns`（含窄屏列数）与伪元素内容；布局见 help.rs。 */
 
+/* 遮罩底色由伪元素承载：opacity 只淡化 backdrop，不会让面板内容一起变透明；
+   透明度复用 --opacity-overlay，与 index.css 的 dialog::backdrop 同口径。
+   .overlay 是 fixed + z-index 的层叠上下文，z-index: -1 的伪元素落在面板内容之下。 */
 .overlay-3e630fc {
-  display: none;
-  inset: 0;
-  position: fixed;
-  z-index: 70;
+  isolation: isolate;
 }
 
-.overlay_open-3e630fc {
-  align-items: center;
-  background: color-mix(in srgb, var(--color-background-0) 62%, transparent);
-  display: flex;
-  justify-content: center;
+.overlay-3e630fc::before {
+  background: var(--color-background-0);
+  content: "";
+  inset: 0;
+  opacity: var(--opacity-overlay);
+  position: absolute;
+  z-index: -1;
 }
 
 .panel-3e630fc {
@@ -1048,32 +1018,24 @@
   border-radius: var(--radius);
   box-shadow: 0 14px 44px var(--color-background-0);
   overflow: hidden;
-  width: 620px;
 }
 
 .header-3e630fc {
   background: var(--color-background-2);
   border-bottom: 1px solid var(--color-border);
-  padding: 8px 10px;
 }
 
 .title-3e630fc {
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-3);
-  letter-spacing: 0.06em;
 }
 
 .close-3e630fc {
-  background: transparent;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  cursor: pointer;
   font-size: var(--font-size-3);
-  line-height: 1;
-  min-width: 22px;
-  padding: 1px 5px;
 }
 
 .close-3e630fc:hover {
@@ -1082,10 +1044,7 @@
 }
 
 .body-3e630fc {
-  flex: 1 1 auto;
-  min-height: 0;
   overflow-y: auto;
-  padding: 10px 12px 14px;
 }
 
 .section-3e630fc {
@@ -1093,20 +1052,15 @@
   color: var(--color-content-1);
   font-family: var(--font);
   font-size: var(--font-size-4);
-  letter-spacing: 0.08em;
-  margin-top: 4px;
-  padding-bottom: 3px;
-  text-transform: uppercase;
 }
 
+/* grid-template-columns 无 css-style 类型化 API；窄屏时切为单列。 */
 .shortcuts-3e630fc {
-  /* grid-template-columns 无 css-style 类型化 API */
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .row-3e630fc {
   border-bottom: 1px dotted var(--color-border);
-  padding: 3px 0;
 }
 
 .key-3e630fc {
@@ -1116,30 +1070,16 @@
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
-  padding: 0 5px;
-  white-space: nowrap;
 }
 
 .action-3e630fc {
   color: var(--color-content-0);
   font-size: var(--font-size-4);
-  text-align: right;
-}
-
-.signals-3e630fc {
-  padding: 2px 0;
 }
 
 .signal-3e630fc {
   color: var(--color-content-0);
   font-size: var(--font-size-4);
-}
-
-.signal_dot-3e630fc {
-  border-radius: 50%;
-  display: inline-block;
-  height: 10px;
-  width: 10px;
 }
 
 .signal_audio-3e630fc {
@@ -1152,27 +1092,35 @@
   box-shadow: 0 0 6px var(--color-accent-2);
 }
 
-.patch-3e630fc {
+/* 事件信号图例：使用标准主题色 --color-accent-0，与画布端口同色 */
+.signal_event-3e630fc {
+  background: var(--color-accent-0);
+  box-shadow: 0 0 6px var(--color-accent-0);
+}
+
+/* 音符信号图例：使用标准主题色 --color-content-2，与画布端口同色 */
+.signal_note-3e630fc {
+  background: var(--color-content-2);
+  box-shadow: 0 0 6px var(--color-content-2);
+}
+
+.file-3e630fc {
   color: var(--color-content-0);
 }
 
 .note-3e630fc {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  line-height: 1.5;
 }
 
+/* 伪元素内容与颜色无 css-style 类型化 API。 */
 .note-3e630fc::before {
   color: var(--color-accent-1);
   content: "· ";
 }
 
+/* 断点与 help.rs 的 `NARROW_BREAKPOINT`、面板定宽逻辑同步。 */
 @media (max-width: 760px) {
-  .panel-3e630fc {
-    max-width: 92vw;
-    width: 92vw;
-  }
-
   .shortcuts-3e630fc {
     grid-template-columns: 1fr;
   }
@@ -1239,9 +1187,8 @@
   color: var(--color-content-1);
   font-family: var(--font);
   font-size: var(--font-size-4);
-  letter-spacing: 0.08em;
-  margin: 12px 0 8px;
-  padding-bottom: 3px;
+
+  /* text-transform 无 css-style 类型化 API */
   text-transform: uppercase;
 }
 
@@ -1258,53 +1205,41 @@
 }
 
 .empty_hint-53a6f33 {
-  align-items: center;
   border: 1px dashed var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  display: flex;
   font-size: var(--font-size-4);
-  gap: var(--spacing-1);
-  justify-content: space-between;
-  margin-top: 10px;
-  padding: 6px 8px;
 }
 
 /* ---------- 概览 ---------- */
 .overview-53a6f33,
 .single-53a6f33,
 .multi-53a6f33,
-.stat-53a6f33,
+.info_row-53a6f33,
 .param_cell-53a6f33 {
   color: var(--color-content-0);
 }
 
-.stats-53a6f33 {
+.info_list-53a6f33 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 6px 8px;
 }
 
-.stat_label-53a6f33 {
+.info_label-53a6f33 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
 
-.stat_value-53a6f33 {
+.info_value-53a6f33 {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
   font-variant-numeric: tabular-nums;
 }
 
-.shortcuts-53a6f33 {
-  margin-top: 4px;
-}
-
 .shortcut-53a6f33 {
   color: var(--color-content-0);
   font-size: var(--font-size-4);
-  padding: 2px 0;
 }
 
 .key-53a6f33 {
@@ -1314,7 +1249,6 @@
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
-  padding: 0 4px;
 }
 
 /* ---------- 单模块 ---------- */
@@ -1377,6 +1311,18 @@
   box-shadow: 0 0 5px var(--color-accent-2);
 }
 
+/* 事件信号图例：使用标准主题色 --color-accent-0，与画布端口同色 */
+.signal_event-53a6f33 {
+  background: var(--color-accent-0);
+  box-shadow: 0 0 5px var(--color-accent-0);
+}
+
+/* 音符信号图例：使用标准主题色 --color-content-2，与画布端口同色 */
+.signal_note-53a6f33 {
+  background: var(--color-content-2);
+  box-shadow: 0 0 5px var(--color-content-2);
+}
+
 .port_name-53a6f33 {
   color: var(--color-content-0);
 }
@@ -1390,14 +1336,17 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  cursor: pointer;
   font-size: var(--font-size-4);
-  padding: 4px 8px;
 }
 
 .action-53a6f33:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
+}
+
+.action-53a6f33:focus-visible {
+  outline: 1px solid var(--color-accent-1);
+  outline-offset: 1px;
 }
 
 .action_danger-53a6f33 {
@@ -1455,18 +1404,8 @@
 }
 
 
-/* Keyboard 检查器编辑器：完整虚拟键盘与 Web MIDI 输入设备 */
-
-.keyboard-aa20500 {
-  color: var(--color-content-0);
-}
-
-.title-aa20500 {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-}
+/* Keyboard 检查器编辑器：完整虚拟键盘与 Web MIDI 输入设备；
+   根壳与标题样式由 shell.module.css 统一提供。 */
 
 .midi-aa20500 {
   border-top: var(--width-border) solid var(--color-border);
@@ -1476,7 +1415,6 @@
 .label-aa20500 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
 .status-aa20500 {
@@ -1492,6 +1430,8 @@
   color: var(--color-content-1);
 }
 
+/* 灯点的过渡与下方的 reduced-motion 覆盖成对存在：写进内联样式会盖过该覆盖，
+   因此过渡保留在此处，不随其余布局属性移入 css-style。 */
 .lamp-aa20500 {
   background: var(--color-background-0);
   border-color: var(--color-border);
@@ -1557,6 +1497,8 @@
 .octave_value-4e82341 {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
+
+  /* 等宽数字没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
   font-variant-numeric: tabular-nums;
 }
 
@@ -1587,17 +1529,18 @@
   color: var(--color-content-2);
 }
 
-/* 溢出裁剪没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
 .keybed-4e82341 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   box-shadow: inset 0 3px 10px var(--color-background-0);
+
+  /* 溢出裁剪没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
   overflow: hidden;
 }
 
-/* 触摸与文本选择行为没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
 .keyboard_keys-4e82341 {
+  /* 触摸与文本选择行为没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
   touch-action: none;
   user-select: none;
 }
@@ -1615,17 +1558,16 @@
 }
 
 .key_white-4e82341:hover {
+  /* 滤镜没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
   filter: brightness(1.06);
 }
 
-/* 层叠顺序没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
 .key_black-4e82341 {
   background: linear-gradient(180deg, var(--color-background-2), var(--color-background-0));
   border: 1px solid var(--color-background-0);
   border-radius: 0 0 var(--radius) var(--radius);
   box-shadow: 0 2px 4px var(--color-background-0);
   color: var(--color-content-1);
-  z-index: 2;
 }
 
 .key_black-4e82341:hover {
@@ -1648,11 +1590,8 @@
 }
 
 
-/* Meter 双声道电平条 */
-
-.meter-d80466a {
-  flex-shrink: 0;
-}
+/* Meter 双声道电平条与削波指示：主题变量，以及 `css-style` 无法表达的
+   `overflow`、`transition`（须与 `prefers-reduced-motion` 同处）。布局见 meter.rs。 */
 
 .meter_row-d80466a {
   color: var(--color-content-0);
@@ -1661,7 +1600,6 @@
 .meter_label-d80466a {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  min-width: 20px;
 }
 
 .meter_track-d80466a {
@@ -1676,8 +1614,20 @@
   background: linear-gradient(90deg, var(--color-accent-0), var(--color-accent-1));
   border-radius: var(--radius);
   box-shadow: 0 0 5px var(--color-accent-1);
-  height: 100%;
   transition: width 60ms linear;
+}
+
+.clip-d80466a {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-content-1);
+  font-size: var(--font-size-4);
+}
+
+.clip_on-d80466a {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 6px var(--color-danger);
+  color: var(--color-danger);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1687,35 +1637,19 @@
 }
 
 
-/* MidiOut 检查器编辑器：Web MIDI 启用、输出设备与状态 */
-
-.midi_out-7c8d806 {
-  color: var(--color-content-0);
-}
-
-.title-7c8d806 {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-}
+/* MidiOut 检查器编辑器：Web MIDI 启用、输出设备与状态；
+   根壳与标题样式由 shell.module.css 统一提供。
+   非主题属性只保留 css-style 无对应 API 的 overflow、font-variant-numeric，
+   以及需要媒体查询覆盖的过渡。 */
 
 .label-7c8d806 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
-.value-7c8d806 {
-  color: var(--color-accent-1);
-  font-size: var(--font-size-4);
-  font-variant-numeric: tabular-nums;
-}
-
-/* 设备名可能很长；溢出由 Rust 侧的 text-overflow: ellipsis 截断。 */
+/* 设备名可能很长；text-overflow 在 Rust 侧，overflow 才能让省略号生效。 */
 .status-7c8d806 {
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
   overflow: hidden;
 }
 
@@ -1732,6 +1666,7 @@
   color: var(--color-danger);
 }
 
+/* 过渡与 reduced-motion 覆盖依赖媒体查询，无法写进行内样式。 */
 .lamp-7c8d806 {
   background: var(--color-background-0);
   border-color: var(--color-border);
@@ -1783,7 +1718,6 @@
 .hint-7c8d806 {
   color: var(--color-danger);
   font-size: var(--font-size-4);
-  line-height: 1.5;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1793,7 +1727,7 @@
 }
 
 
-/* MidiOut 节点迷你面板：Web MIDI 状态与通道号 */
+/* MidiOut 节点迷你面板：Web MIDI 状态 */
 
 .midi_out-728b745 {
   border-top: var(--width-border) solid var(--color-border);
@@ -1804,12 +1738,6 @@
   color: var(--color-content-1);
   font-size: var(--font-size-4);
   letter-spacing: 0.02em;
-}
-
-.value-728b745 {
-  color: var(--color-accent-1);
-  font-size: var(--font-size-4);
-  font-variant-numeric: tabular-nums;
 }
 
 /* 设备名可能很长；溢出由 Rust 侧的 text-overflow: ellipsis 截断。 */
@@ -2029,11 +1957,19 @@
     inset 0 1px 1px var(--color-content-2);
 }
 
-/* 音符信号：浅色琴键点配紫晕，与音频蓝点、控制紫点区分；端口仍可拖拽连线 */
+/* 事件信号：使用标准主题色 --color-accent-0 */
+.port_event-12fe3a7 {
+  background: var(--color-accent-0);
+  box-shadow:
+    0 0 5px var(--color-accent-0),
+    inset 0 1px 1px var(--color-content-2);
+}
+
+/* 音符信号：使用标准主题色 --color-content-2 */
 .port_note-12fe3a7 {
   background: var(--color-content-2);
   box-shadow:
-    0 0 6px var(--color-accent-2),
+    0 0 6px var(--color-content-2),
     inset 0 1px 1px var(--color-background-0);
 }
 
@@ -2050,6 +1986,12 @@
 .port_control-12fe3a7:hover {
   box-shadow:
     0 0 9px var(--color-accent-2),
+    0 0 0 2px var(--color-accent-0);
+}
+
+.port_event-12fe3a7:hover {
+  box-shadow:
+    0 0 9px var(--color-accent-0),
     0 0 0 2px var(--color-accent-0);
 }
 
@@ -2080,10 +2022,25 @@
 }
 
 
-/* ModuleBrowser 模块浏览器浮层 */
+/* ModuleBrowser 模块浏览器浮层
+   只保留主题变量与 css-style 无类型化 API 的属性（grid、overflow、outline、遮罩伪元素）；
+   布局、尺寸与文本截断在 module_browser.rs 的 css-style 中声明。过渡需由
+   prefers-reduced-motion 统一关闭，因此留在本文件。 */
 
-.overlay-5de19a0 {
-  background: color-mix(in srgb, var(--color-background-0) 58%, transparent);
+/* 遮罩底色由伪元素承载：opacity 只淡化 backdrop，不波及面板内容；透明度复用
+   --opacity-overlay，与 index.css 的 dialog::backdrop 同口径。根节点是 fixed + z-index
+   的层叠上下文，z-index: -1 的伪元素落在面板内容之下。 */
+.module_browser-5de19a0 {
+  isolation: isolate;
+}
+
+.module_browser-5de19a0::before {
+  background: var(--color-background-0);
+  content: "";
+  inset: 0;
+  opacity: var(--opacity-overlay);
+  position: absolute;
+  z-index: -1;
 }
 
 .panel-5de19a0 {
@@ -2091,47 +2048,31 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   box-shadow: 0 14px 44px var(--color-background-0);
-  display: flex;
-  flex-direction: column;
+
+  /* overflow 无 css-style 类型化 API；面板圆角处需要裁掉滚动内容。 */
   overflow: hidden;
-  padding: 10px;
-  width: 560px;
 }
 
 .header-5de19a0 {
   border-bottom: 1px solid var(--color-border);
-  flex: none;
-  margin-bottom: 8px;
-  padding-bottom: 6px;
 }
 
 .title-5de19a0 {
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-3);
-  letter-spacing: 0.06em;
 }
 
 .close-5de19a0 {
-  background: transparent;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  cursor: pointer;
   font-size: var(--font-size-3);
-  line-height: 1;
-  min-width: 22px;
-  padding: 1px 5px;
 }
 
 .close-5de19a0:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
-}
-
-.controls-5de19a0 {
-  flex: none;
-  margin-bottom: 8px;
 }
 
 .search-5de19a0 {
@@ -2141,17 +2082,17 @@
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
-  padding: 5px 8px;
 }
 
 .search-5de19a0:focus {
   border-color: var(--color-accent-1);
+
+  /* outline 无 css-style 类型化 API；聚焦高亮由边框承担。 */
   outline: none;
 }
 
 .tabs-5de19a0 {
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: 6px;
 }
 
 .tab-5de19a0 {
@@ -2159,9 +2100,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  cursor: pointer;
   font-size: var(--font-size-4);
-  padding: 2px 7px;
   transition: color 160ms ease, border-color 160ms ease;
 }
 
@@ -2177,32 +2116,23 @@
 }
 
 .results-5de19a0 {
-  align-content: start;
-  display: grid;
-  flex: 1 1 auto;
-  gap: 5px;
+  /* grid-template-columns、grid-auto-rows 与 overflow-y 无 css-style 类型化 API。 */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
   /* 高度受限时 auto 行会按卡片的最小内容高度（仅 padding 与边框）收缩，文字被裁掉；
      显式取 max-content，让每行保持完整卡片高度，由 overflow-y 承担滚动。 */
   grid-auto-rows: max-content;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  min-height: 0;
   overflow-y: auto;
-  padding-right: 2px;
 }
 
 .card-5de19a0 {
-  align-items: stretch;
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+
+  /* overflow 无 css-style 类型化 API；裁掉色条与文字的圆角外溢。 */
   overflow: hidden;
-  padding: 6px 8px 7px;
-  text-align: left;
   transition: border-color 180ms ease, color 180ms ease;
 }
 
@@ -2213,10 +2143,6 @@
 
 .card_strip-5de19a0 {
   background: var(--color-border);
-  border-radius: 1px;
-  height: 2px;
-  margin-bottom: 3px;
-  width: 22px;
 }
 
 .category_source-5de19a0 {
@@ -2252,44 +2178,35 @@
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
+
+  /* 单行省略必需；overflow 无 css-style 类型化 API。 */
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .card_desc-5de19a0 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  line-height: 1.4;
+
+  /* 单行省略必需；overflow 无 css-style 类型化 API。 */
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .empty-5de19a0 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
+
+  /* 跨满结果网格整行；grid-column 无 css-style 类型化 API。 */
   grid-column: 1 / -1;
-  padding: 16px 4px;
-  text-align: center;
 }
 
 .hint-5de19a0 {
   border-top: 1px solid var(--color-border);
   color: var(--color-content-1);
-  flex: none;
   font-size: var(--font-size-4);
-  margin-top: 6px;
-  padding-top: 5px;
-  text-align: right;
 }
 
 @media (max-width: 760px) {
-  .panel-5de19a0 {
-    max-width: 94vw;
-    width: 94vw;
-  }
-
+  /* 窄屏单列：grid-template-columns 无 css-style 类型化 API。 */
   .results-5de19a0 {
     grid-template-columns: 1fr;
   }
@@ -2303,39 +2220,40 @@
 }
 
 
-/* NoteRecorder 检查器编辑器：录制统计、模式快捷按钮与清除 */
+/* 音符域·输入节点迷你面板：静音回收说明 */
 
-.note_recorder-7f64eaf {
-  color: var(--color-content-0);
+.note_domain_in-c7098c3 {
+  align-items: center;
+  border-top: var(--width-border) solid var(--color-border);
+  color: var(--color-content-1);
+  display: flex;
+  padding: 3px 8px;
 }
 
-.title-7f64eaf {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
+.hint-c7098c3 {
+  font-size: var(--font-size-4);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
 }
+
+
+/* NoteRecorder 检查器编辑器：录制统计、模式快捷按钮与清除；
+   根壳与标题样式由 shell.module.css 统一提供。 */
 
 .label-7f64eaf {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
 .value-7f64eaf {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
+
+  /* `css-style` 无数值变体 API，等宽数字只能留在样式表。 */
   font-variant-numeric: tabular-nums;
 }
 
-.value_record-7f64eaf {
-  color: var(--color-accent-1);
-}
-
-.value_play-7f64eaf {
-  color: var(--color-accent-1);
-}
-
+/* 录音与播放共用 `.value` 的强调色，空闲回到辅助色。 */
 .value_idle-7f64eaf {
   color: var(--color-content-1);
 }
@@ -2346,6 +2264,8 @@
   border-radius: var(--radius);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
+
+  /* 过渡留在样式表，`prefers-reduced-motion` 才能覆盖内联样式。 */
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
     box-shadow 160ms ease;
 }
@@ -2355,8 +2275,7 @@
   color: var(--color-content-2);
 }
 
-.mode-7f64eaf:focus-visible,
-.action-7f64eaf:focus-visible {
+.mode-7f64eaf:focus-visible {
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
 }
@@ -2366,28 +2285,6 @@
   border-color: var(--color-accent-1);
   box-shadow: inset 0 0 6px var(--color-accent-0);
   color: var(--color-content-2);
-}
-
-.action-7f64eaf {
-  background: var(--color-background-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  color: var(--color-content-1);
-  font-size: var(--font-size-4);
-}
-
-.action-7f64eaf:hover {
-  border-color: var(--color-content-1);
-  color: var(--color-content-2);
-}
-
-.action_danger-7f64eaf {
-  color: var(--color-danger);
-}
-
-.action_danger-7f64eaf:hover {
-  border-color: var(--color-danger);
-  color: var(--color-danger);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2450,18 +2347,9 @@
 }
 
 
-/* Output 模块 — 检查器监测面板的主题样式 */
-
-.output_editor-e618fbb {
-  color: var(--color-content-0);
-}
-
-.output_heading-e618fbb {
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-content-1);
-  font-family: var(--font);
-  font-size: var(--font-size-4);
-}
+/* Output 检查器编辑器：主输出电平、削波与统计；只声明主题变量，
+   根壳与标题样式由 shell.module.css 统一提供。
+   `font-variant-numeric` 没有对应的 `css-style` 类型化 API，保留在样式表。 */
 
 /* 检查器削波指示：文字本身随削波状态变成危险色 */
 .output_clip-e618fbb {
@@ -2508,17 +2396,6 @@
   color: var(--color-content-2);
 }
 
-.output_stat_label-e618fbb {
-  color: var(--color-content-1);
-  font-size: var(--font-size-4);
-}
-
-.output_stat_value-e618fbb {
-  color: var(--color-accent-1);
-  font-size: var(--font-size-4);
-  font-variant-numeric: tabular-nums;
-}
-
 
 /* Output 模块 — 节点电平提示与削波 LED 的主题样式 */
 
@@ -2541,18 +2418,10 @@
 }
 
 
-/* Recorder 检查器编辑器：传输按钮、循环开关、波形与统计 */
-
-.recorder-afd6efa {
-  color: var(--color-content-0);
-}
-
-.title-afd6efa {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-}
+/* Recorder 检查器编辑器：传输按钮、循环开关、波形与统计。
+   根壳与标题样式由 shell.module.css 统一提供。
+   非主题属性只保留 css-style 无类型化 API 的 outline 与 font-variant-numeric，
+   以及与 prefers-reduced-motion 成对存在、写进内联样式会盖过该覆盖的过渡。 */
 
 .transport_button-afd6efa {
   background: var(--color-background-2);
@@ -2590,11 +2459,6 @@
   color: var(--color-content-2);
 }
 
-.label-afd6efa {
-  color: var(--color-content-1);
-  font-size: var(--font-size-4);
-}
-
 .value-afd6efa {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
@@ -2614,45 +2478,8 @@
   color: var(--color-content-0);
 }
 
-.action-afd6efa {
-  background: var(--color-background-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  color: var(--color-content-1);
-  font-family: var(--font);
-  font-size: var(--font-size-4);
-  transition:
-    border-color 160ms ease,
-    color 160ms ease;
-}
-
-.action-afd6efa:hover {
-  border-color: var(--color-content-1);
-  color: var(--color-content-2);
-}
-
-.action-afd6efa:disabled {
-  color: var(--color-content-1);
-  opacity: var(--opacity-disabled);
-}
-
-.action-afd6efa:focus-visible {
-  outline: 1px solid var(--color-accent-1);
-  outline-offset: 1px;
-}
-
-.action_danger-afd6efa {
-  color: var(--color-danger);
-}
-
-.action_danger-afd6efa:hover {
-  border-color: var(--color-danger);
-  color: var(--color-danger);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .transport_button-afd6efa,
-  .action-afd6efa {
+  .transport_button-afd6efa {
     transition: none;
   }
 }
@@ -2732,28 +2559,12 @@
 }
 
 
-/* Sampler 检查器编辑器：文件选择、波形、采样信息与清除 */
-
-.sampler-3af4ff9 {
-  color: var(--color-content-0);
-}
-
-.title-3af4ff9 {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-}
+/* Sampler 检查器编辑器：文件选择、波形、采样信息与清除；
+   根壳与标题样式由 shell.module.css 统一提供。 */
 
 .label-3af4ff9 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-}
-
-.value-3af4ff9 {
-  color: var(--color-accent-1);
-  font-size: var(--font-size-4);
-  font-variant-numeric: tabular-nums;
 }
 
 .file_name-3af4ff9 {
@@ -2786,33 +2597,6 @@
   font-size: var(--font-size-4);
 }
 
-.action-3af4ff9 {
-  background: var(--color-background-2);
-  border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
-  color: var(--color-content-1);
-  font-family: var(--font);
-  font-size: var(--font-size-4);
-}
-
-.action-3af4ff9:hover {
-  border-color: var(--color-content-1);
-  color: var(--color-content-2);
-}
-
-.action-3af4ff9:disabled {
-  opacity: var(--opacity-disabled);
-}
-
-.action_danger-3af4ff9 {
-  color: var(--color-danger);
-}
-
-.action_danger-3af4ff9:hover {
-  border-color: var(--color-danger);
-  color: var(--color-danger);
-}
-
 
 /* Sampler 节点迷你面板：采样时长、声道与采样率 */
 
@@ -2840,21 +2624,14 @@
 }
 
 
-/* Sequencer 检查器编辑器：十六步音高与门的网格 */
-
-.sequencer_editor-3592a53 {
-  color: var(--color-content-0);
-}
-
-.title-3592a53 {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-}
+/* Sequencer 检查器编辑器：十六步音高与门的网格。
+   根壳与标题样式由 shell.module.css 统一提供。
+   非主题属性只保留 css-style 无类型化 API 的 grid-template-columns、outline-offset
+   与 font-variant-numeric，以及与 prefers-reduced-motion 成对存在、写进内联样式会
+   盖过该覆盖的过渡。 */
 
 .grid-3592a53 {
-  /* grid-template-columns 无 css-style 类型化 API */
+  /* 4 列铺满 16 步（4×4）；grid-template-columns 无 css-style 类型化 API。 */
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
@@ -2864,7 +2641,9 @@
   border-radius: var(--radius);
   box-shadow: inset 0 1px 0 var(--color-background-2);
   color: var(--color-content-0);
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .step-3592a53:hover {
@@ -2889,8 +2668,9 @@
   border-radius: var(--radius);
   color: var(--color-content-1);
   font-size: var(--font-size-3);
-  line-height: 1;
-  transition: border-color 160ms ease, color 160ms ease;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease;
 }
 
 .step_button-3592a53:hover {
@@ -2899,8 +2679,7 @@
 }
 
 .step_button-3592a53:focus-visible,
-.gate-3592a53:focus-visible,
-.action-3592a53:focus-visible {
+.gate-3592a53:focus-visible {
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
 }
@@ -2911,7 +2690,10 @@
   border-radius: var(--radius);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  transition: border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .gate-3592a53:hover {
@@ -2929,39 +2711,16 @@
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 1px 2px var(--color-background-0);
-  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .gate_on-3592a53 .gate_lamp-3592a53 {
   background: var(--color-accent-1);
   border-color: var(--color-accent-1);
   box-shadow: 0 0 5px var(--color-accent-1);
-}
-
-.gate_label-3592a53 {
-  line-height: 1;
-}
-
-.action-3592a53 {
-  background: var(--color-background-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  color: var(--color-content-1);
-  font-size: var(--font-size-4);
-}
-
-.action-3592a53:hover {
-  border-color: var(--color-content-1);
-  color: var(--color-content-2);
-}
-
-.action_danger-3592a53 {
-  color: var(--color-danger);
-}
-
-.action_danger-3592a53:hover {
-  border-color: var(--color-danger);
-  color: var(--color-danger);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3027,29 +2786,35 @@
 }
 
 
-/* StatusBar 底部状态栏：安静注记条 */
+/* 编辑器外壳：模块专属检查器编辑器共用的根容器与标题档位。
+   外壳构造器在 `shell.rs`，其样式与编辑器一同放在本目录；
+   外边距、纵向排布、gap 与标题字距属于布局，写在 `shell.rs` 的 `css-style` 链里，
+   这里只保留主题变量与 `css-style` 无类型化 API 的标题下边框。 */
+
+.editor-beb1e11 {
+  color: var(--color-content-0);
+}
+
+.title-beb1e11 {
+  color: var(--color-content-2);
+  font-family: var(--font);
+  font-size: var(--font-size-3);
+}
+
+/* 紧凑标题档位（`Heading::Compact`）：小一档字号、辅助色、下边框。 */
+.title_compact-beb1e11 {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-content-1);
+  font-size: var(--font-size-4);
+}
+
+
+/* StatusBar 底部状态栏：只保留主题变量与数字等宽；布局见 status_bar.rs。 */
 
 .status_bar-c2988f6 {
   background: var(--color-background-1);
   border-top: 1px solid var(--color-border);
   color: var(--color-content-0);
-  min-height: 24px;
-}
-
-.left-c2988f6,
-.center-c2988f6,
-.right-c2988f6 {
-  min-width: 0;
-}
-
-.center-c2988f6 {
-  display: flex;
-  flex-grow: 1;
-}
-
-.item-c2988f6,
-.counts-c2988f6 {
-  white-space: nowrap;
 }
 
 .label-c2988f6 {
@@ -3066,72 +2831,51 @@
 .state-c2988f6 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.04em;
 }
 
 .master-c2988f6 {
   border-left: 1px solid var(--color-border);
-  padding-left: 8px;
-}
-
-.clip-c2988f6 {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  color: var(--color-content-1);
-  font-size: var(--font-size-4);
-  padding: 0 3px;
-}
-
-.clip_on-c2988f6 {
-  border-color: var(--color-danger);
-  color: var(--color-danger);
-  box-shadow: 0 0 6px var(--color-danger);
 }
 
 .counts-c2988f6 {
-  display: flex;
   border-left: 1px solid var(--color-border);
-  padding-left: 8px;
-}
-
-@media (max-width: 760px) {
-  .center-c2988f6 {
-    display: none;
-  }
-
-  .counts-c2988f6 {
-    display: none;
-  }
 }
 
 
-/* Toolbar 顶部工具栏：薄边夜馆控制条 */
-
-.host-8ae2964 {
-  position: relative;
-  z-index: 30;
-}
+/* Toolbar 顶部工具栏：只保留主题色，以及 css-style 无法表达或必须留在样式表里的
+   伪元素、字体变体与过渡。布局、尺寸与断点见 toolbar.rs 与 toolbar/。 */
 
 .toolbar-8ae2964 {
   background: var(--color-background-1);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom-color: var(--color-border);
   color: var(--color-content-0);
-  min-height: 34px;
 }
 
 .identity-8ae2964,
-.group-8ae2964,
-.confirm_actions-8ae2964 {
+.actions-8ae2964,
+.transport-8ae2964,
+.tools-8ae2964 {
   color: var(--color-content-0);
-  min-width: 0;
+}
+
+.back-8ae2964 {
+  color: var(--color-content-0);
+}
+
+.title-8ae2964 {
+  color: var(--color-content-2);
+  font-family: var(--font);
+  font-size: var(--font-size-3);
+  text-shadow: 0 0 8px var(--color-background-0);
 }
 
 .back_link-8ae2964 {
-  border: 1px solid var(--color-border);
+  border-color: var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  padding: 2px 6px;
+
+  /* 180ms 过渡基线；过渡与 `prefers-reduced-motion` 需要媒体查询，内联样式无法覆盖，故留在 CSS。 */
   transition: color 180ms ease, border-color 180ms ease;
 }
 
@@ -3140,24 +2884,12 @@
   color: var(--color-content-2);
 }
 
-.title-8ae2964 {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-  letter-spacing: 0.06em;
-  text-shadow: 0 0 8px var(--color-background-0);
-}
-
 .button-8ae2964 {
-  align-items: center;
   background: var(--color-background-2);
-  border: 1px solid var(--color-border);
+  border-color: var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  cursor: pointer;
-  display: flex;
   font-size: var(--font-size-4);
-  justify-content: center;
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
@@ -3167,13 +2899,7 @@
 }
 
 .button-8ae2964:disabled {
-  cursor: default;
   opacity: var(--opacity-disabled);
-}
-
-.button_active-8ae2964 {
-  border-color: var(--color-accent-1);
-  color: var(--color-content-2);
 }
 
 .playing-8ae2964 {
@@ -3183,28 +2909,14 @@
   box-shadow: inset 0 0 8px var(--color-accent-0);
 }
 
-.transport_play-8ae2964 {
-  min-width: 28px;
-}
-
-.transport_stop-8ae2964 {
-  min-width: 26px;
-}
-
 .browser-8ae2964 {
   border-color: var(--color-accent-0);
 }
 
-.patch_button-8ae2964 {
-  min-width: 64px;
-}
-
-.icon_button-8ae2964 {
-  min-width: 22px;
-}
-
 .zoom_reset-8ae2964 {
   color: var(--color-content-1);
+
+  /* `font-variant-numeric` 没有 css-style 类型化 API。 */
   font-variant-numeric: tabular-nums;
 }
 
@@ -3214,7 +2926,6 @@
 
 .power-8ae2964 {
   border-color: var(--color-border);
-  min-width: 54px;
 }
 
 .power_on-8ae2964 {
@@ -3223,11 +2934,9 @@
   box-shadow: inset 0 0 8px var(--color-background-0);
 }
 
-/* ---------- BPM ---------- */
+/* ---------- BPM（每分钟拍数） ---------- */
 .bpm-8ae2964 {
-  border-left: 1px solid var(--color-border);
-  margin-left: 2px;
-  padding-left: 4px;
+  border-left-color: var(--color-border);
 }
 
 .bpm_label-8ae2964 {
@@ -3237,151 +2946,19 @@
 
 .bpm_input-8ae2964 {
   background: var(--color-background-0);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
   color: var(--color-accent-1);
   font-family: var(--font);
   font-size: var(--font-size-4);
+
+  /* `font-variant-numeric` 与 `appearance` 均无 css-style 类型化 API。 */
   font-variant-numeric: tabular-nums;
-  text-align: right;
-  width: 52px;
   appearance: textfield;
 }
 
+/* 原生数字输入的步进箭头在窄宽度下会顶出输入框，隐藏后由两侧按钮负责步进。 */
 .bpm_input-8ae2964::-webkit-inner-spin-button,
 .bpm_input-8ae2964::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  margin: 0;
-}
-
-.bpm_input-8ae2964:focus {
-  border-color: var(--color-accent-1);
-  outline: none;
-}
-
-/* ---------- 补丁菜单 ---------- */
-.patch_wrap-8ae2964 {
-  z-index: 56;
-}
-
-.menu_backdrop-8ae2964 {
-  background: transparent;
-  inset: 0;
-  position: fixed;
-  z-index: 55;
-}
-
-.menu-8ae2964 {
-  background: var(--color-background-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 28px var(--color-background-0);
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  min-width: 152px;
-  padding: 4px;
-  position: absolute;
-  right: 8px;
-  top: 40px;
-}
-
-.menu_item-8ae2964 {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--radius);
-  color: var(--color-content-1);
-  cursor: pointer;
-  font-size: var(--font-size-4);
-  padding: 5px 8px;
-  text-align: left;
-}
-
-.menu_item-8ae2964:hover {
-  background: var(--color-background-1);
-  border-color: var(--color-border);
-  color: var(--color-content-2);
-}
-
-.menu_item_danger-8ae2964 {
-  color: var(--color-danger);
-}
-
-.menu_item_danger-8ae2964:hover {
-  border-color: var(--color-danger);
-  color: var(--color-danger);
-}
-
-.menu_separator-8ae2964 {
-  background: var(--color-border);
-  height: 1px;
-  margin: 3px 2px;
-}
-
-/* ---------- 清空确认 ---------- */
-.confirm_backdrop-8ae2964 {
-  align-items: center;
-  background: color-mix(in srgb, var(--color-background-0) 68%, transparent);
-  display: flex;
-  inset: 0;
-  justify-content: center;
-  position: fixed;
-  z-index: 60;
-}
-
-.confirm-8ae2964 {
-  background: var(--color-background-1);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: 0 12px 40px var(--color-background-0);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-width: 86vw;
-  padding: 14px;
-  width: 320px;
-}
-
-.confirm_title-8ae2964 {
-  color: var(--color-content-2);
-  font-family: var(--font);
-  font-size: var(--font-size-3);
-}
-
-.confirm_text-8ae2964 {
-  color: var(--color-content-0);
-  font-size: var(--font-size-4);
-  line-height: 1.5;
-}
-
-.confirm_danger-8ae2964 {
-  border-color: var(--color-danger);
-  color: var(--color-danger);
-}
-
-.confirm_danger-8ae2964:hover {
-  background: var(--color-danger);
-  color: var(--color-content-2);
-}
-
-@media (max-width: 760px) {
-  .title-8ae2964 {
-    display: none;
-  }
-
-  .transport-8ae2964 {
-    flex-grow: 1;
-  }
-
-  .tools-8ae2964 {
-    flex-grow: 1;
-  }
-}
-
-@media (min-width: 761px) {
-  .mobile_only-8ae2964 {
-    display: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3389,6 +2966,27 @@
   .button-8ae2964 {
     transition: none;
   }
+}
+
+
+/* Tooltip 统一悬浮提示：只保留主题变量与 `css-style` 尚无类型化 API 的属性，
+   布局、宽度、层级与可见性见 tooltip.rs 的 `layout_style` 与 `Z_INDEX`。 */
+
+.tooltip-707922f {
+  background: var(--color-background-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px var(--color-background-0);
+  color: var(--color-content-2);
+  font-family: var(--font);
+  font-size: var(--font-size-4);
+  line-height: var(--line-height);
+
+  /* 长单词在提示宽度内折行；`css-style` 没有 `overflow-wrap` 的类型化 API。 */
+  overflow-wrap: break-word;
+
+  /* 浮层只用于看，不参与指针命中，避免遮住引用元素后自己把 hover 打断。 */
+  pointer-events: none;
 }
 
 
@@ -3410,7 +3008,8 @@
 }
 
 
-/* ModuleUI 通用模块组件：波形预览 */
+/* Waveform 波形预览：主题变量，以及 `css-style` 没有类型化 API 的 `overflow`
+   与 SVG 绘制属性（`fill` / `stroke-*` / `vector-effect`）。布局见 waveform.rs。 */
 
 .waveform-e296202 {
   background: var(--color-background-0);
@@ -3418,13 +3017,6 @@
   border-radius: var(--radius);
   box-shadow: inset 0 1px 4px var(--color-background-0);
   overflow: hidden;
-  padding: 2px;
-}
-
-.waveform_svg-e296202 {
-  display: block;
-  height: 100%;
-  width: 100%;
 }
 
 .waveform_path-e296202 {
@@ -3444,7 +3036,9 @@
 }
 
 
-/* Workspace 主画布：深蓝夜馆底、稀疏点阵与信号连线 */
+/* Workspace 主画布：深蓝夜馆底、点阵网格、框选与信号连线。
+   布局属性一律由 Rust 的 css-style 下发，这里只保留含 var(--*) 的主题属性，
+   以及 css-style 没有类型化 API 的属性（overflow、pointer-events 等）。 */
 
 .workspace-fb9a18b {
   background:
@@ -3457,17 +3051,20 @@
   touch-action: none;
 }
 
-/* 网格层是 .inner 的子元素，随父级 transform 自动平移/缩放；
-   inset 仅用于覆盖可视区域，不做尺寸计算。 */
+/* 网格层：位置与尺寸（含覆盖视口的负向扩张）由 Rust 下发，这里只保留背景图与漂移动画。
+   背景铺贴尺寸必须等于下面 grid-drift 的位移量（漂移一格正好回到原点），改一处需同步另一处；
+   background-size 与 @keyframes 都没有 css-style 类型化 API，故与动画一并留在本文件。 */
 .grid-fb9a18b {
-  position: absolute;
-  inset: -100vmax;
   background-image: radial-gradient(
     circle at 1px 1px,
-    color-mix(in srgb, var(--color-border) 42%, transparent) 1px,
+    var(--color-border) 1px,
     transparent 0
   );
   background-size: 32px 32px;
+
+  /* 点阵亮度用元素整体不透明度压低，替代对 --color-border 的透明混色；
+     本层没有子元素，42% 与原来的 42% 透明混色等效。 */
+  opacity: 42%;
   animation: grid-drift 160s linear infinite;
   pointer-events: none;
 }
@@ -3482,6 +3079,7 @@
   }
 }
 
+/* 内容层：transform-origin 决定缩放基准，overflow 让子层不被裁切 */
 .inner-fb9a18b {
   overflow: visible;
   transform-origin: 0 0;
@@ -3493,17 +3091,20 @@
   pointer-events: none;
 }
 
-/* 域凸包：低透明度色块配同色虚线边框，圆角连接点避免尖角 */
+/* 域凸包：标准主题色 --color-accent-1 的色块配同色虚线边框，填充透明度用 fill-opacity
+   表达；圆角连接点避免尖角 */
 .domain_hull-fb9a18b {
-  fill: color-mix(in srgb, var(--color-accent-1) 10%, transparent);
+  fill: var(--color-accent-1);
+  fill-opacity: 0.1;
   stroke: var(--color-accent-1);
   stroke-dasharray: 8 6;
   stroke-linejoin: round;
   stroke-width: 1.5;
 }
 
-/* 连线层根节点：不拦截事件，命中由连线自身开启 */
-.edge-fb9a18b {
+/* 连线层与框选层根节点：不拦截事件，命中由连线自身开启 */
+.edge-fb9a18b,
+.marquee_layer-fb9a18b {
   overflow: visible;
   pointer-events: none;
 }
@@ -3518,16 +3119,22 @@
   transition: stroke 180ms ease, stroke-width 180ms ease;
 }
 
-/* 控制信号：紫白细线，比音频更安静 */
+/* 控制信号：标准主题色 --color-accent-2 实线，比音频细一档 */
 .edge_path-fb9a18b.edge_control-fb9a18b {
   stroke: var(--color-accent-2);
   stroke-width: 1.2;
   opacity: 0.88;
 }
 
-/* 音符信号：紫色点线，与实线控制连线区分 */
+/* 事件信号：使用标准主题色 --color-accent-0，保留 1 4 点线；线宽沿用 .edge_path 基值 */
+.edge_path-fb9a18b.edge_event-fb9a18b {
+  stroke: var(--color-accent-0);
+  stroke-dasharray: 1 4;
+}
+
+/* 音符信号：使用标准主题色 --color-content-2 */
 .edge_path-fb9a18b.edge_note-fb9a18b {
-  stroke: var(--color-accent-2);
+  stroke: var(--color-content-2);
   stroke-dasharray: 2 3;
 }
 
@@ -3536,6 +3143,7 @@
   stroke-width: 2.4;
 }
 
+/* 绘制中的预览是连线唯一的虚线形态：虚线加流动动画表示尚未落位的临时状态 */
 .edge_drawing-fb9a18b {
   fill: none;
   stroke: var(--color-accent-1);
@@ -3545,14 +3153,20 @@
   animation: edge-march 800ms linear infinite;
 }
 
-.edge_drawing-fb9a18b.edge_control-fb9a18b {
-  stroke: var(--color-accent-2);
-}
-
 @keyframes edge-march {
   to {
     stroke-dashoffset: -9;
   }
+}
+
+/* 框选矩形：标准主题色 --color-accent-1 的色块配实线描边，填充透明度用 fill-opacity
+   表达，虚线只留给连线预览 */
+.marquee-fb9a18b {
+  fill: var(--color-accent-1);
+  fill-opacity: 0.12;
+  stroke: var(--color-accent-1);
+  stroke-width: 1;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
