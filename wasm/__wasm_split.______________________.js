@@ -4,8 +4,8 @@ let sharedImports = undefined;
 function getSharedImports() {
     if (sharedImports === undefined) {
         sharedImports = { __wasm_split: {  } };
-        const { __wasm_split_shared0, __indirect_function_table, memory,  } = initSync(undefined, undefined);
-        Object.assign(sharedImports.__wasm_split, { __wasm_split_shared0, __indirect_function_table, memory,  });
+        const { memory, __wasm_split_shared0, __indirect_function_table,  } = initSync(undefined, undefined);
+        Object.assign(sharedImports.__wasm_split, { memory, __wasm_split_shared0, __indirect_function_table,  });
     }
     return sharedImports;
 }
@@ -49,89 +49,83 @@ function makeLoad(fetcher, deps) {
         return loadingModule;
     }
 }
-/* view_12219682889723538383, view_14438286017754763504 */
+/* view_14438286017754763504, view_14477661759848338679 */
 const __chunk_5 = makeLoad(() => {
     const src = fetch(new URL("./chunk_5.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_12219682889723538383, view_14438286017754763504, view_14477661759848338679 */
+/* view_14438286017754763504, view_14477661759848338679, view_17491312028306019509 */
 const __chunk_6 = makeLoad(() => {
     const src = fetch(new URL("./chunk_6.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_12219682889723538383, view_14438286017754763504, view_14477661759848338679, view_17491312028306019509 */
+/* view_14438286017754763504, view_14477661759848338679, view_9313542293454953196 */
 const __chunk_7 = makeLoad(() => {
     const src = fetch(new URL("./chunk_7.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_12219682889723538383, view_14438286017754763504, view_17491312028306019509 */
+/* view_14438286017754763504, view_17491312028306019509 */
 const __chunk_8 = makeLoad(() => {
     const src = fetch(new URL("./chunk_8.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_12219682889723538383, view_14477661759848338679 */
+/* view_14438286017754763504, view_17491312028306019509, view_9313542293454953196 */
 const __chunk_9 = makeLoad(() => {
     const src = fetch(new URL("./chunk_9.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_12219682889723538383, view_14477661759848338679, view_17491312028306019509 */
+/* view_14438286017754763504, view_9313542293454953196 */
 const __chunk_10 = makeLoad(() => {
     const src = fetch(new URL("./chunk_10.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_12219682889723538383, view_17491312028306019509 */
+/* view_14477661759848338679, view_17491312028306019509 */
 const __chunk_11 = makeLoad(() => {
     const src = fetch(new URL("./chunk_11.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_14438286017754763504, view_14477661759848338679 */
+/* view_14477661759848338679, view_17491312028306019509, view_9313542293454953196 */
 const __chunk_12 = makeLoad(() => {
     const src = fetch(new URL("./chunk_12.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_14438286017754763504, view_14477661759848338679, view_17491312028306019509 */
+/* view_14477661759848338679, view_9313542293454953196 */
 const __chunk_13 = makeLoad(() => {
     const src = fetch(new URL("./chunk_13.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_14438286017754763504, view_17491312028306019509 */
+/* view_17491312028306019509, view_9313542293454953196 */
 const __chunk_14 = makeLoad(() => {
     const src = fetch(new URL("./chunk_14.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
 , []);
-/* view_14477661759848338679, view_17491312028306019509 */
-const __chunk_15 = makeLoad(() => {
-    const src = fetch(new URL("./chunk_15.wasm", import.meta.url));
+export const __wasm_split_load_view_9313542293454953196 = wrapAsyncCb(makeLoad(() => {
+    const src = fetch(new URL("./split_view_9313542293454953196.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
-, []);
+, [__chunk_7, __chunk_9, __chunk_10, __chunk_12, __chunk_13, __chunk_14]));
 export const __wasm_split_load_view_17491312028306019509 = wrapAsyncCb(makeLoad(() => {
     const src = fetch(new URL("./split_view_17491312028306019509.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
-, [__chunk_7, __chunk_8, __chunk_10, __chunk_11, __chunk_13, __chunk_14, __chunk_15]));
+, [__chunk_6, __chunk_8, __chunk_9, __chunk_11, __chunk_12, __chunk_14]));
 export const __wasm_split_load_view_14477661759848338679 = wrapAsyncCb(makeLoad(() => {
     const src = fetch(new URL("./split_view_14477661759848338679.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
-, [__chunk_6, __chunk_7, __chunk_9, __chunk_10, __chunk_12, __chunk_13, __chunk_15]));
+, [__chunk_5, __chunk_6, __chunk_7, __chunk_11, __chunk_12, __chunk_13]));
 export const __wasm_split_load_view_14438286017754763504 = wrapAsyncCb(makeLoad(() => {
     const src = fetch(new URL("./split_view_14438286017754763504.wasm", import.meta.url));
     return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
 }
-, [__chunk_5, __chunk_6, __chunk_7, __chunk_8, __chunk_12, __chunk_13, __chunk_14]));
-export const __wasm_split_load_view_12219682889723538383 = wrapAsyncCb(makeLoad(() => {
-    const src = fetch(new URL("./split_view_12219682889723538383.wasm", import.meta.url));
-    return async (imports) => (WebAssembly.instantiateStreaming(src, imports));
-}
-, [__chunk_5, __chunk_6, __chunk_7, __chunk_8, __chunk_9, __chunk_10, __chunk_11]));
+, [__chunk_5, __chunk_6, __chunk_7, __chunk_8, __chunk_9, __chunk_10]));

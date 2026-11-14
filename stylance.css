@@ -996,20 +996,15 @@
 /* Help 帮助浮层：主题变量，以及 `css-style` 无法表达的 `overflow`、
    `grid-template-columns`（含窄屏列数）与伪元素内容；布局见 help.rs。 */
 
-/* 遮罩底色由伪元素承载：opacity 只淡化 backdrop，不会让面板内容一起变透明；
+/* 遮罩底色直接由根节点背景承载：color-mix 只影响背景，不会让面板内容一起变透明；
    透明度复用 --opacity-overlay，与 index.css 的 dialog::backdrop 同口径。
-   .overlay 是 fixed + z-index 的层叠上下文，z-index: -1 的伪元素落在面板内容之下。 */
+   根节点是 fixed + cover，层序由 DOM 顺序表达，不再声明层级数字。 */
 .overlay-3e630fc {
-  isolation: isolate;
-}
-
-.overlay-3e630fc::before {
-  background: var(--color-background-0);
-  content: "";
-  inset: 0;
-  opacity: var(--opacity-overlay);
-  position: absolute;
-  z-index: -1;
+  background: color-mix(
+    in srgb,
+    var(--color-background-0) var(--opacity-overlay),
+    transparent
+  );
 }
 
 .panel-3e630fc {
@@ -1127,21 +1122,27 @@
 }
 
 
-/* Inspector 检查器：桌面常驻右栏，移动端右侧抽屉 */
+/* Inspector 检查器：桌面常驻右栏，移动端右侧抽屉。
+   本文件保留主题变量、伪类/伪元素与媒体查询，以及 `css-style` 无类型化 API 的
+   `overflow`、`grid-template-columns`、`grid-column`、`font-variant-numeric`、`outline`/`outline-offset`。
+   `width` 与 `display` 因与窄屏媒体查询成对覆盖，同样留在样式表；
+   本次收敛的高度链（`.inspector_host`/`.inspector`/`.body` 的高度、flex 尺寸与内边距）见 `inspector.rs`。
+   其余选择器（如 `.header`、`.close` 的内边距）本轮未收敛，其布局声明仍留在样式表。 */
 
 .inspector_host-53a6f33 {
+  /* 窄屏媒体查询成对改为 display: contents，故 display 留在样式表，不得内联 */
   display: flex;
-  min-height: 0;
 }
 
 .inspector-53a6f33 {
   background: var(--color-background-1);
   border-left: 1px solid var(--color-border);
   color: var(--color-content-0);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+
+  /* `overflow` 无 css-style 类型化 API；检查器只有 `.body` 一个滚动层，此处只做裁剪 */
   overflow: hidden;
+
+  /* 与窄屏 `width: min(300px, 88vw)` 成对覆盖，故 `width` 留在样式表 */
   width: 300px;
 }
 
@@ -1176,10 +1177,8 @@
 }
 
 .body-53a6f33 {
-  flex: 1 1 auto;
-  min-height: 0;
+  /* 检查器唯一滚动层；`overflow` 无 css-style 类型化 API，故留在样式表 */
   overflow-y: auto;
-  padding: 10px;
 }
 
 .section_title-53a6f33 {
@@ -1187,9 +1186,6 @@
   color: var(--color-content-1);
   font-family: var(--font);
   font-size: var(--font-size-4);
-
-  /* text-transform 无 css-style 类型化 API */
-  text-transform: uppercase;
 }
 
 .hint-53a6f33,
@@ -1234,6 +1230,8 @@
 .info_value-53a6f33 {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
+
+  /* `font-variant-numeric` 无 css-style 类型化 API */
   font-variant-numeric: tabular-nums;
 }
 
@@ -1282,6 +1280,7 @@
 }
 
 .param_cell_wide-53a6f33 {
+  /* `grid-column` 无 css-style 类型化 API */
   grid-column: 1 / -1;
 }
 
@@ -1345,6 +1344,7 @@
 }
 
 .action-53a6f33:focus-visible {
+  /* 伪类内声明且无 css-style 类型化 API，内联样式无法表达 `:focus-visible` */
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
 }
@@ -1360,6 +1360,7 @@
 
 /* ---------- 移动端抽屉 ---------- */
 .scrim-53a6f33 {
+  /* 与窄屏媒体查询内 `.scrim_open` 的 `display: block` 成对，内联会压过媒体查询 */
   display: none;
 }
 
@@ -1368,6 +1369,8 @@
     display: contents;
   }
 
+  /* 窄屏层序由 DOM 顺序表达：inspector 在 workspace 之后，scrim 又位于抽屉之前，
+     因此遮罩盖住画布、抽屉盖住遮罩；不再声明层级数字。 */
   .inspector-53a6f33 {
     bottom: 0;
     box-shadow: -12px 0 32px var(--color-background-0);
@@ -1378,7 +1381,6 @@
     transition: transform 260ms ease, visibility 0s linear 260ms;
     visibility: hidden;
     width: min(300px, 88vw);
-    z-index: 41;
   }
 
   .inspector_open-53a6f33 {
@@ -1393,7 +1395,6 @@
     inset: 0;
     opacity: var(--opacity-overlay);
     position: fixed;
-    z-index: 40;
   }
 }
 
@@ -2023,24 +2024,19 @@
 
 
 /* ModuleBrowser 模块浏览器浮层
-   只保留主题变量与 css-style 无类型化 API 的属性（grid、overflow、outline、遮罩伪元素）；
+   只保留主题变量与 css-style 无类型化 API 的属性（grid、overflow、outline）；
    布局、尺寸与文本截断在 module_browser.rs 的 css-style 中声明。过渡需由
    prefers-reduced-motion 统一关闭，因此留在本文件。 */
 
-/* 遮罩底色由伪元素承载：opacity 只淡化 backdrop，不波及面板内容；透明度复用
-   --opacity-overlay，与 index.css 的 dialog::backdrop 同口径。根节点是 fixed + z-index
-   的层叠上下文，z-index: -1 的伪元素落在面板内容之下。 */
+/* 遮罩底色直接由根节点背景承载：color-mix 只影响背景，不波及面板内容；透明度复用
+   --opacity-overlay，与 index.css 的 dialog::backdrop 同口径。
+   根节点是 fixed + cover，层序由 DOM 顺序表达，不再声明层级数字。 */
 .module_browser-5de19a0 {
-  isolation: isolate;
-}
-
-.module_browser-5de19a0::before {
-  background: var(--color-background-0);
-  content: "";
-  inset: 0;
-  opacity: var(--opacity-overlay);
-  position: absolute;
-  z-index: -1;
+  background: color-mix(
+    in srgb,
+    var(--color-background-0) var(--opacity-overlay),
+    transparent
+  );
 }
 
 .panel-5de19a0 {
@@ -2825,6 +2821,7 @@
 .value-c2988f6 {
   color: var(--color-content-2);
   font-size: var(--font-size-4);
+  /* `font-variant-numeric` 没有 css-style 类型化 API。 */
   font-variant-numeric: tabular-nums;
 }
 
@@ -2842,8 +2839,12 @@
 }
 
 
-/* Toolbar 顶部工具栏：只保留主题色，以及 css-style 无法表达或必须留在样式表里的
-   伪元素、字体变体与过渡。布局、尺寸与断点见 toolbar.rs 与 toolbar/。 */
+/* Toolbar 顶部工具栏：只保留主题色、站点字号变量，以及 css-style 无法表达或必须留在
+   样式表里的伪元素、字体变体与过渡。布局、尺寸与断点见 toolbar.rs 与 toolbar/。
+
+   按钮、返回入口与 BPM 输入的字号统一取 var(--font-size-3)（1rem），与站点按钮
+   `font-size: inherit` 的实际值一致；内边距、最小宽度与高度由 toolbar/ 的内联样式按 rem
+   给出。BPM 标签是说明文字而非控件，沿用更小的 --font-size-4。 */
 
 .toolbar-8ae2964 {
   background: var(--color-background-1);
@@ -2865,7 +2866,8 @@
 .title-8ae2964 {
   color: var(--color-content-2);
   font-family: var(--font);
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-1);
+  
   text-shadow: 0 0 8px var(--color-background-0);
 }
 
@@ -2873,7 +2875,7 @@
   border-color: var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  font-size: var(--font-size-4);
+  font-size: var(--font-size-3);
 
   /* 180ms 过渡基线；过渡与 `prefers-reduced-motion` 需要媒体查询，内联样式无法覆盖，故留在 CSS。 */
   transition: color 180ms ease, border-color 180ms ease;
@@ -2889,7 +2891,7 @@
   border-color: var(--color-border);
   border-radius: var(--radius);
   color: var(--color-content-1);
-  font-size: var(--font-size-4);
+  font-size: var(--font-size-3);
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
@@ -2948,10 +2950,12 @@
   background: var(--color-background-0);
   color: var(--color-accent-1);
   font-family: var(--font);
-  font-size: var(--font-size-4);
+  font-size: var(--font-size-3);
 
-  /* `font-variant-numeric` 与 `appearance` 均无 css-style 类型化 API。 */
+  /* 行高取站点变量，输入框因此与 1rem 按钮同高；`font-variant-numeric` 与 `appearance`
+     均无 css-style 类型化 API。 */
   font-variant-numeric: tabular-nums;
+  line-height: var(--line-height);
   appearance: textfield;
 }
 
@@ -2970,7 +2974,8 @@
 
 
 /* Tooltip 统一悬浮提示：只保留主题变量与 `css-style` 尚无类型化 API 的属性，
-   布局、宽度、层级与可见性见 tooltip.rs 的 `layout_style` 与 `Z_INDEX`。 */
+   布局、宽度与可见性见 tooltip.rs 的 `layout_style`；层序由 Portal 追加到 body 末尾的
+   DOM 顺序表达。 */
 
 .tooltip-707922f {
   background: var(--color-background-1);
@@ -3052,30 +3057,40 @@
 }
 
 /* 网格层：位置与尺寸（含覆盖视口的负向扩张）由 Rust 下发，这里只保留背景图与漂移动画。
+   点阵画在伪元素上，漂移只改其 `transform`（可交给合成器推进），不再逐帧改
+   `background-position` 触发整屏绘制；伪元素向四边各外扩一格（32px），覆盖 0 → 32px
+   的位移，静止时点阵相位与原背景相同（图案以 32px 为周期）。
    背景铺贴尺寸必须等于下面 grid-drift 的位移量（漂移一格正好回到原点），改一处需同步另一处；
-   background-size 与 @keyframes 都没有 css-style 类型化 API，故与动画一并留在本文件。 */
+   background-size、伪元素与 @keyframes 都没有 css-style 类型化 API，故与动画一并留在本文件。 */
 .grid-fb9a18b {
+  /* 点阵亮度用元素整体不透明度压低，替代对 --color-border 的透明混色；
+     本层只有点阵伪元素、没有文字或其它子视图，42% 与原来的 42% 透明混色等效。 */
+  opacity: 42%;
+  pointer-events: none;
+}
+
+.grid-fb9a18b::before {
+  content: "";
+  position: absolute;
+
+  /* 与漂移位移同量：位移到 (32px, 32px) 时四边仍由点阵覆盖。 */
+  inset: -32px;
   background-image: radial-gradient(
     circle at 1px 1px,
     var(--color-border) 1px,
     transparent 0
   );
   background-size: 32px 32px;
-
-  /* 点阵亮度用元素整体不透明度压低，替代对 --color-border 的透明混色；
-     本层没有子元素，42% 与原来的 42% 透明混色等效。 */
-  opacity: 42%;
   animation: grid-drift 160s linear infinite;
-  pointer-events: none;
 }
 
-/* 极慢漂移：只移动背景位置，不移动节点，避免眩晕 */
+/* 极慢漂移：只移动背景点阵，不移动节点，避免眩晕 */
 @keyframes grid-drift {
   from {
-    background-position: 0 0;
+    transform: translate(0, 0);
   }
   to {
-    background-position: 32px 32px;
+    transform: translate(32px, 32px);
   }
 }
 
@@ -3083,6 +3098,14 @@
 .inner-fb9a18b {
   overflow: visible;
   transform-origin: 0 0;
+}
+
+/* 手势期合成层提示：只在画布指针手势进行中由 Rust 追加，静止与空闲不常驻。
+   `will-change` 只影响合成层选择、不改变绘制内容；`transition: none` 保证手势帧
+   不被内容层将来可能出现的过渡拖慢。 */
+.is-gesturing-fb9a18b {
+  will-change: transform;
+  transition: none;
 }
 
 /* 域凸包层：覆盖整个内容层，虚线域框自身不拦截指针事件 */
@@ -3171,6 +3194,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .grid-fb9a18b,
+  .grid-fb9a18b::before,
   .edge_drawing-fb9a18b {
     animation: none;
   }
