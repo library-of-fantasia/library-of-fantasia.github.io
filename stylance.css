@@ -1,5 +1,14 @@
 .image-3e12b38 {
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
+}
+
+
+/* 类名不能简化为 `box`：`box` 是 Rust 保留字，stylance 无法为它生成常量。 */
+.boxed-d841c48 {
+  background: var(--color-background-2);
+  border: var(--width-border) solid var(--color-border);
+  border-radius: var(--radius-1);
+  padding: var(--spacing-0) var(--spacing-0);
 }
 
 
@@ -8,17 +17,9 @@
 }
 
 
-.descriptor-e82be26 {
+.descriptor-308f565 {
   color: var(--color-content-1);
-  font-size: var(--font-size-4);
   gap: var(--spacing-0);
-}
-
-.chip-e82be26 {
-  background: var(--color-background-2);
-  border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--spacing-0);
 }
 
 
@@ -89,7 +90,7 @@
 .drop_zone-130dd38 {
   gap: var(--spacing-0);
   border: var(--width-border) dashed var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
 }
 
@@ -98,7 +99,7 @@
 .entry-d5c5913 {
   background: var(--color-background-1);
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   /* 图标列、标题列与行动列之间留一档。 */
   column-gap: var(--spacing-1);
   grid-template-areas: "icon title action";
@@ -121,7 +122,7 @@
 .action-d5c5913 {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   /* 图标与“下载”贴成一组，间距取主题最小档。 */
   gap: var(--spacing-0);
@@ -192,6 +193,35 @@
   width: calc(var(--size-1) + var(--spacing-0));
 }
 
+.info-7f6925b {
+  color: var(--color-content-0);
+  font-size: var(--font-size-4);
+  gap: var(--spacing-0);
+}
+
+.title-7f6925b,
+.loading-7f6925b {
+  color: var(--color-content-2);
+  font-size: var(--font-size-2);
+}
+
+.details-7f6925b {
+  column-gap: var(--spacing-0);
+  grid-template-columns: max-content minmax(0, 1fr);
+  row-gap: var(--spacing-0);
+}
+
+.label-7f6925b {
+  color: var(--color-content-0);
+  font-size: var(--font-size-3);
+}
+
+.value-7f6925b {
+  color: var(--color-content-1);
+  gap: var(--spacing-0);
+}
+
+
 .image-16a3932 {
   object-fit: contain;
 }
@@ -200,7 +230,7 @@
 .cover-820706d {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
 }
 
@@ -211,7 +241,7 @@
 .gallery-820706d {
   padding: var(--spacing-0);
   border: var(--width-border) solid transparent;
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   background: var(--color-background-1);
   margin-bottom: var(--spacing-0);
 }
@@ -223,7 +253,8 @@
 .delete-820706d {
   top: var(--spacing-1);
   right: var(--spacing-1);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
+  color: var(--color-danger);
 }
 
 .thumbnail-7c09578 {
@@ -247,7 +278,7 @@
 
 .item-7c09578 {
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   overflow: hidden;
 }
 
@@ -255,7 +286,7 @@
 .item-3358d2f {
   background: var(--color-background-1);
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   padding: var(--spacing-1);
   row-gap: var(--spacing-0);
 
@@ -283,7 +314,7 @@
 .modal-12008ad {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   gap: var(--spacing-1);
 
@@ -327,7 +358,7 @@
   padding: var(--spacing-0);
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
 }
 
@@ -421,7 +452,7 @@
   color: var(--color-content-1);
   padding: var(--spacing-0);
   border: var(--width-border) solid transparent;
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   cursor: pointer;
 }
 
@@ -682,7 +713,7 @@
 }
 
 .slider_track-1a46747 {
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   outline: none;
   touch-action: none;
 }
@@ -694,7 +725,7 @@
 
 .slider_groove-1a46747 {
   background: var(--color-background-0);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow:
     inset 0 1px 3px var(--color-background-0),
     0 1px 0 var(--color-border);
@@ -702,7 +733,7 @@
 
 .slider_fill-1a46747 {
   background: linear-gradient(90deg, var(--color-accent-0), var(--color-accent-1));
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: 0 0 5px var(--color-accent-0);
   pointer-events: none;
 }
@@ -715,7 +746,7 @@
 .slider_thumb-1a46747 {
   background: linear-gradient(180deg, var(--color-content-2), var(--color-accent-1));
   border: 1px solid var(--color-accent-1);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow:
     0 0 6px var(--color-accent-1),
     inset 0 0 2px var(--color-background-0);
@@ -797,7 +828,7 @@
 .choice_step-1a46747 {
   background: transparent;
   border: 1px solid transparent;
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   cursor: pointer;
   font-size: var(--font-size-3);
@@ -824,7 +855,7 @@
 .choice_option-1a46747 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
@@ -846,7 +877,7 @@
 .toggle-1a46747 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
   transition: border-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
@@ -1010,7 +1041,7 @@
 .panel-3e630fc {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: 0 14px 44px var(--color-background-0);
   overflow: hidden;
 }
@@ -1028,7 +1059,7 @@
 
 .close-3e630fc {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-3);
 }
@@ -1061,7 +1092,7 @@
 .key-3e630fc {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
@@ -1162,7 +1193,7 @@
 .close-53a6f33 {
   background: transparent;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   cursor: pointer;
   font-size: var(--font-size-3);
@@ -1202,7 +1233,7 @@
 
 .empty_hint-53a6f33 {
   border: 1px dashed var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -1219,7 +1250,7 @@
 .info_list-53a6f33 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
 }
 
 .info_label-53a6f33 {
@@ -1243,7 +1274,7 @@
 .key-53a6f33 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
@@ -1333,7 +1364,7 @@
 .action-53a6f33 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -1449,7 +1480,7 @@
 .toggle-aa20500 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -1466,7 +1497,7 @@
 .select-aa20500 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-0);
   font-size: var(--font-size-4);
 }
@@ -1506,7 +1537,7 @@
 .step-4e82341 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -1519,7 +1550,7 @@
 .velocity-4e82341 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -1533,7 +1564,7 @@
 .keybed-4e82341 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: inset 0 3px 10px var(--color-background-0);
 
   /* 溢出裁剪没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
@@ -1553,7 +1584,7 @@
     var(--color-content-1)
   );
   border: 1px solid var(--color-background-0);
-  border-radius: 0 0 var(--radius) var(--radius);
+  border-radius: 0 0 var(--radius-0) var(--radius-0);
   color: var(--color-background-0);
   font-size: var(--font-size-4);
 }
@@ -1566,7 +1597,7 @@
 .key_black-4e82341 {
   background: linear-gradient(180deg, var(--color-background-2), var(--color-background-0));
   border: 1px solid var(--color-background-0);
-  border-radius: 0 0 var(--radius) var(--radius);
+  border-radius: 0 0 var(--radius-0) var(--radius-0);
   box-shadow: 0 2px 4px var(--color-background-0);
   color: var(--color-content-1);
 }
@@ -1606,21 +1637,21 @@
 .meter_track-d80466a {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: inset 0 1px 2px var(--color-background-0);
   overflow: hidden;
 }
 
 .meter_fill-d80466a {
   background: linear-gradient(90deg, var(--color-accent-0), var(--color-accent-1));
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: 0 0 5px var(--color-accent-1);
   transition: width 60ms linear;
 }
 
 .clip-d80466a {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -1690,7 +1721,7 @@
 .toggle-7c8d806 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -1707,7 +1738,7 @@
 .select-7c8d806 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-0);
   font-size: var(--font-size-4);
 }
@@ -1792,7 +1823,7 @@
 .module_block-12fe3a7 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow:
     0 2px 10px var(--color-background-0),
     inset 0 1px 0 var(--color-background-1);
@@ -1845,7 +1876,7 @@
 .header-12fe3a7 {
   background: var(--color-background-1);
   border-bottom: 1px solid var(--color-border);
-  border-radius: var(--radius) var(--radius) 0 0;
+  border-radius: var(--radius-0) var(--radius-0) 0 0;
   color: var(--color-content-2);
   user-select: none;
 
@@ -1913,7 +1944,7 @@
 .action-12fe3a7 {
   background: transparent;
   border: 1px solid transparent;
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   cursor: pointer;
   font-size: var(--font-size-4);
@@ -2042,7 +2073,7 @@
 .panel-5de19a0 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: 0 14px 44px var(--color-background-0);
 
   /* overflow 无 css-style 类型化 API；面板圆角处需要裁掉滚动内容。 */
@@ -2061,7 +2092,7 @@
 
 .close-5de19a0 {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-3);
 }
@@ -2074,7 +2105,7 @@
 .search-5de19a0 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
@@ -2094,7 +2125,7 @@
 .tab-5de19a0 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
   transition: color 160ms ease, border-color 160ms ease;
@@ -2124,7 +2155,7 @@
 .card-5de19a0 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
 
   /* overflow 无 css-style 类型化 API；裁掉色条与文字的圆角外溢。 */
@@ -2219,11 +2250,8 @@
 /* 音符域·输入节点迷你面板：静音回收说明 */
 
 .note_domain_in-c7098c3 {
-  align-items: center;
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-1);
-  display: flex;
-  padding: 3px 8px;
 }
 
 .hint-c7098c3 {
@@ -2257,7 +2285,7 @@
 .mode-7f64eaf {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 
@@ -2300,7 +2328,7 @@
 .action-5cf2b34 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
@@ -2343,14 +2371,14 @@
 }
 
 
-/* Output 检查器编辑器：主输出电平、削波与统计；只声明主题变量，
+/* Output 检查器编辑器：主输出削波指示与复位；电平条复用 meter.module.css，
    根壳与标题样式由 shell.module.css 统一提供。
    `font-variant-numeric` 没有对应的 `css-style` 类型化 API，保留在样式表。 */
 
 /* 检查器削波指示：文字本身随削波状态变成危险色 */
 .output_clip-e618fbb {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -2361,28 +2389,10 @@
   color: var(--color-danger);
 }
 
-.output_meter_label-e618fbb {
-  color: var(--color-content-1);
-  font-size: var(--font-size-4);
-}
-
-.output_meter_track-e618fbb {
-  background: var(--color-background-0);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: inset 0 1px 2px var(--color-background-0);
-}
-
-.output_meter_fill-e618fbb {
-  background: linear-gradient(90deg, var(--color-accent-0), var(--color-accent-1));
-  border-radius: var(--radius);
-  box-shadow: 0 0 6px var(--color-accent-1);
-}
-
 .output_reset-e618fbb {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -2395,7 +2405,7 @@
 
 /* Output 模块 — 节点电平提示与削波 LED 的主题样式 */
 
-.output_panel-2d4aec0 {
+.output-2d4aec0 {
   border-top: 1px solid var(--color-border);
   color: var(--color-content-0);
 }
@@ -2422,7 +2432,7 @@
 .transport_button-afd6efa {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-family: var(--font);
   font-size: var(--font-size-3);
@@ -2491,7 +2501,7 @@
 .button-cf42cd1 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-family: var(--font);
   font-size: var(--font-size-4);
@@ -2576,7 +2586,6 @@
 .error-3af4ff9 {
   color: var(--color-danger);
   font-size: var(--font-size-4);
-  line-height: 1.5;
 }
 
 .file-3af4ff9 {
@@ -2587,7 +2596,7 @@
 .file-3af4ff9::file-selector-button {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-family: var(--font);
   font-size: var(--font-size-4);
@@ -2634,7 +2643,7 @@
 .step-3592a53 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: inset 0 1px 0 var(--color-background-2);
   color: var(--color-content-0);
   transition:
@@ -2661,7 +2670,7 @@
 .step_button-3592a53 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-3);
   transition:
@@ -2683,7 +2692,7 @@
 .gate-3592a53 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
   transition:
@@ -2745,13 +2754,13 @@
 
 .bar_track-77838e8 {
   background: var(--color-background-0);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: inset 0 1px 2px var(--color-background-0);
 }
 
 .bar-77838e8 {
   background: linear-gradient(0deg, var(--color-accent-0), var(--color-accent-1));
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: 0 0 4px var(--color-accent-0);
   transition: height 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
@@ -2873,7 +2882,7 @@
 
 .back_link-8ae2964 {
   border-color: var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-3);
 
@@ -2889,7 +2898,7 @@
 .button-8ae2964 {
   background: var(--color-background-2);
   border-color: var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-3);
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
@@ -2980,7 +2989,7 @@
 .tooltip-707922f {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: 0 6px 20px var(--color-background-0);
   color: var(--color-content-2);
   font-family: var(--font);
@@ -3019,7 +3028,7 @@
 .waveform-e296202 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   box-shadow: inset 0 1px 4px var(--color-background-0);
   overflow: hidden;
 }
@@ -3056,56 +3065,24 @@
   touch-action: none;
 }
 
-/* 网格层：位置与尺寸（含覆盖视口的负向扩张）由 Rust 下发，这里只保留背景图与漂移动画。
-   点阵画在伪元素上，漂移只改其 `transform`（可交给合成器推进），不再逐帧改
-   `background-position` 触发整屏绘制；伪元素向四边各外扩一格（32px），覆盖 0 → 32px
-   的位移，静止时点阵相位与原背景相同（图案以 32px 为周期）。
-   背景铺贴尺寸必须等于下面 grid-drift 的位移量（漂移一格正好回到原点），改一处需同步另一处；
-   background-size、伪元素与 @keyframes 都没有 css-style 类型化 API，故与动画一并留在本文件。 */
+/* 网格层：图案只声明点形状与颜色；周期与位置由 Rust 按画布平移/缩放下发
+   （GRID_PERIOD 与 background-size 必须一致）。 */
 .grid-fb9a18b {
   /* 点阵亮度用元素整体不透明度压低，替代对 --color-border 的透明混色；
-     本层只有点阵伪元素、没有文字或其它子视图，42% 与原来的 42% 透明混色等效。 */
+     本层没有文字或其它子视图，42% 与原来的 42% 透明混色等效。 */
   opacity: 42%;
-  pointer-events: none;
-}
-
-.grid-fb9a18b::before {
-  content: "";
-  position: absolute;
-
-  /* 与漂移位移同量：位移到 (32px, 32px) 时四边仍由点阵覆盖。 */
-  inset: -32px;
   background-image: radial-gradient(
     circle at 1px 1px,
     var(--color-border) 1px,
     transparent 0
   );
-  background-size: 32px 32px;
-  animation: grid-drift 160s linear infinite;
-}
-
-/* 极慢漂移：只移动背景点阵，不移动节点，避免眩晕 */
-@keyframes grid-drift {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(32px, 32px);
-  }
+  pointer-events: none;
 }
 
 /* 内容层：transform-origin 决定缩放基准，overflow 让子层不被裁切 */
 .inner-fb9a18b {
   overflow: visible;
   transform-origin: 0 0;
-}
-
-/* 手势期合成层提示：只在画布指针手势进行中由 Rust 追加，静止与空闲不常驻。
-   `will-change` 只影响合成层选择、不改变绘制内容；`transition: none` 保证手势帧
-   不被内容层将来可能出现的过渡拖慢。 */
-.is-gesturing-fb9a18b {
-  will-change: transform;
-  transition: none;
 }
 
 /* 域凸包层：覆盖整个内容层，虚线域框自身不拦截指针事件 */
@@ -3193,8 +3170,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .grid-fb9a18b,
-  .grid-fb9a18b::before,
   .edge_drawing-fb9a18b {
     animation: none;
   }
@@ -3215,7 +3190,7 @@
 .dialogue-94ca1db {
   background: var(--color-background-2);
   border: var(--width-border) solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-0);
   color: var(--color-content-2);
   padding: var(--spacing-1);
 }
