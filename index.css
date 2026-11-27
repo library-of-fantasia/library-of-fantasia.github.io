@@ -61,7 +61,7 @@
   --font-size-3: 1rem;
   --font-size-4: 0.75rem;
 
-  --line-height: 1.4;
+  --line-height: 1.6;
 
   --opacity-disabled: 40%;
   --opacity-overlay: 60%;
@@ -218,6 +218,11 @@ html {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* 段落之间比普通折行多留一点间距。 */
+p + p {
+  margin-top: var(--spacing-1);
 }
 
 input,

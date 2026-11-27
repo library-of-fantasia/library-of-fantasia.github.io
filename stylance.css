@@ -504,8 +504,11 @@
    `.lamp` 的过渡留在样式表：`prefers-reduced-motion` 的覆盖需要媒体查询，
    写成行内样式会压过该覆盖。 */
 
-/* 可用时提高文字亮度；不可用时保持辅助色 */
-.status-b4262ba {
+/* 可用时提高文字亮度；不可用时保持辅助色。
+   三种状态各是一个完备类：元素只挂一个，基类声明由选择器列表共享。 */
+.status-b4262ba,
+.status_on-b4262ba,
+.status_off-b4262ba {
   font-size: var(--font-size-4);
 }
 
@@ -518,7 +521,8 @@
 }
 
 /* 过渡与 reduced-motion 覆盖依赖媒体查询，无法写进行内样式。 */
-.lamp-b4262ba {
+.lamp-b4262ba,
+.lamp_on-b4262ba {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 1px 2px var(--color-background-0);
@@ -537,7 +541,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lamp-b4262ba {
+  .lamp-b4262ba,
+  .lamp_on-b4262ba {
     transition: none;
   }
 }
@@ -545,45 +550,50 @@
 
 /* AudioInput 节点迷你面板：输入状态与信号灯 */
 
-.audio_input-f8f41f0 {
+.audio_input-d05765e {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 }
 
-.label-f8f41f0 {
+/* 标签字距由 status_row 的面板骨架类型化下发。 */
+.label-d05765e {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
-/* 可用时提高文字亮度；不可用时保持辅助色 */
-.status-f8f41f0 {
+/* 可用时提高文字亮度；不可用时保持辅助色。
+   三种状态各是一个完备类，基类声明由选择器列表共享。 */
+.status-d05765e,
+.status_on-d05765e,
+.status_off-d05765e {
   font-size: var(--font-size-4);
 }
 
-.status_on-f8f41f0 {
+.status_on-d05765e {
   color: var(--color-accent-1);
 }
 
-.status_off-f8f41f0 {
+.status_off-d05765e {
   color: var(--color-content-1);
 }
 
-.lamp-f8f41f0 {
+.lamp-d05765e,
+.lamp_on-d05765e {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 1px 2px var(--color-background-0);
   transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.lamp_on-f8f41f0 {
+.lamp_on-d05765e {
   background: var(--color-accent-1);
   border-color: var(--color-accent-1);
   box-shadow: 0 0 6px var(--color-accent-1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lamp-f8f41f0 {
+  .lamp-d05765e,
+  .lamp_on-d05765e {
     transition: none;
   }
 }
@@ -592,7 +602,9 @@
 /* Clock 检查器编辑器：速度、走带状态与分频/门限摘要；
    根壳与标题样式由 shell.module.css 统一提供。 */
 
-.value-ba27404 {
+/* 状态值：播放与空闲各是一个完备类，基类声明由选择器列表共享。 */
+.value_playing-ba27404,
+.value_idle-ba27404 {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
 }
@@ -609,40 +621,38 @@
 
 /* Clock 节点迷你面板：走带状态与慢呼吸门灯 */
 
-.clock-12f0667 {
+.clock-89f8ee4 {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 }
 
-.label-12f0667 {
+/* 标签与状态值的字距由 status_row 的类型化样式下发（0.02em）。 */
+.label-89f8ee4 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
-.status-12f0667 {
+.status-89f8ee4,
+.status_playing-89f8ee4,
+.status_idle-89f8ee4 {
   color: var(--color-content-0);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
 /* 播放中提高文字亮度；信号色只留给门灯，避免污染文字层级 */
-.status_playing-12f0667 {
+.status_playing-89f8ee4 {
   color: var(--color-content-2);
 }
 
-.status_idle-12f0667 {
-  color: var(--color-content-0);
-}
-
-.lamp-12f0667 {
+.lamp-89f8ee4,
+.lamp_on-89f8ee4 {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 1px 2px var(--color-background-0);
   transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.lamp_on-12f0667 {
+.lamp_on-89f8ee4 {
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-name: clock-gate-breath;
@@ -666,11 +676,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lamp-12f0667 {
+  .lamp-89f8ee4,
+  .lamp_on-89f8ee4 {
     transition: none;
   }
 
-  .lamp_on-12f0667 {
+  .lamp_on-89f8ee4 {
     animation: none;
   }
 }
@@ -678,24 +689,22 @@
 
 /* Control 参数控件：主题变量着色、状态伪类与媒体查询，以及 css-style 无法表达的渲染特性（渐变、阴影、transition、touch-action、pointer-events、outline） */
 
-/* 控件根容器共用的文字色；布局与 css-style 可表达的属性写在 Rust 中 */
+/* 控件根容器共用的文字色；布局与 css-style 可表达的属性写在 Rust 中。
+   接线态与常态各是一个完备类，元素只挂其中一个。 */
 .slider-1a46747,
+.slider_controlled-1a46747,
 .slider_head-1a46747,
 .knob-1a46747,
-.choice-1a46747,
+.knob_controlled-1a46747,
 .choice_inline-1a46747,
 .choice_segmented-1a46747 {
   color: var(--color-content-0);
 }
 
-/* 控制器端口已接线：参数滑条/旋钮只读，置灰并禁用指针交互，读数仍可见（断线后的回落值） */
-.param_controlled-1a46747 {
-  opacity: 0.55;
-}
-
-/* 只禁用真正的交互面；根容器仍接收悬浮事件，「由接线控制」提示才有机会出现 */
-.param_controlled-1a46747 .slider_track-1a46747,
-.param_controlled-1a46747 .knob_face-1a46747 {
+/* 只禁用真正的交互面；根容器仍接收悬浮事件，「由接线控制」提示才有机会出现。
+   接线态由 Rust 按状态选一个独立类，不透明度由内联的类型化样式下发。 */
+.slider_controlled-1a46747 .slider_track-1a46747,
+.knob_controlled-1a46747 .knob_face-1a46747 {
   pointer-events: none;
 }
 
@@ -704,7 +713,6 @@
   color: var(--color-content-0);
   font-size: var(--font-size-4);
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .slider_value-1a46747 {
@@ -849,10 +857,11 @@
   color: var(--color-content-2);
   font-size: var(--font-size-4);
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.choice_option-1a46747 {
+/* 选项：未选中与选中各是一个完备类，基类声明由选择器列表共享。 */
+.choice_option-1a46747,
+.choice_option_on-1a46747 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -861,7 +870,8 @@
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.choice_option-1a46747:hover {
+.choice_option-1a46747:hover,
+.choice_option_on-1a46747:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
@@ -874,7 +884,9 @@
 }
 
 /* ---------- 开关 ---------- */
-.toggle-1a46747 {
+/* 开关：关与开各是一个完备类，元素只挂其中一个。 */
+.toggle-1a46747,
+.toggle_on-1a46747 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -883,18 +895,15 @@
   transition: border-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
 
+/* 指示灯：几何（7px 方块、50% 圆角）由 toggle.rs 的类型化样式下发。 */
 .toggle_lamp-1a46747 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
-  border-radius: 50%;
-  height: 7px;
   transition: background 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-  width: 7px;
 }
 
 .toggle_label-1a46747 {
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .toggle_on-1a46747 {
@@ -912,7 +921,9 @@
 @media (prefers-reduced-motion: reduce) {
   .slider_thumb-1a46747,
   .choice_option-1a46747,
+  .choice_option_on-1a46747,
   .toggle-1a46747,
+  .toggle_on-1a46747,
   .toggle_lamp-1a46747 {
     transition: none;
   }
@@ -983,37 +994,37 @@
 
 /* Envelope 节点迷你面板：只读 ADSR 曲线 */
 
-.envelope-de1b36f {
+.envelope-3416702 {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 }
 
-.chart-de1b36f {
+.chart-3416702 {
   overflow: visible;
 }
 
 /* SVG 渲染属性无 css-style 类型化 API */
-.baseline-de1b36f {
+.baseline-3416702 {
   stroke: var(--color-border);
   stroke-dasharray: 2 3;
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
 
-.sustain-de1b36f {
+.sustain-3416702 {
   stroke: var(--color-content-1);
   stroke-dasharray: 3 3;
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
 
-.curve_area-de1b36f {
+.curve_area-3416702 {
   fill: var(--color-accent-2);
   fill-opacity: 0.14;
   stroke: none;
 }
 
-.curve_line-de1b36f {
+.curve_line-3416702 {
   fill: none;
   filter: drop-shadow(0 0 2px var(--color-accent-0));
   stroke: var(--color-accent-2);
@@ -1025,25 +1036,23 @@
 
 
 /* Help 帮助浮层：主题变量，以及 `css-style` 无法表达的 `overflow`、
-   `grid-template-columns`（含窄屏列数）与伪元素内容；布局见 help.rs。 */
-
-/* 遮罩底色直接由根节点背景承载：color-mix 只影响背景，不会让面板内容一起变透明；
-   透明度复用 --opacity-overlay，与 index.css 的 dialog::backdrop 同口径。
-   根节点是 fixed + cover，层序由 DOM 顺序表达，不再声明层级数字。 */
-.overlay-3e630fc {
-  background: color-mix(
-    in srgb,
-    var(--color-background-0) var(--opacity-overlay),
-    transparent
-  );
-}
+   `grid-template-columns`（含窄屏列数）与伪元素内容；布局见 help.rs。
+   遮罩底色由 `index.css` 的 `dialog::backdrop` 统一提供，浮层自身不再绘制遮罩。 */
 
 .panel-3e630fc {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
   box-shadow: 0 14px 44px var(--color-background-0);
+  color: var(--color-content-0);
   overflow: hidden;
+}
+
+/* 打开态才用 flex 布局：`display` 必须随 `<dialog>` 的 open 属性切换，
+   而 css-style 无法表达随属性切换的条件样式，故只有 display 写在这里，
+   其余列布局仍由 help.rs 的 css-style 给出。 */
+.panel-3e630fc[open] {
+  display: flex;
 }
 
 .header-3e630fc {
@@ -1145,7 +1154,7 @@
   content: "· ";
 }
 
-/* 断点与 help.rs 的 `NARROW_BREAKPOINT`、面板定宽逻辑同步。 */
+/* 断点与 help.rs 的 `super::NARROW_VIEWPORT_WIDTH`、面板定宽逻辑同步。 */
 @media (max-width: 760px) {
   .shortcuts-3e630fc {
     grid-template-columns: 1fr;
@@ -1157,15 +1166,17 @@
    本文件保留主题变量、伪类/伪元素与媒体查询，以及 `css-style` 无类型化 API 的
    `overflow`、`grid-template-columns`、`grid-column`、`font-variant-numeric`、`outline`/`outline-offset`。
    `width` 与 `display` 因与窄屏媒体查询成对覆盖，同样留在样式表；
-   本次收敛的高度链（`.inspector_host`/`.inspector`/`.body` 的高度、flex 尺寸与内边距）见 `inspector.rs`。
+   本次收敛的高度链（`.inspector`/`.panel`/`.body` 的高度、flex 尺寸与内边距）见 `inspector.rs`。
    其余选择器（如 `.header`、`.close` 的内边距）本轮未收敛，其布局声明仍留在样式表。 */
 
-.inspector_host-53a6f33 {
+/* 根元素类名与模块同名；抽屉面板另名 `.panel`，抽屉开合各有一个完备类。 */
+.inspector-53a6f33 {
   /* 窄屏媒体查询成对改为 display: contents，故 display 留在样式表，不得内联 */
   display: flex;
 }
 
-.inspector-53a6f33 {
+.panel-53a6f33,
+.panel_open-53a6f33 {
   background: var(--color-background-1);
   border-left: 1px solid var(--color-border);
   color: var(--color-content-0);
@@ -1180,26 +1191,21 @@
 .header-53a6f33 {
   background: var(--color-background-2);
   border-bottom: 1px solid var(--color-border);
-  padding: 8px 10px;
 }
 
 .title-53a6f33 {
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
-  letter-spacing: 0.08em;
 }
 
+/* 关闭按钮：内边距、最小宽度、行高、光标与透明底由 inspector.rs 的 css-style 下发；
+   这里只留主题外观与伪类。 */
 .close-53a6f33 {
-  background: transparent;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
   color: var(--color-content-1);
-  cursor: pointer;
   font-size: var(--font-size-3);
-  line-height: 1;
-  min-width: 22px;
-  padding: 2px 6px;
 }
 
 .close-53a6f33:hover {
@@ -1223,12 +1229,10 @@
 .description-53a6f33 {
   color: var(--color-content-0);
   font-size: var(--font-size-4);
-  line-height: 1.5;
 }
 
 .hint-53a6f33 {
   color: var(--color-content-1);
-  margin-bottom: 8px;
 }
 
 .empty_hint-53a6f33 {
@@ -1243,7 +1247,8 @@
 .single-53a6f33,
 .multi-53a6f33,
 .info_row-53a6f33,
-.param_cell-53a6f33 {
+.param_cell-53a6f33,
+.param_cell_wide-53a6f33 {
   color: var(--color-content-0);
 }
 
@@ -1280,21 +1285,18 @@
   font-size: var(--font-size-4);
 }
 
-/* ---------- 单模块 ---------- */
-.module_head-53a6f33 {
-  align-items: baseline;
-  display: flex;
+/* ---------- 单节点 ---------- */
+/* 横向排布与基线对齐由 inspector/single.rs 的 css-style 下发；这里只留主题间距变量。 */
+.node_head-53a6f33 {
   gap: var(--spacing-1);
-  justify-content: space-between;
 }
 
-.module_title-53a6f33 {
+.node_title-53a6f33 {
   color: var(--color-content-2);
   font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
 }
 
-.module_category-53a6f33 {
+.node_category-53a6f33 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 }
@@ -1302,7 +1304,6 @@
 .count-53a6f33 {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
-  margin-left: 6px;
 }
 
 .params-53a6f33 {
@@ -1317,20 +1318,14 @@
 
 .ports-53a6f33 {
   border-left: 1px solid var(--color-border);
-  padding-left: 6px;
 }
 
 .port_row-53a6f33 {
   font-size: var(--font-size-4);
 }
 
-.port_dot-53a6f33 {
-  border-radius: 50%;
-  display: inline-block;
-  height: 8px;
-  width: 8px;
-}
-
+/* 信号色点：四种信号各是一个完备类；几何由 port_row.rs 的类型化样式下发，
+   这里只留取色。 */
 .signal_audio-53a6f33 {
   background: var(--color-accent-1);
   box-shadow: 0 0 5px var(--color-accent-1);
@@ -1361,7 +1356,9 @@
   flex-wrap: wrap;
 }
 
-.action-53a6f33 {
+/* 操作按钮：普通与危险各是一个完备类，元素只挂其中一个。 */
+.action-53a6f33,
+.action_danger-53a6f33 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -1369,12 +1366,14 @@
   font-size: var(--font-size-4);
 }
 
-.action-53a6f33:hover {
+.action-53a6f33:hover,
+.action_danger-53a6f33:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
 
-.action-53a6f33:focus-visible {
+.action-53a6f33:focus-visible,
+.action_danger-53a6f33:focus-visible {
   /* 伪类内声明且无 css-style 类型化 API，内联样式无法表达 `:focus-visible` */
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
@@ -1390,19 +1389,21 @@
 }
 
 /* ---------- 移动端抽屉 ---------- */
-.scrim-53a6f33 {
+.scrim-53a6f33,
+.scrim_open-53a6f33 {
   /* 与窄屏媒体查询内 `.scrim_open` 的 `display: block` 成对，内联会压过媒体查询 */
   display: none;
 }
 
 @media (max-width: 760px) {
-  .inspector_host-53a6f33 {
+  .inspector-53a6f33 {
     display: contents;
   }
 
-  /* 窄屏层序由 DOM 顺序表达：inspector 在 workspace 之后，scrim 又位于抽屉之前，
-     因此遮罩盖住画布、抽屉盖住遮罩；不再声明层级数字。 */
-  .inspector-53a6f33 {
+  /* 窄屏层序由 DOM 顺序表达：抽屉根在 workspace 之后，scrim 又位于抽屉面板之前，
+     因此遮罩盖住画布、抽屉盖住遮罩；不声明层级数字。 */
+  .panel-53a6f33,
+  .panel_open-53a6f33 {
     bottom: 0;
     box-shadow: -12px 0 32px var(--color-background-0);
     position: fixed;
@@ -1414,7 +1415,7 @@
     width: min(300px, 88vw);
   }
 
-  .inspector_open-53a6f33 {
+  .panel_open-53a6f33 {
     transform: translateX(0);
     transition: transform 260ms ease;
     visibility: visible;
@@ -1430,7 +1431,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .inspector-53a6f33 {
+  .panel-53a6f33,
+  .panel_open-53a6f33 {
     transition: none;
   }
 }
@@ -1449,7 +1451,9 @@
   font-size: var(--font-size-4);
 }
 
-.status-aa20500 {
+.status-aa20500,
+.status_on-aa20500,
+.status_off-aa20500 {
   font-size: var(--font-size-4);
 }
 
@@ -1464,7 +1468,8 @@
 
 /* 灯点的过渡与下方的 reduced-motion 覆盖成对存在：写进内联样式会盖过该覆盖，
    因此过渡保留在此处，不随其余布局属性移入 css-style。 */
-.lamp-aa20500 {
+.lamp-aa20500,
+.lamp_on-aa20500 {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 1px 2px var(--color-background-0);
@@ -1507,13 +1512,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lamp-aa20500 {
+  .lamp-aa20500,
+  .lamp_on-aa20500 {
     transition: none;
   }
 }
 
 
-/* ModuleUI 通用模块组件：虚拟键盘 */
+/* 通用控件：虚拟键盘 */
 
 /* 主题色与字体由变量声明；布局、尺寸与可类型化交互样式在 keyboard.rs 的 css-style 中。 */
 .keyboard-4e82341,
@@ -1547,7 +1553,8 @@
   color: var(--color-content-2);
 }
 
-.velocity-4e82341 {
+.velocity-4e82341,
+.velocity_on-4e82341 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -1577,7 +1584,10 @@
   user-select: none;
 }
 
-.key_white-4e82341 {
+/* 琴键：配色（白/黑）与按下态各有一个完备类，元素只挂其中一个。
+   白键与黑键的基色不同，按下态因此拆成两个类，按下后的外观与原先一致。 */
+.key_white-4e82341,
+.key_white_pressed-4e82341 {
   background: linear-gradient(
     180deg,
     var(--color-content-2),
@@ -1589,12 +1599,8 @@
   font-size: var(--font-size-4);
 }
 
-.key_white-4e82341:hover {
-  /* 滤镜没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
-  filter: brightness(1.06);
-}
-
-.key_black-4e82341 {
+.key_black-4e82341,
+.key_black_pressed-4e82341 {
   background: linear-gradient(180deg, var(--color-background-2), var(--color-background-0));
   border: 1px solid var(--color-background-0);
   border-radius: 0 0 var(--radius-0) var(--radius-0);
@@ -1602,11 +1608,19 @@
   color: var(--color-content-1);
 }
 
-.key_black-4e82341:hover {
+.key_white-4e82341:hover,
+.key_white_pressed-4e82341:hover {
+  /* 滤镜没有对应的 css-style 类型化 API，保留在 scoped CSS。 */
+  filter: brightness(1.06);
+}
+
+.key_black-4e82341:hover,
+.key_black_pressed-4e82341:hover {
   border-color: var(--color-accent-1);
 }
 
-.key_pressed-4e82341 {
+.key_white_pressed-4e82341,
+.key_black_pressed-4e82341 {
   background: linear-gradient(180deg, var(--color-accent-0), var(--color-accent-1));
   border-color: var(--color-accent-1);
   box-shadow: inset 0 0 8px var(--color-background-0);
@@ -1616,7 +1630,7 @@
 
 /* Keyboard 节点迷你面板：一个八度的紧凑演奏键盘 */
 
-.keyboard-90ae3a5 {
+.keyboard-392da31 {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 }
@@ -1649,7 +1663,10 @@
   transition: width 60ms linear;
 }
 
-.clip-d80466a {
+/* 削波指示两种状态各是一个完备类：元素只挂其中一个，不组合类名。
+   熄灭与点亮共享几何与底边，点亮态随后覆盖颜色与光晕。 */
+.clip-d80466a,
+.clip_on-d80466a {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
   color: var(--color-content-1);
@@ -1679,8 +1696,11 @@
   font-size: var(--font-size-4);
 }
 
-/* 设备名可能很长；text-overflow 在 Rust 侧，overflow 才能让省略号生效。 */
-.status-7c8d806 {
+/* 设备名可能很长；text-overflow 在 Rust 侧，overflow 才能让省略号生效。
+   三档状态各是一个完备类，元素只挂其中一个。 */
+.status_on-7c8d806,
+.status_off-7c8d806,
+.status_error-7c8d806 {
   font-size: var(--font-size-4);
   overflow: hidden;
 }
@@ -1699,7 +1719,9 @@
 }
 
 /* 过渡与 reduced-motion 覆盖依赖媒体查询，无法写进行内样式。 */
-.lamp-7c8d806 {
+.lamp-7c8d806,
+.lamp_on-7c8d806,
+.lamp_error-7c8d806 {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 1px 2px var(--color-background-0);
@@ -1753,7 +1775,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lamp-7c8d806 {
+  .lamp-7c8d806,
+  .lamp_on-7c8d806,
+  .lamp_error-7c8d806 {
     transition: none;
   }
 }
@@ -1761,66 +1785,77 @@
 
 /* MidiOut 节点迷你面板：Web MIDI 状态 */
 
-.midi_out-728b745 {
+.midi_out-9f982cc {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 }
 
-.label-728b745 {
+/* 标签与状态值的字距由 status_row 的类型化样式下发（0.02em）。 */
+.label-9f982cc {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
-/* 设备名可能很长；溢出由 Rust 侧的 text-overflow: ellipsis 截断。 */
-.status-728b745 {
+/* 设备名可能很长；溢出由 Rust 侧的 text-overflow: ellipsis 截断。
+   三档状态各是一个完备类，元素只挂其中一个。 */
+.status_on-9f982cc,
+.status_off-9f982cc,
+.status_error-9f982cc {
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
   overflow: hidden;
 }
 
 /* 已启用显示输出设备；失败时用危险色区分授权问题。 */
-.status_on-728b745 {
+.status_on-9f982cc {
   color: var(--color-accent-1);
 }
 
-.status_off-728b745 {
+.status_off-9f982cc {
   color: var(--color-content-1);
 }
 
-.status_error-728b745 {
+.status_error-9f982cc {
   color: var(--color-danger);
 }
 
-.lamp-728b745 {
+.lamp-9f982cc,
+.lamp_on-9f982cc,
+.lamp_error-9f982cc {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 1px 2px var(--color-background-0);
   transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.lamp_on-728b745 {
+.lamp_on-9f982cc {
   background: var(--color-accent-1);
   border-color: var(--color-accent-1);
   box-shadow: 0 0 6px var(--color-accent-1);
 }
 
-.lamp_error-728b745 {
+.lamp_error-9f982cc {
   background: var(--color-danger);
   border-color: var(--color-danger);
   box-shadow: 0 0 6px var(--color-danger);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lamp-728b745 {
+  .lamp-9f982cc,
+  .lamp_on-9f982cc,
+  .lamp_error-9f982cc {
     transition: none;
   }
 }
 
 
-/* ModuleBlock 模块块：安静夜馆卡片，主题外观与不可类型化的渲染特性 */
+/* NodeBlock 节点块：安静夜馆卡片，主题外观与不可类型化的渲染特性。
+   选中形态（未选中 / 选中 / 主选中）各是一个完备类：元素只挂其中一个，因此基类声明写在
+   选择器列表里共享。位置由 Rust 写入的 `--canvas-node-*` 自定义属性组合成 `translate`；
+   层序只由 DOM 顺序表达（未选中在前、选中居中、主选中最后），本文件不声明层级数字。 */
 
-.module_block-12fe3a7 {
+.node_block-2f67a79,
+.node_block_selected-2f67a79,
+.node_block_primary-2f67a79 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -1828,32 +1863,38 @@
     0 2px 10px var(--color-background-0),
     inset 0 1px 0 var(--color-background-1);
   transition: border-color 260ms ease, box-shadow 260ms ease;
+  transform: translate(var(--canvas-node-x), var(--canvas-node-y));
   user-select: none;
 
   /* 触屏点击高亮与拖拽手势无 css-style API */
   -webkit-tap-highlight-color: transparent;
 }
 
-.module_block-12fe3a7:hover {
+.node_block-2f67a79:hover,
+.node_block_selected-2f67a79:hover,
+.node_block_primary-2f67a79:hover {
   border-color: var(--color-content-1);
 }
 
-.module_block_selected-12fe3a7 {
+.node_block_selected-2f67a79,
+.node_block_primary-2f67a79 {
   border-color: var(--color-accent-1);
   box-shadow:
     0 0 12px var(--color-accent-0),
     inset 0 0 10px var(--color-accent-0);
-  animation: module-breath 7s ease-in-out infinite;
+  animation: node-breath 7s ease-in-out infinite;
 }
 
-.module_block_primary-12fe3a7 {
+/* 主选中项在原实现里同时带「选中」与「主选中」两个类：这里把选中态的外观并进主选中类，
+   保持同一份视觉结果。 */
+.node_block_primary-2f67a79 {
   border-color: var(--color-content-2);
   box-shadow:
     0 0 16px var(--color-accent-0),
     inset 0 0 12px var(--color-accent-0);
 }
 
-@keyframes module-breath {
+@keyframes node-breath {
   0%,
   100% {
     box-shadow:
@@ -1867,13 +1908,13 @@
   }
 }
 
-.body-12fe3a7,
-.param_row-12fe3a7 {
+.body-2f67a79,
+.param_row-2f67a79 {
   color: var(--color-content-0);
 }
 
 /* ---------- 标题栏 ---------- */
-.header-12fe3a7 {
+.header-2f67a79 {
   background: var(--color-background-1);
   border-bottom: 1px solid var(--color-border);
   border-radius: var(--radius-0) var(--radius-0) 0 0;
@@ -1884,90 +1925,90 @@
   touch-action: none;
 }
 
-.title-12fe3a7 {
+.title-2f67a79 {
   flex-grow: 1;
   font-family: var(--font);
   font-size: var(--font-size-3);
-  letter-spacing: 0.03em;
-  min-width: 0;
   overflow: hidden;
   text-shadow: 0 0 6px var(--color-background-0);
 }
 
-/* 类别细条：低频噪声的色相提示，不做整条标题染色 */
-.category-12fe3a7 {
-  border-radius: 1px;
-  box-shadow: 0 0 5px currentColor;
-}
-
-.category_source-12fe3a7 {
+/* 类别细条：低频噪声的色相提示，不做整条标题染色。
+   每个类别一个完备类；圆角与 currentColor 光晕由 header.rs 的类型化样式下发。 */
+.category_source-2f67a79 {
   background: var(--color-accent-1);
   color: var(--color-accent-1);
 }
 
-.category_modulator-12fe3a7 {
+.category_modulator-2f67a79 {
   background: var(--color-accent-2);
   color: var(--color-accent-2);
 }
 
-.category_note-12fe3a7 {
+.category_note-2f67a79 {
   background: var(--color-accent-1);
   color: var(--color-accent-1);
 }
 
-.category_effect-12fe3a7 {
+.category_effect-2f67a79 {
   background: var(--color-accent-1);
   color: var(--color-accent-1);
 }
 
-.category_mixer-12fe3a7 {
+.category_mixer-2f67a79 {
   background: var(--color-content-1);
   color: var(--color-content-1);
 }
 
-.category_output-12fe3a7 {
+.category_output-2f67a79 {
   background: var(--color-accent-1);
   color: var(--color-accent-1);
 }
 
 /* 操作按钮安静地出现在 hover / 选中态 */
-.actions-12fe3a7 {
+.actions-2f67a79 {
   opacity: 0;
   transition: opacity 200ms ease;
 }
 
-.module_block-12fe3a7:hover .actions-12fe3a7,
-.module_block_selected-12fe3a7 .actions-12fe3a7 {
+.node_block-2f67a79:hover .actions-2f67a79,
+.node_block_selected-2f67a79 .actions-2f67a79,
+.node_block_primary-2f67a79 .actions-2f67a79 {
   opacity: 1;
 }
 
-.action-12fe3a7 {
+/* 操作按钮：普通与危险色调各是一个完备类。
+   光标、最小宽度、零内边距与行高由 header.rs 的类型化样式下发；
+   `border` 留在样式表，因为 `:hover` 要覆盖它的颜色。 */
+.action-2f67a79,
+.action_danger-2f67a79 {
   background: transparent;
   border: 1px solid transparent;
   border-radius: var(--radius-0);
   color: var(--color-content-1);
-  cursor: pointer;
   font-size: var(--font-size-4);
-  line-height: 1;
-  min-width: 18px;
-  padding: 0;
 }
 
-.action-12fe3a7:hover {
+.action-2f67a79:hover,
+.action_danger-2f67a79:hover {
   background: var(--color-background-2);
   border-color: var(--color-border);
   color: var(--color-content-2);
 }
 
-.action_danger-12fe3a7:hover {
+.action_danger-2f67a79:hover {
   border-color: var(--color-danger);
   color: var(--color-danger);
 }
 
 /* ---------- 端口 ---------- */
-.port-12fe3a7 {
+/* 端口圆点：四种信号各是一个完备类，元素只挂其中一个。
+   圆角（50%）由 port.rs 的类型化样式下发；描边、光晕与过渡留在样式表。 */
+.port_audio-2f67a79,
+.port_control-2f67a79,
+.port_event-2f67a79,
+.port_note-2f67a79 {
   border: 2px solid var(--color-background-0);
-  border-radius: 50%;
   box-shadow: 0 0 4px var(--color-background-0);
   transition: transform 160ms ease, box-shadow 160ms ease;
 
@@ -1975,14 +2016,14 @@
   touch-action: none;
 }
 
-.port_audio-12fe3a7 {
+.port_audio-2f67a79 {
   background: var(--color-accent-1);
   box-shadow:
     0 0 5px var(--color-accent-1),
     inset 0 1px 1px var(--color-content-2);
 }
 
-.port_control-12fe3a7 {
+.port_control-2f67a79 {
   background: var(--color-accent-2);
   box-shadow:
     0 0 5px var(--color-accent-2),
@@ -1990,7 +2031,7 @@
 }
 
 /* 事件信号：使用标准主题色 --color-accent-0 */
-.port_event-12fe3a7 {
+.port_event-2f67a79 {
   background: var(--color-accent-0);
   box-shadow:
     0 0 5px var(--color-accent-0),
@@ -1998,111 +2039,118 @@
 }
 
 /* 音符信号：使用标准主题色 --color-content-2 */
-.port_note-12fe3a7 {
+.port_note-2f67a79 {
   background: var(--color-content-2);
   box-shadow:
     0 0 6px var(--color-content-2),
     inset 0 1px 1px var(--color-background-0);
 }
 
-.port-12fe3a7:hover {
+.port_audio-2f67a79:hover,
+.port_control-2f67a79:hover,
+.port_event-2f67a79:hover,
+.port_note-2f67a79:hover {
   transform: scale(1.18);
 }
 
-.port_audio-12fe3a7:hover {
+.port_audio-2f67a79:hover {
   box-shadow:
     0 0 9px var(--color-accent-1),
     0 0 0 2px var(--color-accent-0);
 }
 
-.port_control-12fe3a7:hover {
+.port_control-2f67a79:hover {
   box-shadow:
     0 0 9px var(--color-accent-2),
     0 0 0 2px var(--color-accent-0);
 }
 
-.port_event-12fe3a7:hover {
+.port_event-2f67a79:hover {
   box-shadow:
     0 0 9px var(--color-accent-0),
     0 0 0 2px var(--color-accent-0);
 }
 
-.port_label-12fe3a7 {
+/* 端口标签：字距由 port.rs 的类型化样式下发。 */
+.port_label-2f67a79 {
   color: var(--color-content-0);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
   pointer-events: none;
 }
-
 /* ---------- 参数 ---------- */
-.param-12fe3a7 {
+.param-2f67a79 {
   color: var(--color-content-0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .module_block-12fe3a7,
-  .module_block_selected-12fe3a7,
-  .actions-12fe3a7,
-  .port-12fe3a7 {
+  .node_block-2f67a79,
+  .node_block_selected-2f67a79,
+  .node_block_primary-2f67a79,
+  .actions-2f67a79,
+  .port_audio-2f67a79,
+  .port_control-2f67a79,
+  .port_event-2f67a79,
+  .port_note-2f67a79 {
     animation: none;
     transition: none;
   }
 
-  .port-12fe3a7:hover {
+  .port_audio-2f67a79:hover,
+  .port_control-2f67a79:hover,
+  .port_event-2f67a79:hover,
+  .port_note-2f67a79:hover {
     transform: none;
   }
 }
 
 
-/* ModuleBrowser 模块浏览器浮层
+/* NodeBrowser 节点浏览器浮层
    只保留主题变量与 css-style 无类型化 API 的属性（grid、overflow、outline）；
-   布局、尺寸与文本截断在 module_browser.rs 的 css-style 中声明。过渡需由
-   prefers-reduced-motion 统一关闭，因此留在本文件。 */
+   布局、尺寸与文本截断在 node_browser.rs 的 css-style 中声明。过渡需由
+   prefers-reduced-motion 统一关闭，因此留在本文件。
+   遮罩底色由 `index.css` 的 `dialog::backdrop` 统一提供。 */
 
-/* 遮罩底色直接由根节点背景承载：color-mix 只影响背景，不波及面板内容；透明度复用
-   --opacity-overlay，与 index.css 的 dialog::backdrop 同口径。
-   根节点是 fixed + cover，层序由 DOM 顺序表达，不再声明层级数字。 */
-.module_browser-5de19a0 {
-  background: color-mix(
-    in srgb,
-    var(--color-background-0) var(--opacity-overlay),
-    transparent
-  );
-}
-
-.panel-5de19a0 {
+.panel-acf79f2 {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
   box-shadow: 0 14px 44px var(--color-background-0);
+  color: var(--color-content-0);
 
   /* overflow 无 css-style 类型化 API；面板圆角处需要裁掉滚动内容。 */
   overflow: hidden;
 }
 
-.header-5de19a0 {
+/* 打开态才用 flex 布局：`display` 必须随 `<dialog>` 的 open 属性切换，
+   而 css-style 无法表达随属性切换的条件样式，故只有 display 写在这里，
+   其余列布局仍由 node_browser.rs 的 css-style 给出。 */
+.panel-acf79f2[open] {
+  display: flex;
+}
+
+.header-acf79f2 {
   border-bottom: 1px solid var(--color-border);
 }
 
-.title-5de19a0 {
+.title-acf79f2 {
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-3);
 }
 
-.close-5de19a0 {
+.close-acf79f2 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
   color: var(--color-content-1);
   font-size: var(--font-size-3);
 }
 
-.close-5de19a0:hover {
+.close-acf79f2:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
 
-.search-5de19a0 {
+.search-acf79f2 {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -2111,18 +2159,19 @@
   font-size: var(--font-size-4);
 }
 
-.search-5de19a0:focus {
+.search-acf79f2:focus {
   border-color: var(--color-accent-1);
 
   /* outline 无 css-style 类型化 API；聚焦高亮由边框承担。 */
   outline: none;
 }
 
-.tabs-5de19a0 {
+.tabs-acf79f2 {
   border-bottom: 1px solid var(--color-border);
 }
 
-.tab-5de19a0 {
+.tab-acf79f2,
+.tab_on-acf79f2 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -2131,18 +2180,22 @@
   transition: color 160ms ease, border-color 160ms ease;
 }
 
-.tab-5de19a0:hover {
+.tab-acf79f2:hover,
+.tab_on-acf79f2:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
 
-.tab_on-5de19a0 {
+.tab_on-acf79f2 {
   background: var(--color-accent-0);
   border-color: var(--color-accent-1);
   color: var(--color-content-2);
 }
 
-.results-5de19a0 {
+.results-acf79f2 {
+  /* 结果集合是 `ul`：清掉列表项目符号；各条目由 `li` 承载。 */
+  list-style: none;
+
   /* grid-template-columns、grid-auto-rows 与 overflow-y 无 css-style 类型化 API。 */
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
@@ -2152,7 +2205,14 @@
   overflow-y: auto;
 }
 
-.card-5de19a0 {
+/* 列表条目只提供语义，不引入项目符号或额外盒尺寸；卡片自身的间距保持不变。 */
+.results-acf79f2 li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card-acf79f2 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -2163,45 +2223,42 @@
   transition: border-color 180ms ease, color 180ms ease;
 }
 
-.card-5de19a0:hover {
+.card-acf79f2:hover {
   border-color: var(--color-accent-1);
   color: var(--color-content-2);
 }
 
-.card_strip-5de19a0 {
-  background: var(--color-border);
-}
-
-.category_source-5de19a0 {
+/* 类别色条：每个类别一个完备类，元素只挂其中一个。 */
+.category_source-acf79f2 {
   background: var(--color-accent-1);
   box-shadow: 0 0 5px var(--color-accent-1);
 }
 
-.category_modulator-5de19a0 {
+.category_modulator-acf79f2 {
   background: var(--color-accent-2);
   box-shadow: 0 0 5px var(--color-accent-2);
 }
 
-.category_note-5de19a0 {
+.category_note-acf79f2 {
   background: var(--color-accent-1);
   box-shadow: 0 0 5px var(--color-accent-1);
 }
 
-.category_effect-5de19a0 {
+.category_effect-acf79f2 {
   background: var(--color-accent-1);
   box-shadow: 0 0 5px var(--color-accent-1);
 }
 
-.category_mixer-5de19a0 {
+.category_mixer-acf79f2 {
   background: var(--color-content-1);
 }
 
-.category_output-5de19a0 {
+.category_output-acf79f2 {
   background: var(--color-accent-1);
   box-shadow: 0 0 5px var(--color-accent-1);
 }
 
-.card_title-5de19a0 {
+.card_title-acf79f2 {
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-4);
@@ -2210,7 +2267,7 @@
   overflow: hidden;
 }
 
-.card_desc-5de19a0 {
+.card_desc-acf79f2 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 
@@ -2218,7 +2275,7 @@
   overflow: hidden;
 }
 
-.empty-5de19a0 {
+.empty-acf79f2 {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
 
@@ -2226,7 +2283,7 @@
   grid-column: 1 / -1;
 }
 
-.hint-5de19a0 {
+.hint-acf79f2 {
   border-top: 1px solid var(--color-border);
   color: var(--color-content-1);
   font-size: var(--font-size-4);
@@ -2234,14 +2291,15 @@
 
 @media (max-width: 760px) {
   /* 窄屏单列：grid-template-columns 无 css-style 类型化 API。 */
-  .results-5de19a0 {
+  .results-acf79f2 {
     grid-template-columns: 1fr;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tab-5de19a0,
-  .card-5de19a0 {
+  .tab-acf79f2,
+  .tab_on-acf79f2,
+  .card-acf79f2 {
     transition: none;
   }
 }
@@ -2249,15 +2307,14 @@
 
 /* 音符域·输入节点迷你面板：静音回收说明 */
 
-.note_domain_in-c7098c3 {
+.note_domain_in-ce768d1 {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-1);
 }
 
-.hint-c7098c3 {
+/* 字距、行高与光标等非主题样式由 note_domain_in.rs 的 css-style 下发。 */
+.hint-ce768d1 {
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
-  line-height: 1.4;
 }
 
 
@@ -2277,12 +2334,23 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* 录音与播放共用 `.value` 的强调色，空闲回到辅助色。 */
+/* 状态值：录音与播放共用强调色，空闲回到辅助色；空闲类是完备类。 */
+.value-7f64eaf,
+.value_idle-7f64eaf {
+  color: var(--color-accent-1);
+  font-size: var(--font-size-4);
+
+  /* `css-style` 无数值变体 API，等宽数字只能留在样式表。 */
+  font-variant-numeric: tabular-nums;
+}
+
 .value_idle-7f64eaf {
   color: var(--color-content-1);
 }
 
-.mode-7f64eaf {
+/* 模式按钮：空闲与激活各是一个完备类。 */
+.mode-7f64eaf,
+.mode_on-7f64eaf {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -2294,12 +2362,14 @@
     box-shadow 160ms ease;
 }
 
-.mode-7f64eaf:hover {
+.mode-7f64eaf:hover,
+.mode_on-7f64eaf:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
 
-.mode-7f64eaf:focus-visible {
+.mode-7f64eaf:focus-visible,
+.mode_on-7f64eaf:focus-visible {
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
 }
@@ -2312,7 +2382,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mode-7f64eaf {
+  .mode-7f64eaf,
+  .mode_on-7f64eaf {
     transition: none;
   }
 }
@@ -2320,12 +2391,14 @@
 
 /* NoteRecorder 节点迷你面板：紧凑传输按钮与已录音符数 */
 
-.note_recorder-5cf2b34 {
+.note_recorder-75aeedf {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 }
 
-.action-5cf2b34 {
+/* 模式按钮：空闲与激活各是一个完备类。 */
+.action-75aeedf,
+.action_on-75aeedf {
   background: var(--color-background-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -2335,37 +2408,40 @@
     box-shadow 160ms ease;
 }
 
-.action-5cf2b34:hover {
+.action-75aeedf:hover,
+.action_on-75aeedf:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
 
-.action-5cf2b34:focus-visible {
+.action-75aeedf:focus-visible,
+.action_on-75aeedf:focus-visible {
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
 }
 
-.action_on-5cf2b34 {
+.action_on-75aeedf {
   background: var(--color-accent-0);
   border-color: var(--color-accent-1);
   box-shadow: inset 0 0 6px var(--color-accent-0);
   color: var(--color-content-2);
 }
 
-.label-5cf2b34 {
+/* 标签：字距由 note_recorder.rs 的 css-style 下发。 */
+.label-75aeedf {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
-.count-5cf2b34 {
+.count-75aeedf {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
   font-variant-numeric: tabular-nums;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .action-5cf2b34 {
+  .action-75aeedf,
+  .action_on-75aeedf {
     transition: none;
   }
 }
@@ -2375,8 +2451,10 @@
    根壳与标题样式由 shell.module.css 统一提供。
    `font-variant-numeric` 没有对应的 `css-style` 类型化 API，保留在样式表。 */
 
-/* 检查器削波指示：文字本身随削波状态变成危险色 */
-.output_clip-e618fbb {
+/* 检查器削波指示：文字本身随削波状态变成危险色。
+   熄灭与点亮各是一个完备类，元素只挂其中一个。 */
+.output_clip-e618fbb,
+.output_clip_on-e618fbb {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
   color: var(--color-content-1);
@@ -2403,21 +2481,23 @@
 }
 
 
-/* Output 模块 — 节点电平提示与削波 LED 的主题样式 */
+/* Output 节点 — 电平提示与削波 LED 的主题样式 */
 
-.output-2d4aec0 {
+.output-ce0b120 {
   border-top: 1px solid var(--color-border);
   color: var(--color-content-0);
 }
 
-/* 节点内削波 LED：熄灭时保持暗底，点亮时用危险色发光 */
-.output_clip_led-2d4aec0 {
+/* 节点内削波 LED：熄灭时保持暗底，点亮时用危险色发光。
+   两种状态各是一个完备类，元素只挂其中一个。 */
+.output_clip_led-ce0b120,
+.output_clip_led_on-ce0b120 {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 0 3px var(--color-background-0);
 }
 
-.output_clip_led_on-2d4aec0 {
+.output_clip_led_on-ce0b120 {
   background: var(--color-danger);
   border-color: var(--color-danger);
   box-shadow: 0 0 8px var(--color-danger);
@@ -2429,7 +2509,10 @@
    非主题属性只保留 css-style 无类型化 API 的 outline 与 font-variant-numeric，
    以及与 prefers-reduced-motion 成对存在、写进内联样式会盖过该覆盖的过渡。 */
 
-.transport_button-afd6efa {
+/* 传输按钮：空闲与两个运行模式各有一个完备类，元素只挂其中一个。 */
+.transport_button-afd6efa,
+.transport_record-afd6efa,
+.transport_play-afd6efa {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -2442,12 +2525,16 @@
     box-shadow 160ms ease;
 }
 
-.transport_button-afd6efa:hover {
+.transport_button-afd6efa:hover,
+.transport_record-afd6efa:hover,
+.transport_play-afd6efa:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
 
-.transport_button-afd6efa:focus-visible {
+.transport_button-afd6efa:focus-visible,
+.transport_record-afd6efa:focus-visible,
+.transport_play-afd6efa:focus-visible {
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
 }
@@ -2465,7 +2552,10 @@
   color: var(--color-content-2);
 }
 
-.value-afd6efa {
+/* 状态值：三档完备类，基类声明由选择器列表共享。 */
+.value_record-afd6efa,
+.value_play-afd6efa,
+.value_idle-afd6efa {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
   font-variant-numeric: tabular-nums;
@@ -2485,7 +2575,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .transport_button-afd6efa {
+  .transport_button-afd6efa,
+  .transport_record-afd6efa,
+  .transport_play-afd6efa {
     transition: none;
   }
 }
@@ -2493,12 +2585,15 @@
 
 /* Recorder 节点迷你面板：录音/停止/播放按钮与模式灯 */
 
-.recorder-cf42cd1 {
+.recorder-509d689 {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 }
 
-.button-cf42cd1 {
+/* 传输按钮：空闲与两个运行模式各有一个完备类，元素只挂其中一个。 */
+.button-509d689,
+.button_record-509d689,
+.button_play-509d689 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -2512,30 +2607,37 @@
     box-shadow 160ms ease;
 }
 
-.button-cf42cd1:hover {
+.button-509d689:hover,
+.button_record-509d689:hover,
+.button_play-509d689:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
 
-.button-cf42cd1:focus-visible {
+.button-509d689:focus-visible,
+.button_record-509d689:focus-visible,
+.button_play-509d689:focus-visible {
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
 }
 
 /* 录音与播放是互斥的运行模式，用模式色标出音频线程当前所处的状态。 */
-.button_record-cf42cd1 {
+.button_record-509d689 {
   border-color: var(--color-danger);
   box-shadow: 0 0 6px var(--color-danger);
   color: var(--color-danger);
 }
 
-.button_play-cf42cd1 {
+.button_play-509d689 {
   border-color: var(--color-accent-1);
   box-shadow: 0 0 6px var(--color-accent-0);
   color: var(--color-content-2);
 }
 
-.lamp-cf42cd1 {
+/* 模式灯：熄灭与两种运行模式各是一个完备类。 */
+.lamp-509d689,
+.lamp_record-509d689,
+.lamp_play-509d689 {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: inset 0 1px 2px var(--color-background-0);
@@ -2545,21 +2647,25 @@
     box-shadow 160ms ease;
 }
 
-.lamp_record-cf42cd1 {
+.lamp_record-509d689 {
   background: var(--color-danger);
   border-color: var(--color-danger);
   box-shadow: 0 0 7px var(--color-danger);
 }
 
-.lamp_play-cf42cd1 {
+.lamp_play-509d689 {
   background: var(--color-accent-1);
   border-color: var(--color-accent-1);
   box-shadow: 0 0 7px var(--color-accent-1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .button-cf42cd1,
-  .lamp-cf42cd1 {
+  .button-509d689,
+  .button_record-509d689,
+  .button_play-509d689,
+  .lamp-509d689,
+  .lamp_record-509d689,
+  .lamp_play-509d689 {
     transition: none;
   }
 }
@@ -2605,27 +2711,27 @@
 
 /* Sampler 节点迷你面板：采样时长、声道与采样率 */
 
-.sampler-5b15d0e {
+.sampler-9eb2e1b {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 }
 
-.label-5b15d0e {
+/* 标签与空态字距由 sampler.rs 的 css-style 下发；这里只留主题色与字号。 */
+.label-9eb2e1b {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
-.value-5b15d0e {
+.value-9eb2e1b {
   color: var(--color-accent-1);
   font-size: var(--font-size-4);
   font-variant-numeric: tabular-nums;
 }
 
-.empty-5b15d0e {
+/* 标签与空态字距由 sampler.rs 的 css-style 下发；这里只留主题色与字号。 */
+.empty-9eb2e1b {
   color: var(--color-content-1);
   font-size: var(--font-size-4);
-  letter-spacing: 0.02em;
 }
 
 
@@ -2684,12 +2790,16 @@
 }
 
 .step_button-3592a53:focus-visible,
-.gate-3592a53:focus-visible {
+.step_button-3592a53:focus-visible,
+.gate-3592a53:focus-visible,
+.gate_on-3592a53:focus-visible {
   outline: 1px solid var(--color-accent-1);
   outline-offset: 1px;
 }
 
-.gate-3592a53 {
+/* 门按钮：关与开各是一个完备类，元素只挂其中一个。 */
+.gate-3592a53,
+.gate_on-3592a53 {
   background: var(--color-background-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -2701,7 +2811,8 @@
     box-shadow 160ms ease;
 }
 
-.gate-3592a53:hover {
+.gate-3592a53:hover,
+.gate_on-3592a53:hover {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
@@ -2732,6 +2843,7 @@
   .step-3592a53,
   .step_button-3592a53,
   .gate-3592a53,
+  .gate_on-3592a53,
   .gate_lamp-3592a53 {
     transition: none;
   }
@@ -2740,7 +2852,7 @@
 
 /* Sequencer 节点迷你面板：十六步音高柱与门灯 */
 
-.sequencer-77838e8 {
+.sequencer-243cc55 {
   border-top: var(--width-border) solid var(--color-border);
   color: var(--color-content-0);
 
@@ -2748,50 +2860,52 @@
   grid-template-columns: repeat(16, minmax(0, 1fr));
 }
 
-.step-77838e8 {
+/* 步骤：开门与关门各是一个完备类，基类声明由选择器列表共享。 */
+.step-243cc55,
+.step_off-243cc55 {
   color: var(--color-content-0);
 }
 
-.bar_track-77838e8 {
+.bar_track-243cc55 {
   background: var(--color-background-0);
   border-radius: var(--radius-0);
   box-shadow: inset 0 1px 2px var(--color-background-0);
 }
 
-.bar-77838e8 {
+.bar-243cc55 {
   background: linear-gradient(0deg, var(--color-accent-0), var(--color-accent-1));
   border-radius: var(--radius-0);
   box-shadow: 0 0 4px var(--color-accent-0);
   transition: height 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
-.step_off-77838e8 .bar-77838e8 {
+.step_off-243cc55 .bar-243cc55 {
   background: var(--color-content-1);
   box-shadow: none;
 }
 
-.gate-77838e8 {
+.gate-243cc55 {
   background: var(--color-accent-1);
   border-color: var(--color-accent-1);
   box-shadow: 0 0 5px var(--color-accent-1);
   transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.step_off-77838e8 .gate-77838e8 {
+.step_off-243cc55 .gate-243cc55 {
   background: var(--color-background-0);
   border-color: var(--color-border);
   box-shadow: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bar-77838e8,
-  .gate-77838e8 {
+  .bar-243cc55,
+  .gate-243cc55 {
     transition: none;
   }
 }
 
 
-/* 编辑器外壳：模块专属检查器编辑器共用的根容器与标题档位。
+/* 编辑器外壳：节点类型专属检查器编辑器共用的根容器与标题档位。
    外壳构造器在 `shell.rs`，其样式与编辑器一同放在本目录；
    外边距、纵向排布、gap 与标题字距属于布局，写在 `shell.rs` 的 `css-style` 链里，
    这里只保留主题变量与 `css-style` 无类型化 API 的标题下边框。 */
@@ -2800,7 +2914,9 @@
   color: var(--color-content-0);
 }
 
-.title-beb1e11 {
+/* 编辑器标题：常规与紧凑两档各是一个完备类，元素只挂其中一个。 */
+.title-beb1e11,
+.title_compact-beb1e11 {
   color: var(--color-content-2);
   font-family: var(--font);
   font-size: var(--font-size-3);
@@ -2830,6 +2946,7 @@
 .value-c2988f6 {
   color: var(--color-content-2);
   font-size: var(--font-size-4);
+
   /* `font-variant-numeric` 没有 css-style 类型化 API。 */
   font-variant-numeric: tabular-nums;
 }
@@ -2895,7 +3012,15 @@
   color: var(--color-content-2);
 }
 
-.button-8ae2964 {
+/* 工具栏按钮：所有形态共享基类声明（选择器列表），各形态只覆盖自己的配色，
+   元素因而只挂一个类名。 */
+.button-8ae2964,
+.playing-8ae2964,
+.browser-8ae2964,
+.zoom_reset-8ae2964,
+.help-8ae2964,
+.power-8ae2964,
+.power_on-8ae2964 {
   background: var(--color-background-2);
   border-color: var(--color-border);
   border-radius: var(--radius-0);
@@ -2904,15 +3029,28 @@
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.button-8ae2964:hover:not(:disabled) {
+.button-8ae2964:hover:not(:disabled),
+.playing-8ae2964:hover:not(:disabled),
+.browser-8ae2964:hover:not(:disabled),
+.zoom_reset-8ae2964:hover:not(:disabled),
+.help-8ae2964:hover:not(:disabled),
+.power-8ae2964:hover:not(:disabled),
+.power_on-8ae2964:hover:not(:disabled) {
   border-color: var(--color-content-1);
   color: var(--color-content-2);
 }
 
-.button-8ae2964:disabled {
+.button-8ae2964:disabled,
+.playing-8ae2964:disabled,
+.browser-8ae2964:disabled,
+.zoom_reset-8ae2964:disabled,
+.help-8ae2964:disabled,
+.power-8ae2964:disabled,
+.power_on-8ae2964:disabled {
   opacity: var(--opacity-disabled);
 }
 
+/* 播放中：同走带按钮的强调底与内发光。 */
 .playing-8ae2964 {
   background: var(--color-accent-0);
   border-color: var(--color-accent-1);
@@ -2920,6 +3058,7 @@
   box-shadow: inset 0 0 8px var(--color-accent-0);
 }
 
+/* 模块浏览器入口：accent 描边，与其余工具按钮区分。 */
 .browser-8ae2964 {
   border-color: var(--color-accent-0);
 }
@@ -2939,6 +3078,7 @@
   border-color: var(--color-border);
 }
 
+/* 音频开启态：accent 描边与文字，加一层内阴影。 */
 .power_on-8ae2964 {
   border-color: var(--color-accent-1);
   color: var(--color-accent-1);
@@ -2976,7 +3116,13 @@
 
 @media (prefers-reduced-motion: reduce) {
   .back_link-8ae2964,
-  .button-8ae2964 {
+  .button-8ae2964,
+  .playing-8ae2964,
+  .browser-8ae2964,
+  .zoom_reset-8ae2964,
+  .help-8ae2964,
+  .power-8ae2964,
+  .power_on-8ae2964 {
     transition: none;
   }
 }
@@ -3025,7 +3171,7 @@
 /* Waveform 波形预览：主题变量，以及 `css-style` 没有类型化 API 的 `overflow`
    与 SVG 绘制属性（`fill` / `stroke-*` / `vector-effect`）。布局见 waveform.rs。 */
 
-.waveform-e296202 {
+.waveform-8b8184e {
   background: var(--color-background-0);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-0);
@@ -3033,7 +3179,7 @@
   overflow: hidden;
 }
 
-.waveform_path-e296202 {
+.waveform_path-8b8184e {
   fill: none;
   stroke: var(--color-accent-1);
   stroke-linecap: round;
@@ -3042,7 +3188,7 @@
   vector-effect: non-scaling-stroke;
 }
 
-.waveform_center-e296202 {
+.waveform_center-8b8184e {
   stroke: var(--color-border);
   stroke-dasharray: 3 3;
   stroke-width: 0.8;
@@ -3066,22 +3212,25 @@
 }
 
 /* 网格层：图案只声明点形状与颜色；周期与位置由 Rust 按画布平移/缩放下发
-   （GRID_PERIOD 与 background-size 必须一致）。 */
+   （`--canvas-grid-*` 由 `content::grid_style` 写入，GRID_PERIOD 与 background-size 必须一致）。 */
 .grid-fb9a18b {
-  /* 点阵亮度用元素整体不透明度压低，替代对 --color-border 的透明混色；
-     本层没有文字或其它子视图，42% 与原来的 42% 透明混色等效。 */
-  opacity: 42%;
+  /* 点阵亮度（42%）由 `content::grid_style` 的类型化 `opacity` 下发。 */
   background-image: radial-gradient(
     circle at 1px 1px,
     var(--color-border) 1px,
     transparent 0
   );
+  background-position: var(--canvas-grid-x) var(--canvas-grid-y);
+  background-size: var(--canvas-grid-period) var(--canvas-grid-period);
   pointer-events: none;
 }
 
-/* 内容层：transform-origin 决定缩放基准，overflow 让子层不被裁切 */
+/* 内容层：transform-origin 决定缩放基准，overflow 让子层不被裁切。
+   `translate` / `scale` 的组合值来自 Rust 写入的 `--canvas-*` 自定义属性
+   （`transform` 在 css-style 0.14 没有类型化 API）。 */
 .inner-fb9a18b {
   overflow: visible;
+  transform: translate(var(--canvas-pan-x), var(--canvas-pan-y)) scale(var(--canvas-zoom));
   transform-origin: 0 0;
 }
 
@@ -3102,15 +3251,36 @@
   stroke-width: 1.5;
 }
 
-/* 连线层与框选层根节点：不拦截事件，命中由连线自身开启 */
+/* 连线层与框选层根节点：不拦截事件，连线删除由中点按钮开启命中 */
 .edge-fb9a18b,
 .marquee_layer-fb9a18b {
   overflow: visible;
   pointer-events: none;
 }
 
-/* SVG 连线：fill/stroke 为 SVG 渲染属性，css-style 无法表达 */
-.edge_path-fb9a18b {
+/* 连线删除按钮层：铺满内容层但不拦截指针，命中只由按钮自身开启。
+   pointer-events 没有 css-style 类型化 API，故留在本文件。 */
+.edge_actions-fb9a18b {
+  pointer-events: none;
+}
+
+/* 连线中点删除按钮：透明命中区；指针悬停与键盘聚焦时用主题色画出可见焦点框。 */
+.edge_delete-fb9a18b {
+  pointer-events: auto;
+}
+
+.edge_delete-fb9a18b:hover,
+.edge_delete-fb9a18b:focus-visible {
+  outline: 2px solid var(--color-danger);
+  outline-offset: 2px;
+}
+
+/* SVG 连线：fill/stroke 为 SVG 渲染属性，css-style 无法表达。
+   音频、控制、事件、音符各有一个完备类，元素只挂其中一个。 */
+.edge_path-fb9a18b,
+.edge_control-fb9a18b,
+.edge_event-fb9a18b,
+.edge_note-fb9a18b {
   fill: none;
   stroke: var(--color-accent-1);
   stroke-linecap: round;
@@ -3119,26 +3289,29 @@
   transition: stroke 180ms ease, stroke-width 180ms ease;
 }
 
-/* 控制信号：标准主题色 --color-accent-2 实线，比音频细一档 */
-.edge_path-fb9a18b.edge_control-fb9a18b {
+/* 控制信号：标准主题色 --color-accent-2 实线，比音频细一档；0.88 的淡出由
+   `edge.rs` 的类型化 `opacity` 下发。 */
+.edge_control-fb9a18b {
   stroke: var(--color-accent-2);
   stroke-width: 1.2;
-  opacity: 0.88;
 }
 
-/* 事件信号：使用标准主题色 --color-accent-0，保留 1 4 点线；线宽沿用 .edge_path 基值 */
-.edge_path-fb9a18b.edge_event-fb9a18b {
+/* 事件信号：使用标准主题色 --color-accent-0，保留 1 4 点线；线宽沿用音频基值 */
+.edge_event-fb9a18b {
   stroke: var(--color-accent-0);
   stroke-dasharray: 1 4;
 }
 
 /* 音符信号：使用标准主题色 --color-content-2 */
-.edge_path-fb9a18b.edge_note-fb9a18b {
+.edge_note-fb9a18b {
   stroke: var(--color-content-2);
   stroke-dasharray: 2 3;
 }
 
-.edge_path-fb9a18b:hover {
+.edge_path-fb9a18b:hover,
+.edge_control-fb9a18b:hover,
+.edge_event-fb9a18b:hover,
+.edge_note-fb9a18b:hover {
   stroke: var(--color-danger);
   stroke-width: 2.4;
 }
@@ -3174,7 +3347,10 @@
     animation: none;
   }
 
-  .edge_path-fb9a18b {
+  .edge_path-fb9a18b,
+  .edge_control-fb9a18b,
+  .edge_event-fb9a18b,
+  .edge_note-fb9a18b {
     transition: none;
   }
 }
